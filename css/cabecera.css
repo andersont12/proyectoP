@@ -1,0 +1,21 @@
+#cajaLogoCabezera{
+    background-color: gray;
+    padding: 5px;
+}
+
+#contenedorCabecera{
+    background-color: gray;
+}
+
+#menuCabecera{
+    color: darkred;
+}
+
+#tituloBarraCabecera{
+    background-color: darkred;
+}
+
+#menuCabecera:hover{
+    background-color: darkred;
+    color: whitesmoke;
+}
