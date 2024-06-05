@@ -28,7 +28,7 @@ class ModeloUsuarios{
 				}
 				else
 				{
-					$condicion="select * from ".$tabla." where ".$item." = '".$valor."'";
+					$condicion = "SELECT * FROM " . $tabla . " WHERE " . $item . " = '" . $valor . "' AND clave = '" . $encriptar . "'";
 					$stmt = Conexion::conectar()->prepare($condicion);
 					$stmt -> execute();
 					return $stmt->fetch();
