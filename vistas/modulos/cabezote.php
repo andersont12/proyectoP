@@ -126,7 +126,7 @@ MODAL EDITAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" readonly class="form-control input-lg" id="editarCedula" name="editarNombre" value="<?php echo $_SESSION["usuario"];?>" required readonly>
+                <input type="text" readonly class="form-control input-lg" id="verCedula" name="verNombre" value="<?php echo $_SESSION["usuario"];?>" required readonly>
 
               </div>
 
@@ -140,7 +140,7 @@ MODAL EDITAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre" value="<?php echo $_SESSION["nombre"];?>" required readonly>
+                <input type="text" class="form-control input-lg" id="verNombre" name="verNombre" value="<?php echo $_SESSION["nombre"];?>" required readonly>
 
               </div>
 
@@ -154,13 +154,13 @@ MODAL EDITAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="<?php echo $_SESSION["email"];?>" readonly>
+                <input type="text" class="form-control input-lg" id="verUsuario" name="verUsuario" value="<?php echo $_SESSION["email"];?>" readonly>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA LA CONTRASEÑA -->
+            <!-- ENTRADA PARA EL TELEFONO -->
 					<h4>Telefono</h4>
              <div class="form-group">
               
@@ -168,9 +168,7 @@ MODAL EDITAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="editarPassword" value="<?php echo $_SESSION["telefono"];?>" readonly>
-
-                <input type="hidden" id="passwordActual" name="passwordActual">
+                <input type="text" class="form-control input-lg" name="verTelefono" value="<?php echo $_SESSION["telefono"];?>" readonly>
 
               </div>
 

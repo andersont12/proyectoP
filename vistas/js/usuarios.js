@@ -58,7 +58,6 @@ $(document).on("click", ".tablas .btnEditarUsuario, .tabla .btnEditarUsuario", f
     perfil = fila.find('td:eq(3)').text();
 	estado = fila.find('td:eq(3)').text();
 	ultimaConexion = fila.find('td:eq(3)').text();
-    
     $("#editarCedula").val(cedula);
     $("#editarNombre").val(nombre);
     $("#editarUsuario").val(usuario);
