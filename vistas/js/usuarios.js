@@ -252,7 +252,7 @@ $("#nuevoUsuario").change(function(){
 /*=============================================
 ELIMINAR USUARIO
 =============================================*/
-$(".tablas").on("click", ".btnEliminarUsuario", function(){
+$(document).on("click", ".btnEliminarUsuario", function(){
 
   var idUsuario = $(this).attr("idUsuario");
   var opcion = 3; //borrar

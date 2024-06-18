@@ -13,16 +13,6 @@
 
 			<li>
 
-				<a href="mapa">
-
-					<i class="fa fa-user"></i>
-					<span>mapa</span>
-
-				</a>
-
-			</li>
-			<li>
-
 				<a href="usuarios">
 
 					<i class="fa fa-user"></i>
@@ -75,36 +65,33 @@
 
 			</a>
 
-		</li>
-
-
-
-			';
+		</li>';
 
 		}else{
-			if($_SESSION["perfil"] == "Tenedor de la mascota")
+			if($_SESSION["perfil"] == "vigilante")
 			{
 
 			echo '<li class="active">
 
-				<a href="inicio">
+			<li>
 
-					<i class="fa fa-home"></i>
-					<span>Inicio</span>
+			<a href="vehiculos">
 
-				</a>
+			<i class="fa fa-car"></i>
+				<span>Vehiculos</span>
+
+			</a>
 
 			</li>
 
-			
 			<li>
 
-				<a href="mascotas">
+			<a href="mapeo-de-vehiculos">
 
-					<i class="fa fa-product-hunt"></i>
-					<span>Mascotas</span>
+			<i class="fa fa-area-chart"></i>
+			<span>Mapeo de vehiculos</span>
 
-				</a>
+			</a>
 
 			</li>';
 		}

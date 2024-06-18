@@ -16,7 +16,7 @@ try{
 }
 
 
-$URL='http://localhost/Vparqueadero';
+$URL='http://localhost/proyectoP';
 
 $estado_del_registro = "1";
 

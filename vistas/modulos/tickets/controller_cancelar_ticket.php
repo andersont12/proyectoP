@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: HILARIWEB
- * Date: 7/10/2022
- * Time: 13:06
- */
 
-include('../app/config.php');
+include('../../../app/config.php');
 
 
 $id_ticket = $_GET['id'];
@@ -14,7 +8,7 @@ $cuviculo = $_GET['cuviculo'];
 
 $estado_inactivo = "0";
 
-date_default_timezone_set("America/caracas");
+date_default_timezone_set("America/bogota");
 $fechaHora = date("Y-m-d h:i:s");
 
 $sentencia = $pdo->prepare("UPDATE tb_tickets SET

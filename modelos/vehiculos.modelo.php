@@ -34,7 +34,7 @@ class modeloVehiculos{
 	}
 
 	/*=============================================
-	REGISTRO DE MASCOTA
+	REGISTRO DE VEHICULOS
 	=============================================*/
 	static public function mdlIngresarVehiculo($tabla, $datos){
 

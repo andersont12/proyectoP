@@ -88,6 +88,7 @@ session_start();
 
   <!-- jQuery 3 -->
   <script src="vistas/bower_components/jquery/dist/jquery.min.js"></script>
+  
 
   <!-- Bootstrap 3.3.7 -->
   <script src="vistas/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -174,7 +175,6 @@ CUERPO DOCUMENTO
          $_GET["ruta"] == "usuarios" ||
          $_GET["ruta"] == "vigilantes" ||
          $_GET["ruta"] == "vehiculos" ||
-         $_GET["ruta"] == "islas" ||
          $_GET["ruta"] == "salir"){
 
         include "modulos/".$_GET["ruta"].".php";
@@ -183,6 +183,7 @@ CUERPO DOCUMENTO
         elseif($_GET["ruta"] == "mapeo-de-vehiculos"||
                $_GET["ruta"] == "generar-reporte"||
                $_GET["ruta"] == "create"){
+
           include "modulos/parqueo/".$_GET["ruta"].".php";
       }
 

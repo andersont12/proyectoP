@@ -35,7 +35,8 @@ $contador_del_nro_de_factura = $contador_del_nro_de_factura +1;
     <!DOCTYPE html>
     <html lang="es">
     <head>
-        <?php include('head.php'); ?>
+        
+       
     </head>
     <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -167,6 +168,7 @@ $contador_del_nro_de_factura = $contador_del_nro_de_factura +1;
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                                                     <button type="button" class="btn btn-primary" id="btn_registrar_ticket<?php echo $id_map;?>">Imprimir ticket</button>
                                                                     <script>
+                                                                        if (typeof jQuery == 'undefined') { alert('jQuery no está cargado'); };
                                                                         $('#btn_registrar_ticket<?php echo $id_map;?>').click(function () {
 
                                                                            var placa = $('#placa_buscar<?php echo $id_map;?>').val();
@@ -175,7 +177,7 @@ $contador_del_nro_de_factura = $contador_del_nro_de_factura +1;
                                                                            var fecha_ingreso = $('#fecha_ingreso<?php echo $id_map;?>').val();
                                                                            var hora_ingreso = $('#hora_ingreso<?php echo $id_map;?>').val();
                                                                            var cuviculo = $('#cuviculo<?php echo $id_map;?>').val();
-                                                                           var user_session = "<?php echo $usuario_sesion; ?>";
+                                                                           
 
 
                                                                            if(placa == ""){
@@ -190,18 +192,18 @@ $contador_del_nro_de_factura = $contador_del_nro_de_factura +1;
                                                                            }
                                                                            else{
 
-                                                                               var url_1 = 'parqueo/controller_cambiar_estado_ocupado.php';
-                                                                               $.get(url_1,{cuviculo:cuviculo},function (datos) {
+                                                                               var url1 = 'vistas/modulos/parqueo/controller_cambiar_estado_ocupado.php';
+                                                                               $.get(url1,{cuviculo:cuviculo},function (datos) {
                                                                                    $('#respuesta_ticket').html(datos);
                                                                                });
 
-                                                                               var url_2 = 'clientes/controller_registrar_clientes.php';
-                                                                               $.get(url_2,{nombre_cliente:nombre_cliente,nit_ci:nit_ci,placa:placa},function (datos) {
+                                                                               var url2 = 'vistas/modulos/clientes/controller_registrar_clientes.php';
+                                                                               $.get(url2,{nombre_cliente:nombre_cliente,nit_ci:nit_ci,placa:placa},function (datos) {
                                                                                    $('#respuesta_ticket').html(datos);
                                                                                });
 
-                                                                               var url_3 = 'tickets/controller_registrar_ticket.php';
-                                                                               $.get(url_3,{placa:placa,nombre_cliente:nombre_cliente,nit_ci:nit_ci,fecha_ingreso:fecha_ingreso,hora_ingreso:hora_ingreso,cuviculo:cuviculo,user_session:user_session},function (datos) {
+                                                                               var url = 'vistas/modulos/tickets/controller_registrar_ticket.php';
+                                                                               $.get(url,{placa:placa,nombre_cliente:nombre_cliente,nit_ci:nit_ci,fecha_ingreso:fecha_ingreso,hora_ingreso:hora_ingreso,cuviculo:cuviculo},function (datos) {
                                                                                    $('#respuesta_ticket').html(datos);
                                                                                });
 
@@ -228,7 +230,7 @@ $contador_del_nro_de_factura = $contador_del_nro_de_factura +1;
                                                     <h2><?php echo $nro_espacio;?></h2>
                                                     <button class="btn btn-info" id="btn_ocupado<?php echo $id_map;?>" data-toggle="modal"
                                                             data-target="#exampleModal<?php echo $id_map;?>">
-                                                        <img src="<?php echo $URL;?>/public/imagenes/auto1.png" width="60px" alt="">
+                                                        <img src="<?php echo $URL;?>/images/auto1.png" width="60px" alt="">
                                                     </button>
 
                                                     <?php
@@ -304,8 +306,8 @@ $contador_del_nro_de_factura = $contador_del_nro_de_factura +1;
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
-                                                                    <a href="tickets/controller_cancelar_ticket.php?id=<?php echo $id_ticket;?>&&cuviculo=<?php echo $cuviculo;?>" class="btn btn-danger">Cancelar ticket</a>
-                                                                    <a href="tickets/reimprimir_ticket.php?id=<?php echo $id_ticket;?>" class="btn btn-primary">Volver a Imprimir</a>
+                                                                    <a href="vistas/modulos/tickets/controller_cancelar_ticket.php?id=<?php echo $id_ticket;?>&&cuviculo=<?php echo $cuviculo;?>" class="btn btn-danger">Cancelar ticket</a>
+                                                                    <a href="vistas/modulos/tickets/reimprimir_ticket.php?id=<?php echo $id_ticket;?>" class="btn btn-primary">Volver a Imprimir</a>
                                                                     <button type="button" class="btn btn-success" id="btn_facturar<?php echo $id_map;?>">Facturar</button>
                                                                     <?php
                                                                     ///////////////////// recupera el id del cliente

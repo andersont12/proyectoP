@@ -1,7 +1,8 @@
 <?php
+include('../../../app/config.php');
+
 // Include the main TCPDF library (search for installation path).
-require_once('../app/templeates/TCPDF-main/tcpdf.php');
-include('../app/config.php');
+require_once('../../../app/templeates/TCPDF-main/tcpdf.php');
 
 
 //cargar el encabezado

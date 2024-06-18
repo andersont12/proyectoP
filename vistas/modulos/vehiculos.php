@@ -83,10 +83,17 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
         $item2 = null;
         $encriptar = null;
       }
+      else if($_SESSION["perfil"] == "vigilante")
+      {
+        $item = null;
+        $valor = null;
+        $item2 = null;
+        $encriptar = null;
+      }
       else
       {
-        $item = "id_usuario";
-        $valor = $_SESSION["id"];
+        $item = "cedula";
+        $valor = $_SESSION["cedula"];
         $item2 = null;
         $encriptar = null;
       }

@@ -12,7 +12,7 @@ require_once("app/config.php");
         <br>
         <div class="container">
 
-            <h2>Listado de espacios</h2>
+            <h2>Listado de islas</h2>
 
             <br>
 
@@ -67,7 +67,7 @@ require_once("app/config.php");
                                 <td><?php echo $nro_espacio;?></td>
                                 <td>
                                     <center>
-                                    <button class="btn btn-danger btnEliminarVehiculo" idPlaca='.$value["placa"].'><i class="fa fa-times"></i></button>
+                                    <a href="vistas/modulos/parqueo/delete.php?id_map=<?php echo $id_map; ?>" class="btn btn-danger">Borrar</a>
                                     </center>
                                 </td>
                             </tr>
