@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-06-2024 a las 02:56:29
+-- Tiempo de generación: 18-06-2024 a las 16:49:07
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -77,8 +77,10 @@ CREATE TABLE `tbl_vehiculos` (
 --
 
 INSERT INTO `tbl_vehiculos` (`placa`, `vehi_tipo`, `vehi_marca`, `cedula`) VALUES
-('asd32q', 'moto', 'nkd', 2),
-('KTU-22G', 'MOTO', 'AKT', 1);
+('KTU-22G', 'moto', 'benelli', 1),
+('qsadfg', 'moto', 'benelli', 1),
+('ygu-13f', 'moto', 'benelli', 3),
+('ygu13f', 'moto', 'benelli', 3);
 
 -- --------------------------------------------------------
 
@@ -96,6 +98,16 @@ CREATE TABLE `tb_clientes` (
   `fyh_eliminacion` datetime DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tb_clientes`
+--
+
+INSERT INTO `tb_clientes` (`id_cliente`, `nombre_cliente`, `nit_ci_cliente`, `placa_auto`, `fyh_creacion`, `fyh_actualizacion`, `fyh_eliminacion`, `estado`) VALUES
+(5, 'anderson', '1022431392', 'ygu13f', '2024-06-12 05:26:19', NULL, NULL, '1'),
+(6, 'sebastian', '1234', 'bna701', '2024-06-12 05:30:37', NULL, NULL, '1'),
+(7, 'jeank', '9876', 'eox09g', '2024-06-12 07:15:52', NULL, NULL, '1'),
+(8, 'esteban', '564', 'ush33g', '2024-06-12 07:16:56', NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -173,12 +185,13 @@ CREATE TABLE `tb_mapeos` (
 --
 
 INSERT INTO `tb_mapeos` (`id_map`, `nro_espacio`, `estado_espacio`, `obs`, `fyh_creacion`, `fyh_actualizacion`, `fyh_eliminacion`, `estado`) VALUES
-(1, '1', 'LIBRE', '', '2024-05-27 01:35:31', NULL, NULL, '1'),
-(2, '2', 'LIBRE', '', '2024-05-27 01:36:04', NULL, NULL, '1'),
-(3, '3', 'LIBRE', '', '2024-05-27 04:42:54', NULL, NULL, '1'),
+(1, '1', 'OCUPADO', '', '2024-05-27 01:35:31', '2024-06-12 04:26:19', NULL, '1'),
+(2, '2', 'OCUPADO', '', '2024-05-27 01:36:04', '2024-06-12 04:30:37', NULL, '1'),
+(3, '3', 'OCUPADO', '', '2024-05-27 04:42:54', '2024-06-12 06:16:56', NULL, '1'),
 (4, '4', 'LIBRE', '', '2024-05-27 06:14:51', NULL, NULL, '1'),
 (5, '6', 'LIBRE', '', '2024-05-27 08:44:48', NULL, NULL, '1'),
-(6, '6', 'LIBRE', 'jeank es gay', '2024-05-29 09:04:13', NULL, NULL, '1');
+(6, '6', 'LIBRE', 'jeank es gay', '2024-05-29 09:04:13', NULL, NULL, '1'),
+(7, '7', 'LIBRE', '', '2024-06-17 12:58:18', NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -201,6 +214,16 @@ CREATE TABLE `tb_tickets` (
   `fyh_eliminacion` datetime DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tb_tickets`
+--
+
+INSERT INTO `tb_tickets` (`id_ticket`, `nombre_cliente`, `nit_ci`, `placa_auto`, `cuviculo`, `fecha_ingreso`, `hora_ingreso`, `estado_ticket`, `user_sesion`, `fyh_creacion`, `fyh_actualizacion`, `fyh_eliminacion`, `estado`) VALUES
+(4, 'anderson', '1022431392', 'YGU13F', '1', '2024-06-12', '16:26', 'OCUPADO', NULL, '2024-06-12 04:26:19', NULL, NULL, '1'),
+(5, 'sebastian', '1234', 'BNA701', '2', '2024-06-12', '16:28', 'OCUPADO', NULL, '2024-06-12 04:30:37', NULL, NULL, '1'),
+(6, 'jeank', '9876', 'EOX09G', '3', '2024-06-12', '18:15', 'OCUPADO', NULL, '2024-06-12 06:15:52', NULL, '2024-06-12 06:16:20', '0'),
+(7, 'esteban', '564', 'USH33G', '3', '2024-06-12', '18:15', 'OCUPADO', NULL, '2024-06-12 06:16:56', NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -227,8 +250,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`cedula`, `nombre`, `usuario`, `clave`, `perfil`, `foto`, `estado`, `ultimo_login`, `fechanacimiento`, `email`, `telefono`) VALUES
-(1, 'prueba', 'prueba', '1234', 'administrador', '', 1, '2024-06-09 19:54:24', NULL, NULL, NULL),
-(2, 'prueba', 'prueba2', '1234', 'vigilante', '', 1, '2024-06-09 19:54:33', NULL, NULL, NULL);
+(1, 'prueba', 'prueba', '1234', 'administrador', '', 1, '2024-06-17 11:56:30', NULL, NULL, NULL),
+(2, 'pruebax', 'prueba2', '12345', 'vigilante', '', 1, '2024-06-12 18:33:00', NULL, NULL, NULL),
+(3, 'prueba1', 'prueba1', '12345', 'vigilante', '', 1, '0000-00-00 00:00:00', NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -292,7 +316,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `tb_clientes`
 --
 ALTER TABLE `tb_clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_facturaciones`
@@ -310,13 +334,13 @@ ALTER TABLE `tb_informaciones`
 -- AUTO_INCREMENT de la tabla `tb_mapeos`
 --
 ALTER TABLE `tb_mapeos`
-  MODIFY `id_map` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_map` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_tickets`
 --
 ALTER TABLE `tb_tickets`
-  MODIFY `id_ticket` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_ticket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
