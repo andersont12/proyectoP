@@ -6,7 +6,7 @@ require_once('../../../app/templeates/TCPDF-main/tcpdf.php');
 
 
 //cargar el encabezado
-$query_informacions = $pdo->prepare("SELECT * FROM tb_informaciones WHERE estado = '1' ");
+$query_informacions = $link->prepare("SELECT * FROM tb_informaciones WHERE estado = '1' ");
 $query_informacions->execute();
 $informacions = $query_informacions->fetchAll(PDO::FETCH_ASSOC);
 foreach($informacions as $informacion){
@@ -25,7 +25,7 @@ foreach($informacions as $informacion){
 
 //cargar la información del ticket desde el id
 $id_ticket_get = $_GET['id'];
-$query_tickets = $pdo->prepare("SELECT * FROM tb_tickets WHERE id_ticket = '$id_ticket_get' AND estado = '1' ");
+$query_tickets = $link->prepare("SELECT * FROM tb_tickets WHERE id_ticket = '$id_ticket_get' AND estado = '1' ");
 $query_tickets->execute();
 $tickets = $query_tickets->fetchAll(PDO::FETCH_ASSOC);
 foreach($tickets as $ticket){
@@ -87,13 +87,7 @@ $pdf->AddPage();
 $html = '
 <div>
     <p style="text-align: center">
-        <b>'.$nombre_parqueo.'</b> <br>
-        '.$actividad_empresa.' <br>
-        SUCURSAL No '.$sucursal.' <br>
-        '.$direccion.' <br>
-        ZONA: '.$zona.' <br>
-        TELÉFONO: '.$telefono.' <br>
-        '.$departamento_ciudad.' - '.$pais.' <br>
+       
         --------------------------------------------------------------------------------
         <div style="text-align: left">
             <b>DATOS DEL CLIENTE</b> <br>
@@ -104,7 +98,7 @@ $html = '
         <b>Fecha de ingreso: </b> '.$fecha_ingreso.' <br>
         <b>Hora de ingreso: </b> '.$hora_ingreso.' <br>
          -------------------------------------------------------------------------------- <br>
-         <b>USUARIO:</b> '.$user_sesion.'
+         
         </div>
     </p>
     

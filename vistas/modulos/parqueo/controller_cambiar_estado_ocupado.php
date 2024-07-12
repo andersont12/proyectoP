@@ -10,7 +10,7 @@ date_default_timezone_set("America/bogota");
 $fechaHora = date("Y-m-d h:i:s");
 //echo $nombres."-".$email."-".$password_user;
 
-$sentencia = $pdo->prepare("UPDATE tb_mapeos SET
+$sentencia = $link->prepare("UPDATE tb_mapeos SET
 estado_espacio = :estado_espacio,
 fyh_actualizacion = :fyh_actualizacion 
 WHERE id_map = :id_map");

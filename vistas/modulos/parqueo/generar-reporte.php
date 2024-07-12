@@ -25,26 +25,8 @@
  */
 
 // Include the main TCPDF library (search for installation path).
-require_once('app/templeates/TCPDF-main.zip');
+require_once('app/templeates/TCPDF-main/tcpdf.php');
 require_once("app/config.php");
-
-
-//cargar el encabezado
-$query_informacions = $pdo->prepare("SELECT * FROM tb_informaciones WHERE estado = '1' ");
-$query_informacions->execute();
-$informacions = $query_informacions->fetchAll(PDO::FETCH_ASSOC);
-foreach($informacions as $informacion){
-    $id_informacion = $informacion['id_informacion'];
-    $nombre_parqueo = $informacion['nombre_parqueo'];
-    $actividad_empresa = $informacion['actividad_empresa'];
-    $sucursal = $informacion['sucursal'];
-    $direccion = $informacion['direccion'];
-    $zona = $informacion['zona'];
-    $telefono = $informacion['telefono'];
-    $departamento_ciudad = $informacion['departamento_ciudad'];
-    $pais = $informacion['pais'];
-}
-
 
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -55,12 +37,6 @@ $pdf->setAuthor('Nicola Asuni');
 $pdf->setTitle('TCPDF Example 004');
 $pdf->setSubject('TCPDF Tutorial');
 $pdf->setKeywords('TCPDF, PDF, example, test, guide');
-
-$PDF_HEADER_TITLE = $nombre_parqueo;
-$PDF_HEADER_STRING = $direccion.' Telf: '.$telefono;
-$PDF_HEADER_LOGO = 'auto4.jpg';
-// set default header data
-$pdf->setHeaderData($PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, $PDF_HEADER_TITLE, $PDF_HEADER_STRING);
 
 // set header and footer fonts
 $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
@@ -104,7 +80,7 @@ $html = '
 </tr>
 ';
 $contador = 0;
-$query_mapeos = $pdo->prepare("SELECT * FROM tb_mapeos WHERE estado = '1' ");
+$query_mapeos = $link->prepare("SELECT * FROM tb_mapeos WHERE estado = '1' ");
 $query_mapeos->execute();
 $mapeos = $query_mapeos->fetchAll(PDO::FETCH_ASSOC);
 foreach($mapeos as $mapeo){

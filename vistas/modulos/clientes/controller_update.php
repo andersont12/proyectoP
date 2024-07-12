@@ -17,7 +17,7 @@ date_default_timezone_set("America/caracas");
 $fechaHora = date("Y-m-d h:i:s");
 //echo $nombres."-".$email."-".$password_user;
 
-$sentencia = $pdo->prepare("UPDATE tb_clientes SET
+$sentencia = $link->prepare("UPDATE tb_clientes SET
 nombre_cliente = :nombre_cliente,
 nit_ci_cliente = :nit_ci_cliente,
 placa_auto = :placa_auto,

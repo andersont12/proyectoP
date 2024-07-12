@@ -49,27 +49,31 @@ require_once("app/config.php");
                        <thead>
                        <th><center>Nro</center></th>
                        <th>Nro espacio</th>
-                       <th><center>Acción</center></th>
+                       <th><center>Placa</center></th>
+                       <th><center>isla</center></th>
                        </thead>
                         <tbody>
                         <?php
                         $contador = 0;
-                        $query_mapeos = $pdo->prepare("SELECT * FROM tb_mapeos WHERE estado = '1' ");
+                        $query_mapeos = $link->prepare("SELECT m.*, t.placa_auto, t.cuviculo
+                                                        FROM tb_mapeos m
+                                                        JOIN tb_tickets t 
+                                                        ON m.id_map = t.cuviculo
+                                                        WHERE m.estado = '1' ");
                         $query_mapeos->execute();
                         $mapeos = $query_mapeos->fetchAll(PDO::FETCH_ASSOC);
                         foreach($mapeos as $mapeo){
                             $id_map = $mapeo['id_map'];
                             $nro_espacio = $mapeo['nro_espacio'];
+                            $placa_auto = $mapeo['placa_auto'];
+                            $cuviculo = $mapeo['cuviculo'];
                             $contador = $contador + 1;
                             ?>
                             <tr>
                                 <td><center><?php echo $contador;?></center></td>
                                 <td><?php echo $nro_espacio;?></td>
-                                <td>
-                                    <center>
-                                    <a href="vistas/modulos/parqueo/delete.php?id_map=<?php echo $id_map; ?>" class="btn btn-danger">Borrar</a>
-                                    </center>
-                                </td>
+                                <td><?php echo $placa_auto;?></td>
+                                <td><?php echo $cuviculo;?></td>
                             </tr>
                             <?php
                         }

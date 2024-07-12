@@ -11,7 +11,7 @@ $estado_inactivo = "0";
 date_default_timezone_set("America/bogota");
 $fechaHora = date("Y-m-d h:i:s");
 
-$sentencia = $pdo->prepare("UPDATE tb_tickets SET
+$sentencia = $link->prepare("UPDATE tb_tickets SET
 estado = :estado,
 fyh_eliminacion = :fyh_eliminacion 
 WHERE id_ticket = :id_ticket");
@@ -24,7 +24,7 @@ if($sentencia->execute()){
 
     //actualizando el estado del cuviculo de ocupado a libre
     $estado_espacio = "LIBRE";
-    $sentencia2 = $pdo->prepare("UPDATE tb_mapeos SET
+    $sentencia2 = $link->prepare("UPDATE tb_mapeos SET
     estado_espacio = :estado_espacio,
     fyh_actualizacion = :fyh_actualizacion 
     WHERE nro_espacio = :nro_espacio");
@@ -37,7 +37,7 @@ if($sentencia->execute()){
         echo "se actualizo el estado del civuculo a libre";
         echo "se elimino el registro de la manera correcta";
         ?>
-        <script>location.href = "../principal.php";</script>
+        <script>location.href = "principal.php";</script>
         <?php
     }else{
         echo "error al actualizar el campo nro de espacio del cuviculo";

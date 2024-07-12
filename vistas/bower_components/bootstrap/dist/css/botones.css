@@ -1,0 +1,18 @@
+#botonAgregar{
+    background-color: darkred;
+}
+
+#botonAgregar:hover{
+    background-color: gray;
+    color: black;
+    transition: all .3s;
+}
+
+#botonGuardarModal{
+    background-color: darkred;
+    color: white;
+}
+
+#botonBuscarModal{
+    background-color: darkred;
+}

@@ -9,13 +9,12 @@ $nit_ci = $_GET['nit_ci'];
 $cuviculo = $_GET['cuviculo'];
 $fecha_ingreso = $_GET['fecha_ingreso'];
 $hora_ingreso = $_GET['hora_ingreso'];
-$user_sesion = $_GET['user_session'];
 $estado_ticket = "OCUPADO";
 
 date_default_timezone_set("America/bogota");
 $fechaHora = date("Y-m-d h:i:s");
 
-$sentencia = $pdo->prepare('INSERT INTO tb_tickets
+$sentencia = $link->prepare('INSERT INTO tb_tickets
 (placa_auto,nombre_cliente,nit_ci,cuviculo,fecha_ingreso,hora_ingreso,estado_ticket,user_sesion, fyh_creacion, estado)
 VALUES ( :placa_auto,:nombre_cliente,:nit_ci,:cuviculo,:fecha_ingreso,:hora_ingreso,:estado_ticket,:user_sesion,:fyh_creacion,:estado)');
 

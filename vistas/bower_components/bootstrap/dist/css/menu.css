@@ -1,0 +1,34 @@
+#barraMenu{
+    background-color: gray;
+}
+
+#barraMenu li a{
+    color:darkred
+}
+
+#barraMenu li a:hover{
+    background-color: darkred;
+    color: white;
+}
+
+#barraMenu li select{
+    color: darkred;
+}
+
+#barraMenu li select:hover{
+    background-color: darkred;
+    color: white;
+}
+
+#barraMenu li option{
+    color: darkred;
+}
+
+#espacioIcono{
+    padding: 0;
+}
+
+#DataTables_Table_0_filter{
+    display: none;
+}
+

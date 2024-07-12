@@ -33,7 +33,7 @@ include('../layout/admin/datos_usuario_sesion.php');
 
                         <?php
                         $id_cliente_get = $_GET['id'];
-                        $query_clientes = $pdo->prepare("SELECT * FROM tb_clientes WHERE id_cliente = '$id_cliente_get' AND estado = '1'  ");
+                        $query_clientes = $link->prepare("SELECT * FROM tb_clientes WHERE id_cliente = '$id_cliente_get' AND estado = '1'  ");
                         $query_clientes->execute();
                         $datos_clientes = $query_clientes->fetchAll(PDO::FETCH_ASSOC);
                         foreach($datos_clientes as $datos_cliente){

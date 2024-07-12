@@ -8,10 +8,10 @@ $obs = $_GET['obs'];
 
 //echo $nro_espacio."-".$estado_espacio."-".$obs;
 
-date_default_timezone_set("America/caracas");
+date_default_timezone_set("America/bogota");
 $fechaHora = date("Y-m-d h:i:s");
 
-$sentencia = $pdo->prepare("INSERT INTO tb_mapeos 
+$sentencia = $link->prepare("INSERT INTO tb_mapeos 
         (nro_espacio, estado_espacio, obs, fyh_creacion, estado) 
 VALUES (:nro_espacio,:estado_espacio,:obs,:fyh_creacion,:estado)");
 
@@ -25,7 +25,7 @@ if($sentencia->execute()){
     echo "registro satisfactorio";
     //header('index.php');
     ?>
-    <script>location.href = "mapeo-de-vehiculos";</script>
+    <script>location.href = "mapeo-de-Islas";</script>
     <?php
 }else{
     echo "no se pudo registrar a la base de datos";

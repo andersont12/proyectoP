@@ -13,7 +13,7 @@ $id_cliente ='';
 $nombre_cliente = '';
 $nit_ci_cliente = '';
 
-$query_buscars = $pdo->prepare("SELECT * FROM tb_clientes WHERE estado = '1' AND placa_auto = '$placa' ");
+$query_buscars = $link->prepare("SELECT * FROM tb_clientes WHERE estado = '1' AND placa_auto = '$placa' ");
 $query_buscars->execute();
 $buscars = $query_buscars->fetchAll(PDO::FETCH_ASSOC);
 foreach($buscars as $buscar){
@@ -62,7 +62,7 @@ if($nombre_cliente == ""){
 
 //BUSCA LA PLACA EN LA TABLA TICKETS
 $contador_ticket = 0;
-$query_tickets = $pdo->prepare("SELECT * FROM tb_tickets WHERE placa_auto = '$placa' AND estado_ticket = 'OCUPADO' AND estado = '1'  ");
+$query_tickets = $link->prepare("SELECT * FROM tb_tickets WHERE placa_auto = '$placa' AND estado_ticket = 'OCUPADO' AND estado = '1'  ");
 $query_tickets->execute();
 $datos_tickets = $query_tickets->fetchAll(PDO::FETCH_ASSOC);
 foreach($datos_tickets as $datos_ticket){

@@ -12,7 +12,7 @@ $fechaHora = date("Y-m-d h:i:s");
 
 //BUSCA SI EL CLIENTE YA ESTA REGISTRADO
 $contador_cliente = 0;
-$query_clientes = $pdo->prepare("SELECT * FROM tb_clientes WHERE placa_auto = '$placa_auto' AND estado = '1'  ");
+$query_clientes = $link->prepare("SELECT * FROM tb_clientes WHERE placa_auto = '$placa_auto' AND estado = '1'  ");
 $query_clientes->execute();
 $datos_clientes = $query_clientes->fetchAll(PDO::FETCH_ASSOC);
 foreach($datos_clientes as $datos_cliente){

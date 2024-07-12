@@ -1,0 +1,125 @@
+.header{
+    background-image: url(../images/parqueadero-aire-libre.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.img-logo{
+    width: 40px;
+}
+
+.linear-white::after{
+    content: "";
+    display: block;
+    width: 100px;
+    height: 10px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.vh-50{
+    height: 50vmin;
+}
+
+/* section experinece */
+
+.card-img-filter{
+    filter: brightness(0.5);
+}
+
+.card{
+    transition-duration: .6s;
+    clip-path: polygon(
+        50% 0,
+        100% 0,
+        100% 50%,
+        100% 100%,
+        50% 100%,
+        0 100%,
+        0 50%,
+        0 0
+    );
+}
+
+.card-effect:hover .card{
+    clip-path: polygon(
+        50% 0,
+        50% 0,
+        100% 50%,
+        100% 50%,
+        50% 100%,
+        50% 100%,
+        0 50%,
+        0 50%
+    ) ;
+}
+
+.card-img-overlay {
+    transition-duration: 0.6s;
+}
+
+.card-effect:hover .card-img-overlay {
+    transform: scale(0.9);
+}
+
+/* comentarios */
+
+.comments{
+    background-image: url(../images/front-parqueo1.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.comments.linear-white::after{
+    top: 0;
+}
+
+.comments__img{
+    --tamaño: 80px;
+    width: var(--tamaño);
+    height: var(--tamaño);
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 7px 7px 7px rgba(0 0 0 / 0.5);
+    border: 3px ridge #fff;
+}
+
+.transform-turn{
+    transform: rotate(.5turn);
+}
+
+/*seccion inspiracion*/
+
+.media-object-img{
+    --tamaño: 65px;
+    width: var(--tamaño);
+    height: var(--tamaño);
+    margin-right: 15px;
+}
+
+/*carousel*/
+
+.carousel-weston-middle{
+    top: 35%;
+}
+
+/*media query*/
+
+@media screen and (max-width: 375px){
+    .vh-50{
+        height: 50vmax;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .vh-50{
+        height: 50vmax;
+    }
+    
+}
+
+

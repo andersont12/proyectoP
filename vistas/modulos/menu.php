@@ -47,10 +47,10 @@
 
 			<li>
 
-			<a href="mapeo-de-vehiculos">
+			<a href="mapeo-de-Islas">
 
 			<i class="fa fa-area-chart"></i>
-				<span>Mapeo de vehiculos</span>
+				<span>Mapeo de Islas</span>
 
 			</a>
 

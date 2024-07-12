@@ -14,7 +14,7 @@ require_once("../../../app/config.php");
 
             <?php
                         $id_get = $_GET['id_map'];
-                        $query_mapeos = $pdo->prepare("SELECT * FROM tb_mapeos WHERE id_map = '$id_get' AND estado = '1' ");
+                        $query_mapeos = $link->prepare("SELECT * FROM tb_mapeos WHERE id_map = '$id_get' AND estado = '1' ");
                         $query_mapeos->execute();
                         $mapeos = $query_mapeos->fetchAll(PDO::FETCH_ASSOC);
                         foreach($mapeos as $mapeo){

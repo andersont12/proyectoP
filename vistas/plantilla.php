@@ -16,12 +16,15 @@ session_start();
 
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  
 
   <link rel="icon" href="images/logoPagina.png">
 
    <!--=====================================
   PLUGINS DE CSS
   ======================================-->
+
+ 
 
   <!--CSS LOGIN-->
   <link rel="stylesheet" href="css/estilosLogin.css">
@@ -39,6 +42,7 @@ session_start();
      <link rel="stylesheet" href="css/modales.css">
 
   <!-- Bootstrap 3.3.7 -->
+ 
   <link rel="stylesheet" href="vistas/bower_components/bootstrap/dist/css/bootstrap.min.css">
 
   <link rel="stylesheet" href="css/responsive.css">
@@ -48,7 +52,9 @@ session_start();
   <link rel="stylesheet" href="vistas/bower_components/Ionicons/css/ionicons.min.css">
 
   <!-- Theme style -->
-  <link rel="stylesheet" href="vistas/dist/css/AdminLTE.css">
+  
+  <link rel="stylesheet" href="vistas/dist/css/AdminLTE.min.css">
+
   
   <!-- AdminLTE Skins -->
   <link rel="stylesheet" href="vistas/dist/css/skins/_all-skins.min.css">
@@ -79,8 +85,8 @@ session_start();
    
   
 
-<!-- Google Font: Source Sans Pro -->
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
   <!--=====================================
   PLUGINS DE JAVASCRIPT
@@ -171,7 +177,6 @@ CUERPO DOCUMENTO
     if(isset($_GET["ruta"])){
 
       if($_GET["ruta"] == "principal" ||
-         $_GET["ruta"] == "mapa" ||
          $_GET["ruta"] == "usuarios" ||
          $_GET["ruta"] == "vigilantes" ||
          $_GET["ruta"] == "vehiculos" ||
@@ -180,7 +185,7 @@ CUERPO DOCUMENTO
         include "modulos/".$_GET["ruta"].".php";
 
       }
-        elseif($_GET["ruta"] == "mapeo-de-vehiculos"||
+        elseif($_GET["ruta"] == "mapeo-de-Islas"||
                $_GET["ruta"] == "generar-reporte"||
                $_GET["ruta"] == "create"){
 

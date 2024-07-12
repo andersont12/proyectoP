@@ -30,7 +30,7 @@ include('../app/config.php');
 
 
 //cargar el encabezado
-$query_informacions = $pdo->prepare("SELECT * FROM tb_informaciones WHERE estado = '1' ");
+$query_informacions = $link->prepare("SELECT * FROM tb_informaciones WHERE estado = '1' ");
 $query_informacions->execute();
 $informacions = $query_informacions->fetchAll(PDO::FETCH_ASSOC);
 foreach($informacions as $informacion){
@@ -106,7 +106,7 @@ $html = '
 </tr>
 ';
 $contador_cliente = 0;
-$query_clientes = $pdo->prepare("SELECT * FROM tb_clientes WHERE estado = '1'  ");
+$query_clientes = $link->prepare("SELECT * FROM tb_clientes WHERE estado = '1'  ");
 $query_clientes->execute();
 $datos_clientes = $query_clientes->fetchAll(PDO::FETCH_ASSOC);
 foreach($datos_clientes as $datos_cliente){

@@ -6,25 +6,8 @@ include('../../../app/templeates/TCPDF-main/tcpdf.php');
 
 
 
-//cargar el encabezado
-$query_informacions = $pdo->prepare("SELECT * FROM tb_informaciones WHERE estado = '1' ");
-$query_informacions->execute();
-$informacions = $query_informacions->fetchAll(PDO::FETCH_ASSOC);
-foreach($informacions as $informacion){
-    $id_informacion = $informacion['id_informacion'];
-    $nombre_parqueo = $informacion['nombre_parqueo'];
-    $actividad_empresa = $informacion['actividad_empresa'];
-    $sucursal = $informacion['sucursal'];
-    $direccion = $informacion['direccion'];
-    $zona = $informacion['zona'];
-    $telefono = $informacion['telefono'];
-    $departamento_ciudad = $informacion['departamento_ciudad'];
-    $pais = $informacion['pais'];
-}
-
-
 //cargar la información del ticket
-$query_tickets = $pdo->prepare("SELECT * FROM tb_tickets WHERE estado = '1' ");
+$query_tickets = $link->prepare("SELECT * FROM tb_tickets WHERE estado = '1' ");
 $query_tickets->execute();
 $tickets = $query_tickets->fetchAll(PDO::FETCH_ASSOC);
 foreach($tickets as $ticket){
@@ -86,13 +69,7 @@ $pdf->AddPage();
 $html = '
 <div>
     <p style="text-align: center">
-        <b>'.$nombre_parqueo.'</b> <br>
-        '.$actividad_empresa.' <br>
-        SUCURSAL No '.$sucursal.' <br>
-        '.$direccion.' <br>
-        ZONA: '.$zona.' <br>
-        TELÉFONO: '.$telefono.' <br>
-        '.$departamento_ciudad.' - '.$pais.' <br>
+        
         --------------------------------------------------------------------------------
         <div style="text-align: left">
             <b>DATOS DEL CLIENTE</b> <br>
@@ -103,7 +80,7 @@ $html = '
         <b>Fecha de ingreso: </b> '.$fecha_ingreso.' <br>
         <b>Hora de ingreso: </b> '.$hora_ingreso.' <br>
          -------------------------------------------------------------------------------- <br>
-         <b>USUARIO:</b> '.$user_sesion.'
+         
         </div>
     </p>
     
