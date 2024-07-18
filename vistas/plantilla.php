@@ -16,15 +16,12 @@ session_start();
 
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  
 
   <link rel="icon" href="images/logoPagina.png">
 
    <!--=====================================
   PLUGINS DE CSS
   ======================================-->
-
- 
 
   <!--CSS LOGIN-->
   <link rel="stylesheet" href="css/estilosLogin.css">
@@ -42,7 +39,6 @@ session_start();
      <link rel="stylesheet" href="css/modales.css">
 
   <!-- Bootstrap 3.3.7 -->
- 
   <link rel="stylesheet" href="vistas/bower_components/bootstrap/dist/css/bootstrap.min.css">
 
   <link rel="stylesheet" href="css/responsive.css">
@@ -52,9 +48,7 @@ session_start();
   <link rel="stylesheet" href="vistas/bower_components/Ionicons/css/ionicons.min.css">
 
   <!-- Theme style -->
-  
-  <link rel="stylesheet" href="vistas/dist/css/AdminLTE.min.css">
-
+  <link rel="stylesheet" href="vistas/dist/css/AdminLTE.css">
   
   <!-- AdminLTE Skins -->
   <link rel="stylesheet" href="vistas/dist/css/skins/_all-skins.min.css">
@@ -85,8 +79,8 @@ session_start();
    
   
 
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+<!-- Google Font: Source Sans Pro -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
   <!--=====================================
   PLUGINS DE JAVASCRIPT
@@ -94,7 +88,6 @@ session_start();
 
   <!-- jQuery 3 -->
   <script src="vistas/bower_components/jquery/dist/jquery.min.js"></script>
-  
 
   <!-- Bootstrap 3.3.7 -->
   <script src="vistas/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -185,10 +178,9 @@ CUERPO DOCUMENTO
         include "modulos/".$_GET["ruta"].".php";
 
       }
-        elseif($_GET["ruta"] == "mapeo-de-Islas"||
-               $_GET["ruta"] == "generar-reporte"||
-               $_GET["ruta"] == "create"){
-
+      elseif($_GET["ruta"] == "mapeo-de-Islas"||
+        $_GET["ruta"] == "generar-reporte"||
+        $_GET["ruta"] == "create"){
           include "modulos/parqueo/".$_GET["ruta"].".php";
       }
 

@@ -5,21 +5,7 @@ include('../../../app/config.php');
 require_once('../../../app/templeates/TCPDF-main/tcpdf.php');
 
 
-//cargar el encabezado
-$query_informacions = $link->prepare("SELECT * FROM tb_informaciones WHERE estado = '1' ");
-$query_informacions->execute();
-$informacions = $query_informacions->fetchAll(PDO::FETCH_ASSOC);
-foreach($informacions as $informacion){
-    $id_informacion = $informacion['id_informacion'];
-    $nombre_parqueo = $informacion['nombre_parqueo'];
-    $actividad_empresa = $informacion['actividad_empresa'];
-    $sucursal = $informacion['sucursal'];
-    $direccion = $informacion['direccion'];
-    $zona = $informacion['zona'];
-    $telefono = $informacion['telefono'];
-    $departamento_ciudad = $informacion['departamento_ciudad'];
-    $pais = $informacion['pais'];
-}
+
 
 
 
