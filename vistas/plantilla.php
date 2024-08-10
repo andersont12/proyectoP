@@ -220,5 +220,5 @@ CUERPO DOCUMENTO
 
 
 <!-- AdminLTE App -->
-<script src="app/templeates/AdminLTE-3.0.5/dist/js/adminlte.min.js"></script>
+<script src="..app/templeates/AdminLTE-3.0.5/dist/js/adminlte.min.js"></script>
 </html>

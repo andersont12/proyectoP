@@ -276,7 +276,7 @@ MODAL AGREGAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span> 
 
-                <input type="text" minlength="10" maxlength="12" pattern="[0-9]+" title="Solo se permiten números (0-9)" class="form-control input-lg" name="nuevaCedula" placeholder="Ingresar Cedula" id="nuevaCedula" required>
+                <input type="text" minlength="7" maxlength="12" pattern="[0-9]+" title="Solo se permiten números (0-9)" class="form-control input-lg" name="nuevaCedula" placeholder="Ingresar Cedula" id="nuevaCedula" required>
 
               </div>
 
@@ -304,7 +304,7 @@ MODAL AGREGAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="text" minlength="3" maxlength="15" pattern="[A-Za-z]+" title="Solo se permiten letras (A-Z a-z)" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar usuario" id="nuevoUsuario" required>
+                <input type="text" minlength="4" maxlength="12" pattern="^[a-zA-Z0-9]+$" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar usuario" id="nuevoUsuario" required>
 
               </div>
 
@@ -318,7 +318,7 @@ MODAL AGREGAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
 
-                <input type="password" minlength="8" maxlength="12" pattern="[A-Za-z]+" title="Solo se permiten letras (A-Z a-z)" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar contraseña" required>
+                <input type="password" minlength="4" maxlength="12" pattern="^[a-zA-Z0-9]+$" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar contraseña" required>
 
               </div>
 
@@ -380,8 +380,8 @@ MODAL AGREGAR USUARIO
 
         <?php
 
-          $crearUsuario = new ControladorUsuarios();
-          $crearUsuario -> ctrCrearUsuario();
+          //$crearUsuario = new ControladorUsuarios();
+          //$crearUsuario -> ctrCrearUsuario();
 
         ?>
 

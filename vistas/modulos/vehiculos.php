@@ -281,7 +281,7 @@ MODAL AGREGAR VEHICULO
               <div class="input-group">
               
               <span class="input-group-addon"><i class="fa-id-badge"></i></span> 
-                <input type="text" minlength="5" maxlength="6" pattern="^[a-zA-Z0-9]+$" style="text-transform: uppercase;" title="Solo se permiten letras (A-Z, a-z) y números (0-9)" class="form-control input-lg" name="nuevaPlaca" id="nuevaPlaca" placeholder="Ingresar placa" required>
+                <input type="text" minlength="5" maxlength="6" pattern="^[a-zA-Z0-9]+$" title="Solo se permiten letras (A-Z, a-z) y números (0-9)" class="form-control input-lg" name="nuevaPlaca" id="nuevaPlaca" placeholder="Ingresar placa" required>
 
 
               </div>
