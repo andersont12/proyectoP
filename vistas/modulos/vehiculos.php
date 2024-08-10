@@ -178,7 +178,7 @@ MODAL BUSCAR VEHICULO
               <div class="input-group">
               
               <span class="input-group-addon"><i class="fa-id-badge"></i></span> 
-                <input type="text" class="form-control input-lg" name="buscarPlaca" id="buscarPlaca" placeholder="Ingresar placa" required>
+                <input type="text" minlength="5" maxlength="6" class="form-control input-lg" name="buscarPlaca" id="buscarPlaca" placeholder="Ingresar placa" required>
 
 
               </div>
@@ -269,7 +269,7 @@ MODAL AGREGAR VEHICULO
               <div class="input-group">
               
               <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span> 
-                <input type="text" class="form-control input-lg" name="nuevaCedula" id="nuevaCedula" placeholder="Ingresar cedula propietario" required>
+                <input type="text" minlength="10" maxlength="12" pattern="[0-9]+" title="Solo se permiten números (0-9)" class="form-control input-lg" name="nuevaCedula" id="nuevaCedula" placeholder="Ingresar cedula propietario" required>
 
 
               </div>
@@ -281,7 +281,7 @@ MODAL AGREGAR VEHICULO
               <div class="input-group">
               
               <span class="input-group-addon"><i class="fa-id-badge"></i></span> 
-                <input type="text" class="form-control input-lg" name="nuevaPlaca" id="nuevaPlaca" placeholder="Ingresar placa" required>
+                <input type="text" minlength="5" maxlength="6" pattern="^[a-zA-Z0-9]+$" style="text-transform: uppercase;" title="Solo se permiten letras (A-Z, a-z) y números (0-9)" class="form-control input-lg" name="nuevaPlaca" id="nuevaPlaca" placeholder="Ingresar placa" required>
 
 
               </div>
@@ -296,7 +296,7 @@ MODAL AGREGAR VEHICULO
               
                 <span class="input-group-addon"><i class="fa fa-car"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoTipoVehiculo" id="nuevoTipoVehiculo" placeholder="Ingresar Tipo Vehiculo" required>
+                <input type="text" minlength="3" maxlength="15" pattern="[A-Za-z]+" title="Solo se permiten letras (A-Z a-z)" class="form-control input-lg" name="nuevoTipoVehiculo" id="nuevoTipoVehiculo" placeholder="Ingresar Tipo Vehiculo" required>
 
               </div>
 
@@ -310,7 +310,7 @@ MODAL AGREGAR VEHICULO
               
                 <span class="input-group-addon"><i class="fa fa-hand-pointer-o"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaMarcaVehiculo" id="nuevaMarcaVehiculo" placeholder="Ingresar marca vehiculo" required>
+                <input type="text" minlength="3" maxlength="15" pattern="[A-Za-z]+" title="Solo se permiten letras (A-Z a-z)" class="form-control input-lg" name="nuevaMarcaVehiculo" id="nuevaMarcaVehiculo" placeholder="Ingresar marca vehiculo" required>
 
               </div>
 
@@ -416,7 +416,7 @@ MODAL EDITAR VEHICULO
               
                 <span class="input-group-addon"><i class="fa fa-car"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="editarTipoVehiculo" id="editarTipoVehiculo" placeholder="Ingresar tipo vehiculo" id="nuevoTipoVehiculo" required>
+                <input type="text" minlength="3" maxlength="15" pattern="[A-Za-z]+" title="Solo se permiten letras (A-Z a-z)" class="form-control input-lg" name="editarTipoVehiculo" id="editarTipoVehiculo" placeholder="Ingresar tipo vehiculo" id="nuevoTipoVehiculo" required>
 
               </div>
 
@@ -430,7 +430,7 @@ MODAL EDITAR VEHICULO
               
                 <span class="input-group-addon"><i class="fa fa-hand-pointer-o"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="editarMarcaVehiculo" id="editarMarcaVehiculo" placeholder="Ingresar Marca Vehiculo" required>
+                <input type="text" minlength="3" maxlength="15" pattern="[A-Za-z]+" title="Solo se permiten letras (A-Z a-z)" class="form-control input-lg" name="editarMarcaVehiculo" id="editarMarcaVehiculo" placeholder="Ingresar Marca Vehiculo" required>
 
               </div>
 

@@ -171,6 +171,7 @@ CUERPO DOCUMENTO
 
       if($_GET["ruta"] == "principal" ||
          $_GET["ruta"] == "usuarios" ||
+         $_GET["ruta"] == "generar-reporte-usuarios"||
          $_GET["ruta"] == "vigilantes" ||
          $_GET["ruta"] == "vehiculos" ||
          $_GET["ruta"] == "salir"){

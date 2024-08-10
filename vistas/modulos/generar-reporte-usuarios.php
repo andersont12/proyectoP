@@ -1,17 +1,8 @@
 <?php
 
-
-/**
- * Creates an example PDF TEST document using TCPDF
- * @package com.tecnick.tcpdf
- * @abstract TCPDF - Example: Cell stretching
- * @author Nicola Asuni
- * @since 2008-03-04
- */
-
 // Include the main TCPDF library (search for installation path).
 require_once('app/templeates/TCPDF-main/tcpdf.php');
-require_once("app/config.php");
+require_once 'modelos/conexion.php';
 
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -55,6 +46,8 @@ $pdf->setFont('Helvetica', '', 11);
 // add a page
 $pdf->AddPage();
 
+ob_start();
+
 // create some HTML content
 $html = '
 <P><b>Reporte del Listado de espacios</b></P>
@@ -64,19 +57,19 @@ $html = '
 <td style="background-color: #c0c0c0;text-align: center" width="100px">Nro de espacio</td>
 </tr>
 ';
+
+$link = Conexion::conectar();
 $contador = 0;
-$query_mapeos = $link->prepare("SELECT * FROM tb_mapeos WHERE estado = '1' ");
-$query_mapeos->execute();
-$mapeos = $query_mapeos->fetchAll(PDO::FETCH_ASSOC);
-foreach($mapeos as $mapeo){
-    $id_map = $mapeo['id_map'];
-    $nro_espacio = $mapeo['nro_espacio'];
+$query_usuarios = $link ->prepare("SELECT * FROM usuarios WHERE estado = '1' ");
+$query_usuarios->execute();
+$usuarios = $query_usuarios->fetchAll(PDO::FETCH_ASSOC);
+foreach($usuarios as $usuario){
+    $cedula = $usuario['cedula'];
     $contador = $contador + 1;
 
     $html .= '
     <tr>
-    <td style="text-align: center">'.$contador.'</td>
-    <td style="text-align: center">'.$nro_espacio.'</td>
+    <td style="text-align: center">'.$cedula.'</td>
     </tr>
     ';
 
@@ -86,6 +79,8 @@ foreach($mapeos as $mapeo){
 $html.='
 </table>
 ';
+
+ob_end_clean();
 
 // output the HTML content
 $pdf->writeHTML($html, true, false, true, false, '');

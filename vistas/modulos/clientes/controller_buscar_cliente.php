@@ -28,14 +28,14 @@ if($nombre_cliente == ""){
     <div class="form-group row">
         <label for="staticEmail" class="col-sm-3 col-form-label">Nombre: <span><b style="color: red">*</b></span></label>
         <div class="col-sm-9">
-            <input type="text" class="form-control" id="nombre_cliente<?php echo $id_map;?>">
+            <input type="text" minlength="3" maxlength="15" pattern="[a-z0-9]+" style="text-transform: uppercase;" title="Solo se permiten letras minúsculas (a-z) y números (0-9)"class="form-control" id="nombre_cliente<?php echo $id_map;?>">
         </div>
     </div>
 
     <div class="form-group row">
         <label for="staticEmail" class="col-sm-3 col-form-label">NIT/CI: <span><b style="color: red">*</b></span></label>
         <div class="col-sm-9">
-            <input type="text" class="form-control" id="nit_ci<?php echo $id_map;?>">
+            <input type="text" minlength="9" maxlength="12" class="form-control" id="nit_ci<?php echo $id_map;?>">
         </div>
     </div>
 <?php

@@ -33,7 +33,7 @@ require_once("app/config.php");
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form group">
-                                        <label for="">Nro espacio</label>
+                                        <label for="">isla</label>
                                         <input type="number" id="nro_espacio" class="form-control">
                                     </div>
                                 </div>

@@ -72,7 +72,7 @@ include('app/config.php');
                                                                     <div class="form-group row">
                                                                         <label for="staticEmail" class="col-sm-3 col-form-label">Placa: <span><b style="color: red">*</b></span></label>
                                                                         <div class="col-sm-6">
-                                                                            <input type="text" style="text-transform: uppercase" class="form-control" id="placa_buscar<?php echo $id_map;?>">
+                                                                        <input type="text" minlength="5" maxlength="6" pattern="^[a-zA-Z0-9]+$" style="text-transform: uppercase;" title="Solo se permiten letras (A-Z, a-z) y números (0-9)" class="form-control" id="placa_buscar<?php echo $id_map;?>" required>
                                                                         </div>
                                                                         <div class="col-sm-3">
                                                                             <button class="btn btn-primary" id="btn_buscar_cliente<?php echo $id_map;?>" type="button">
@@ -82,6 +82,12 @@ include('app/config.php');
                                                                                  Buscar
                                                                             </button>
                                                                             <script>
+                                                                                // Función para prevenir la inserción de caracteres especiales
+                                                                                    document.getElementById('placa_buscar<?php echo $id_map;?>').addEventListener('input', function (event) {
+                                                                                // Remover caracteres especiales
+                                                                                    this.value = this.value.replace(/[^a-zA-Z0-9]/g, '');
+                                                                                    });
+                                                                                    
                                                                                 $('#btn_buscar_cliente<?php echo $id_map;?>').click(function () {
                                                                                     var placa = $('#placa_buscar<?php echo $id_map;?>').val();
                                                                                     var id_map = "<?php echo $id_map;?>";

@@ -179,7 +179,7 @@ MODAL AGREGAR VIGILANTE
               
                 <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaCedula" placeholder="Ingresar Cedula" id="nuevaCedula" required>
+                <input type="text" minlength="10" maxlength="12" pattern="[0-9]+" title="Solo se permiten números (0-9)" class="form-control input-lg" name="nuevaCedula" placeholder="Ingresar Cedula" id="nuevaCedula" required>
 
               </div>
 
@@ -193,7 +193,7 @@ MODAL AGREGAR VIGILANTE
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar nombre" required>
+                <input type="text" minlength="3" maxlength="15" pattern="[A-Za-z]+" title="Solo se permiten letras (A-Z a-z)" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar nombre" required>
 
               </div>
 
@@ -207,7 +207,7 @@ MODAL AGREGAR VIGILANTE
               
                 <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar usuario" id="nuevoUsuario" required>
+                <input type="text" minlength="5" maxlength="6" pattern="^[a-zA-Z0-9]+$" style="text-transform: uppercase;" title="Solo se permiten letras (A-Z, a-z) y números (0-9)" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar usuario" id="nuevoUsuario" required>
 
               </div>
 
@@ -221,7 +221,7 @@ MODAL AGREGAR VIGILANTE
               
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
 
-                <input type="password" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar contraseña" required>
+                <input type="password" minlength="8" maxlength="12" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar contraseña" required>
 
               </div>
 
@@ -332,7 +332,7 @@ MODAL EDITAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre" value="" required>
+                <input type="text" minlength="3" maxlength="15" pattern="[A-Za-z]+" title="Solo se permiten letras (A-Z a-z)" class="form-control input-lg" id="editarNombre" name="editarNombre" value="" required>
 
               </div>
 
@@ -360,7 +360,7 @@ MODAL EDITAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
 
-                <input type="password" class="form-control input-lg" name="editarPassword" placeholder="Escriba la nueva contraseña">
+                <input type="password" minlength="8" maxlength="12" class="form-control input-lg" name="editarPassword" placeholder="Escriba la nueva contraseña">
 
                 <input type="hidden" id="passwordActual" name="passwordActual">
 
