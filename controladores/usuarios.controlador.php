@@ -12,7 +12,7 @@ class ControladorUsuarios{
 
 			if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingUsuario"])){
 
-			   	$encriptar = $_POST["ingPassword"];
+			   	$encriptar = md5($_POST["ingPassword"]);
 
 				$tabla = "usuarios";
 				$item = "usuario";
@@ -163,7 +163,7 @@ class ControladorUsuarios{
 
 				$tabla = "usuarios";
 
-				$encriptar = $_POST["nuevoPassword"];
+				$encriptar = md5($_POST["nuevoPassword"]);
 
 				$datos = array("cedula" => $_POST["nuevaCedula"],
 				"nombre" => $_POST["nuevoNombre"],
@@ -344,7 +344,7 @@ class ControladorUsuarios{
 
 					if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["editarPassword"])){
 
-						$encriptar = $_POST["editarPassword"];
+						$encriptar = md5($_POST["editarPassword"]);
 
 					}else{
 

@@ -340,8 +340,6 @@ MODAL AGREGAR USUARIO
 
                   <option value="vigilante">Vigilante</option>
 
-                  <option value="usuario">Usuario</option>
-
                 </select>
 
               </div>
@@ -380,8 +378,8 @@ MODAL AGREGAR USUARIO
 
         <?php
 
-          $crearUsuario = new ControladorUsuarios();
-          $crearUsuario -> ctrCrearUsuario();
+          //$crearUsuario = new ControladorUsuarios();
+          //$crearUsuario -> ctrCrearUsuario();
 
         ?>
 
