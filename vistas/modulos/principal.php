@@ -35,8 +35,8 @@ include('app/config.php');
 
                             </div>
 
-                            <div class="card-body" style="display: block;">
-                                <div class="row">
+                            <div class="card-body" id="cardPosition">
+                                <div class="row" id="cardBody">
                                     <?php
                                     $query_mapeos = $link->prepare("SELECT * FROM tb_mapeos WHERE estado = '1' ");
                                     $query_mapeos->execute();
@@ -47,11 +47,11 @@ include('app/config.php');
                                         $estado_espacio = $mapeo['estado_espacio'];
 
                                         if($estado_espacio == "LIBRE"){ ?>
-                                            <div class="col">
+                                            <div class="col cardParking">
                                                 <center>
                                                     <h2><?php echo $nro_espacio;?></h2>
 
-                                                    <button class="btn btn-success" style="width: 100%;height: 114px"
+                                                    <button class="btn btn-success botonCard" 
                                                             data-toggle="modal" data-target="#modal<?php echo $id_map;?>">
                                                         <p><?php echo $estado_espacio;?></p>
                                                     </button>
@@ -206,10 +206,10 @@ include('app/config.php');
                                         <?php
                                         }
                                         if($estado_espacio == "OCUPADO"){ ?>
-                                            <div class="col">
+                                            <div class="col cardParking">
                                                 <center>
                                                     <h2><?php echo $nro_espacio;?></h2>
-                                                    <button class="btn btn-info" id="btn_ocupado<?php echo $id_map;?>" data-toggle="modal"
+                                                    <button class="btn btn-info botonCard" id="btn_ocupado<?php echo $id_map;?>" data-toggle="modal"
                                                             data-target="#exampleModal<?php echo $id_map;?>">
                                                         <img src="<?php echo $URL;?>/images/auto1.png" width="60px" alt="">
                                                     </button>

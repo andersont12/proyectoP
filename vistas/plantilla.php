@@ -38,6 +38,9 @@ session_start();
      <!--CSS MODALES-->
      <link rel="stylesheet" href="css/modales.css">
 
+  <!--CSS PRINCIPAL-->
+  <link rel="stylesheet" href="css/principal.css">   
+
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="vistas/bower_components/bootstrap/dist/css/bootstrap.min.css">
 
