@@ -204,11 +204,14 @@ CUERPO DOCUMENTO
 
     echo '</div>';
 
-  }else{
+  } else {
 
-    include "modulos/login.php";
-
-  }
+    if (isset($_GET["ruta"]) && $_GET["ruta"] == "recuperar") {
+        include "modulos/" . $_GET["ruta"] . ".php";
+    } else {
+        include "modulos/login.php";
+    }
+}
 
   ?>
 

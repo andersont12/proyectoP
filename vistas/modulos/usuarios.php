@@ -496,8 +496,6 @@ MODAL EDITAR USUARIO
 
                   <option value="vigilante">Vigilante</option>
 
-                  <option value="usuario">Usuario</option>
-
                 </select>
 
               </div>

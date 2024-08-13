@@ -269,7 +269,7 @@ MODAL AGREGAR VEHICULO
               <div class="input-group">
               
               <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span> 
-                <input type="text" minlength="10" maxlength="12" pattern="[0-9]+" title="Solo se permiten números (0-9)" class="form-control input-lg" name="nuevaCedula" id="nuevaCedula" placeholder="Ingresar cedula propietario" required>
+                <input type="text" minlength="7" maxlength="10" pattern="[0-9]+" title="Solo se permiten números (0-9)" class="form-control input-lg" name="nuevaCedulaVehiculo" id="nuevaCedulaVehiculo" placeholder="Ingresar cedula propietario" required>
 
 
               </div>

@@ -145,3 +145,21 @@ if (isset($_POST["cedula"])) {
     }
 
 }
+
+/*=============================================
+CONSULTA POR CORREO
+=============================================*/
+
+if (isset($_POST["correo"])) {
+	$item = "email";
+    $valor = $_POST["correo"];
+    $item2 = null;
+    $encriptar = 1;
+    $respuesta = ControladorUsuarios::ctrMostrarUsuarios($item, $valor,$encriptar);
+	if ($respuesta) {
+        echo json_encode($respuesta);
+    } else {
+        echo json_encode(null);
+    }
+
+}

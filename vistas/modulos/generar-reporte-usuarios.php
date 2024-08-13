@@ -1,5 +1,4 @@
 <?php
-
 // Include the main TCPDF library (search for installation path).
 require_once('app/templeates/TCPDF-main/tcpdf.php');
 require_once 'modelos/conexion.php';
@@ -65,15 +64,14 @@ $query_usuarios->execute();
 $usuarios = $query_usuarios->fetchAll(PDO::FETCH_ASSOC);
 foreach($usuarios as $usuario){
     $cedula = $usuario['cedula'];
-    $contador = $contador + 1;
+    $contador++;
 
     $html .= '
     <tr>
+    <td style="text-align: center">'.$contador.'</td>
     <td style="text-align: center">'.$cedula.'</td>
     </tr>
     ';
-
-
 }
 
 $html.='
@@ -91,3 +89,5 @@ $pdf->Output('example_004.pdf', 'I');
 //============================================================+
 // END OF FILE
 //============================================================+
+
+?>

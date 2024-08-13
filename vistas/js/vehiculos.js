@@ -59,7 +59,7 @@ AGREGAR VEHICULO
 $("#formAgregarVehiculo").submit(function(e){
     e.preventDefault();
     idPlaca = $.trim($("#nuevaPlaca").val());
-    idCedula = $.trim($("#nuevaCedula").val());
+    idCedula = $.trim($("#nuevaCedulaVehiculo").val());
     tipoVehiculo = $.trim($("#nuevoTipoVehiculo").val());
     marcaVehiculo = $.trim($("#nuevaMarcaVehiculo").val());
     console.log(idPlaca);
