@@ -250,6 +250,46 @@ $("#nuevoUsuario").change(function(){
 })
 
 /*=============================================
+REVISAR SI LA CEDULA YA ESTÁ REGISTRADA
+=============================================*/
+
+$("#nuevaCedula").change(function(){
+
+	$(".alert").remove();
+	
+	var cedula = $(this).val();
+
+	var datos = new FormData();
+	console.log(cedula);
+	datos.append("validarCedula", cedula);
+
+	 $.ajax({
+	    url:"ajax/usuarios.ajax.php",
+	    method:"POST",
+	    data: datos,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    dataType: "json",
+	    success:function(usuario){
+	    	
+	    	if(usuario){
+
+	    		$("#nuevaCedula").parent().after('<div class="alert alert-warning">Esta cedula ya esta registrada en la base de datos</div>');
+
+	    		$("#nuevaCedula").val("");
+
+	    	}
+			else{
+				$("#nuevaCedula").parent().after('<div class="alert alert-success">Cedula valida</div>');
+			}
+
+	    }
+
+	})
+})
+
+/*=============================================
 ELIMINAR USUARIO
 =============================================*/
 $(document).on("click", ".btnEliminarUsuario", function(){

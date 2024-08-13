@@ -61,6 +61,23 @@ class AjaxUsuarios{
 		echo json_encode($respuesta);
 
 	}
+		/*=============================================
+	VALIDAR NO REPETIR CEDULA
+	=============================================*/	
+
+	public $validarCedula;
+
+	public function ajaxValidarCedula(){
+
+		$item = "cedula";
+		$valor = $this->validarCedula;
+		$encriptar = null;
+
+		$respuesta = ControladorUsuarios::ctrMostrarUsuarios($item, $valor, $encriptar);
+
+		echo json_encode($respuesta);
+
+	}
 }
 
 /*=============================================
@@ -98,6 +115,22 @@ if(isset( $_POST["validarUsuario"])){
 	$valUsuario -> ajaxValidarUsuario();
 
 }
+
+/*=============================================
+VALIDAR NO REPETIR CEDULA
+=============================================*/
+
+if(isset($_POST["validarCedula"])){
+
+	$valCedula = new AjaxUsuarios();
+	$valCedula -> validarCedula = $_POST["validarCedula"];
+	$valCedula -> ajaxValidarCedula();
+
+}
+
+/*=============================================
+CONSULTA POR CEDULA
+=============================================*/
 
 if (isset($_POST["cedula"])) {
 	$item = "cedula";
