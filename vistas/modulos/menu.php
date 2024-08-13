@@ -6,7 +6,7 @@
 
 		<?php
 
-		if($_SESSION["perfil"] == "administrador")
+		if($_SESSION["perfil"] == "Administrador")
 		{
 
 			echo '

@@ -38,6 +38,9 @@ session_start();
      <!--CSS MODALES-->
      <link rel="stylesheet" href="css/modales.css">
 
+  <!--CSS PRINCIPAL-->
+  <link rel="stylesheet" href="css/principal.css">   
+
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="vistas/bower_components/bootstrap/dist/css/bootstrap.min.css">
 
@@ -171,6 +174,7 @@ CUERPO DOCUMENTO
 
       if($_GET["ruta"] == "principal" ||
          $_GET["ruta"] == "usuarios" ||
+         $_GET["ruta"] == "generar-reporte-usuarios"||
          $_GET["ruta"] == "vigilantes" ||
          $_GET["ruta"] == "vehiculos" ||
          $_GET["ruta"] == "salir"){
@@ -219,5 +223,5 @@ CUERPO DOCUMENTO
 
 
 <!-- AdminLTE App -->
-<script src="app/templeates/AdminLTE-3.0.5/dist/js/adminlte.min.js"></script>
+<script src="..app/templeates/AdminLTE-3.0.5/dist/js/adminlte.min.js"></script>
 </html>

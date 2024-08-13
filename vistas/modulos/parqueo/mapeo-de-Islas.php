@@ -48,9 +48,9 @@ require_once("app/config.php");
                     <table id="table_id" class="table table-bordered table-sm table-striped">
                        <thead>
                        <th><center>Nro</center></th>
-                       <th>Nro espacio</th>
-                       <th><center>Placa</center></th>
                        <th><center>isla</center></th>
+                       <th><center>Placa</center></th>
+                       
                        </thead>
                         <tbody>
                         <?php
@@ -66,14 +66,12 @@ require_once("app/config.php");
                             $id_map = $mapeo['id_map'];
                             $nro_espacio = $mapeo['nro_espacio'];
                             $placa_auto = $mapeo['placa_auto'];
-                            $cuviculo = $mapeo['cuviculo'];
                             $contador = $contador + 1;
                             ?>
                             <tr>
                                 <td><center><?php echo $contador;?></center></td>
-                                <td><?php echo $nro_espacio;?></td>
-                                <td><?php echo $placa_auto;?></td>
-                                <td><?php echo $cuviculo;?></td>
+                                <td><center><?php echo $nro_espacio;?></center></td>
+                                <td><center><?php echo $placa_auto;?></center></td>
                             </tr>
                             <?php
                         }

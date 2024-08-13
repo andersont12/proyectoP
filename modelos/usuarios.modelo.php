@@ -50,7 +50,7 @@ class ModeloUsuarios{
 	
 			$stmt = null;
 	
-		}
+	}
 
 	/*=============================================
 	REGISTRO DE USUARIO

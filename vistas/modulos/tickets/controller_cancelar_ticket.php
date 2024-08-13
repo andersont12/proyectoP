@@ -36,9 +36,8 @@ if($sentencia->execute()){
     if($sentencia2->execute()){
         echo "se actualizo el estado del civuculo a libre";
         echo "se elimino el registro de la manera correcta";
-        ?>
-        <script>location.href = "principal.php";</script>
-        <?php
+        echo '<script>location.href = "../../../principal";</script>';
+        
     }else{
         echo "error al actualizar el campo nro de espacio del cuviculo";
     }

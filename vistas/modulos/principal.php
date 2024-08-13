@@ -35,8 +35,8 @@ include('app/config.php');
 
                             </div>
 
-                            <div class="card-body" style="display: block;">
-                                <div class="row">
+                            <div class="card-body" id="cardPosition">
+                                <div class="row" id="cardBody">
                                     <?php
                                     $query_mapeos = $link->prepare("SELECT * FROM tb_mapeos WHERE estado = '1' ");
                                     $query_mapeos->execute();
@@ -47,11 +47,11 @@ include('app/config.php');
                                         $estado_espacio = $mapeo['estado_espacio'];
 
                                         if($estado_espacio == "LIBRE"){ ?>
-                                            <div class="col">
+                                            <div class="col cardParking">
                                                 <center>
                                                     <h2><?php echo $nro_espacio;?></h2>
 
-                                                    <button class="btn btn-success" style="width: 100%;height: 114px"
+                                                    <button class="btn btn-success botonCard" 
                                                             data-toggle="modal" data-target="#modal<?php echo $id_map;?>">
                                                         <p><?php echo $estado_espacio;?></p>
                                                     </button>
@@ -72,7 +72,7 @@ include('app/config.php');
                                                                     <div class="form-group row">
                                                                         <label for="staticEmail" class="col-sm-3 col-form-label">Placa: <span><b style="color: red">*</b></span></label>
                                                                         <div class="col-sm-6">
-                                                                            <input type="text" style="text-transform: uppercase" class="form-control" id="placa_buscar<?php echo $id_map;?>">
+                                                                        <input type="text" minlength="5" maxlength="6" pattern="^[a-zA-Z0-9]+$" style="text-transform: uppercase;" title="Solo se permiten letras (A-Z, a-z) y números (0-9)" class="form-control" id="placa_buscar<?php echo $id_map;?>" required>
                                                                         </div>
                                                                         <div class="col-sm-3">
                                                                             <button class="btn btn-primary" id="btn_buscar_cliente<?php echo $id_map;?>" type="button">
@@ -82,6 +82,12 @@ include('app/config.php');
                                                                                  Buscar
                                                                             </button>
                                                                             <script>
+                                                                                // Función para prevenir la inserción de caracteres especiales
+                                                                                    document.getElementById('placa_buscar<?php echo $id_map;?>').addEventListener('input', function (event) {
+                                                                                // Remover caracteres especiales
+                                                                                    this.value = this.value.replace(/[^a-zA-Z0-9]/g, '');
+                                                                                    });
+                                                                                    
                                                                                 $('#btn_buscar_cliente<?php echo $id_map;?>').click(function () {
                                                                                     var placa = $('#placa_buscar<?php echo $id_map;?>').val();
                                                                                     var id_map = "<?php echo $id_map;?>";
@@ -200,10 +206,10 @@ include('app/config.php');
                                         <?php
                                         }
                                         if($estado_espacio == "OCUPADO"){ ?>
-                                            <div class="col">
+                                            <div class="col cardParking">
                                                 <center>
                                                     <h2><?php echo $nro_espacio;?></h2>
-                                                    <button class="btn btn-info" id="btn_ocupado<?php echo $id_map;?>" data-toggle="modal"
+                                                    <button class="btn btn-info botonCard" id="btn_ocupado<?php echo $id_map;?>" data-toggle="modal"
                                                             data-target="#exampleModal<?php echo $id_map;?>">
                                                         <img src="<?php echo $URL;?>/images/auto1.png" width="60px" alt="">
                                                     </button>

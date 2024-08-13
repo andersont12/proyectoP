@@ -1,0 +1,17 @@
+#cardPosition{
+    display: flex;
+}
+
+#cardBody{
+    display: flex;
+    gap: 40px;
+}
+
+.cardParking{
+    width: 110px;
+}
+
+.botonCard{
+    width: 100%;
+    height: 200px;
+}
