@@ -32,14 +32,16 @@ session_start();
   <!--CSS MENU-->
   <link rel="stylesheet" href="css/menu.css">
 
+  <!--CSS PRINCIPAL-->
+  <link rel="stylesheet" href="css/principal.css">   
+
    <!--CSS BOTONES-->
    <link rel="stylesheet" href="css/botones.css">
 
      <!--CSS MODALES-->
      <link rel="stylesheet" href="css/modales.css">
 
-  <!--CSS PRINCIPAL-->
-  <link rel="stylesheet" href="css/principal.css">   
+  
 
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="vistas/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -183,7 +185,6 @@ CUERPO DOCUMENTO
 
       }
       elseif($_GET["ruta"] == "mapeo-de-Islas"||
-        $_GET["ruta"] == "generar-reporte"||
         $_GET["ruta"] == "create"){
           include "modulos/parqueo/".$_GET["ruta"].".php";
       }
@@ -223,5 +224,5 @@ CUERPO DOCUMENTO
 
 
 <!-- AdminLTE App -->
-<script src="..app/templeates/AdminLTE-3.0.5/dist/js/adminlte.min.js"></script>
+<script src="app/templeates/AdminLTE-3.0.5/dist/js/adminlte.min.js"></script>
 </html>

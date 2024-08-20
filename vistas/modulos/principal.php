@@ -5,6 +5,7 @@ include('app/config.php');
 
 
 
+
     //echo "exite sesion";
     ?>
     <!DOCTYPE html>
@@ -29,7 +30,7 @@ include('app/config.php');
                                 <h3 class="card-title">Mapeo actual del parqueo</h3>
                                 <div class="card-tools">
                                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                    <i class="fas fa-minus"></i>
+                                    <i class="fa fa-minus" aria-hidden="true"></i>
                                     </button>
                                 </div>
 
@@ -289,6 +290,7 @@ include('app/config.php');
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
                                                                     <a href="vistas/modulos/tickets/controller_cancelar_ticket.php?id=<?php echo $id_ticket;?>&&cuviculo=<?php echo $cuviculo;?>" class="btn btn-danger">Cancelar ticket</a>
                                                                     <a href="vistas/modulos/tickets/reimprimir_ticket.php?id=<?php echo $id_ticket;?>" class="btn btn-primary">Volver a Imprimir</a>
+                                                                    <button type="button" class="btn btn-success" id="btn_facturar<?php echo $id_map;?>">Facturar</button>
                                                                     <?php
                                                                     ///////////////////// recupera el id del cliente
                                                                     $query_datos_cliente_factura = $link->prepare("SELECT * FROM tb_clientes WHERE placa_auto = '$placa_auto' AND estado = '1' ");
@@ -301,16 +303,16 @@ include('app/config.php');
                                                                     ?>
                                                                     <script>
                                                                         $('#btn_facturar<?php echo $id_map;?>').click(function () {
-                                                                            var id_informacion = "<?php echo $id_informacion; ?>";
-                                                                            var nro_factura = "<?php echo $contador_del_nro_de_factura; ?>";
+                                                                            
+                                                                            
                                                                             var id_cliente = "<?php echo $id_cliente_facturacion;?>";
                                                                             var fecha_ingreso = "<?php echo $fecha_ingreso; ?>";
                                                                             var hora_ingreso = "<?php echo $hora_ingreso; ?>";
                                                                             var cuviculo = "<?php echo $cuviculo; ?>";
                                                                             
 
-                                                                            var url_4 = 'facturacion/controller_registrar_factura.php';
-                                                                            $.get(url_4,{id_informacion:id_informacion,nro_factura:nro_factura,id_cliente:id_cliente,fecha_ingreso:fecha_ingreso,hora_ingreso:hora_ingreso,cuviculo:cuviculo},function (datos) {
+                                                                            var url4 = 'vistas/modulos/facturacion/controller_registrar_factura.php';
+                                                                            $.get(url4,{id_cliente:id_cliente,fecha_ingreso:fecha_ingreso,hora_ingreso:hora_ingreso,cuviculo:cuviculo},function (datos) {
                                                                                 $('#respuesta_factura<?php echo $id_map;?>').html(datos);
                                                                             });
 

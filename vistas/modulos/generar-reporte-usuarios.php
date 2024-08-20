@@ -1,8 +1,7 @@
 <?php
-
+include('../../app/config.php');
 // Include the main TCPDF library (search for installation path).
-require_once('app/templeates/TCPDF-main/tcpdf.php');
-require_once 'modelos/conexion.php';
+include('../../app/templeates/TCPDF-main/tcpdf.php');
 
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -44,32 +43,49 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 $pdf->setFont('Helvetica', '', 11);
 
 // add a page
-$pdf->AddPage();
-
-ob_start();
+$pdf->AddPage('L');
 
 // create some HTML content
 $html = '
-<P><b>Reporte del Listado de espacios</b></P>
-<table border="1" cellpadding="4">
+<P><b>Reporte de usuarios</b></P>
+<table border="1" cellpadding="5">
 <tr>
-<td style="background-color: #c0c0c0;text-align: center" width="80px">Nro</td>
-<td style="background-color: #c0c0c0;text-align: center" width="100px">Nro de espacio</td>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">cedula</td>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">nombre</td>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">perfil</td>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">Estado</td>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">Ultimo Login</td>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">Fecha de nacimiento</td>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">Email</td>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">Telefono</td>
 </tr>
 ';
-
-$link = Conexion::conectar();
 $contador = 0;
-$query_usuarios = $link ->prepare("SELECT * FROM usuarios WHERE estado = '1' ");
-$query_usuarios->execute();
-$usuarios = $query_usuarios->fetchAll(PDO::FETCH_ASSOC);
+$query_usuario = $link->prepare("SELECT * FROM usuarios WHERE estado = '1' ");
+$query_usuario->execute();
+$usuarios = $query_usuario->fetchAll(PDO::FETCH_ASSOC);
 foreach($usuarios as $usuario){
     $cedula = $usuario['cedula'];
-    $contador = $contador + 1;
+	$nombre = $usuario['nombre'];
+	$perfil = $usuario['perfil'];
+    $estado = $usuario['estado'];
+    $ultimo_login = $usuario['ultimo_login'];
+    $fechaNacimiento = $usuario['fechanacimiento'];
+    $email = $usuario['email'];
+    $telefono = $usuario['telefono'];
+    
+    
 
     $html .= '
     <tr>
     <td style="text-align: center">'.$cedula.'</td>
+    <td style="text-align: center">'.$nombre.'</td>
+	<td style="text-align: center">'.$perfil.'</td>
+    <td style="text-align: center">'.$estado.'</td>
+    <td style="text-align: center">'.$ultimo_login.'</td>
+    <td style="text-align: center">'.$fechaNacimiento.'</td>
+    <td style="text-align: center">'.$email.'</td>
+    <td style="text-align: center">'.$telefono.'</td>
     </tr>
     ';
 
@@ -79,8 +95,6 @@ foreach($usuarios as $usuario){
 $html.='
 </table>
 ';
-
-ob_end_clean();
 
 // output the HTML content
 $pdf->writeHTML($html, true, false, true, false, '');
