@@ -169,7 +169,7 @@ BUSCAR POR CEDULA
 
 $("#formBuscarUsuario").submit(function(e) {
 	e.preventDefault();
-
+	$(".alert").remove();
 	let cedula = $.trim($("#buscarCedula").val());
 	console.log("Cédula ingresada:", cedula);
 
@@ -210,6 +210,39 @@ $("#formBuscarUsuario").submit(function(e) {
 });
 
 /*=============================================
+BUSCAR POR CORREO
+=============================================*/
+
+$("#formRecuperarContraseña").submit(function(e) {
+	e.preventDefault();
+	$(".alert").remove();
+	let correo = $.trim($("#correoRecuperacion").val());
+	console.log("Correo ingresado:", correo);
+
+	$.ajax({
+		url: "ajax/usuarios.ajax.php",
+		type: "POST",
+		dataType: "json",
+		data: {
+			correo: correo
+		},
+		success: function(respuesta) {
+			console.log("Resultado del servidor:", respuesta);
+            if (respuesta) {
+				$("#correoRecuperacion").parent().after('<div class="alert alert-success" style="margin-top: 10px;">Correo Valido</div>');
+            } else {
+				$("#correoRecuperacion").parent().after('<div class="alert alert-warning" style="margin-top: 10px;">Correo no encontrado, verifique nuevamente o comuniquese con el Administrador</div>');
+            }
+		},
+		error: function(xhr, status, error) {
+			console.error("Error en la llamada AJAX:", status, error);
+			console.log("Respuesta del servidor:", xhr.responseText);
+			alert("Error en la respuesta del servidor: " + xhr.responseText);
+		}
+	});
+});
+
+/*=============================================
 REVISAR SI EL USUARIO YA ESTÁ REGISTRADO
 =============================================*/
 
@@ -235,13 +268,53 @@ $("#nuevoUsuario").change(function(){
 	    	
 	    	if(usuario){
 
-	    		$("#nuevoUsuario").parent().after('<div class="alert alert-warning">Este usuario ya existe en la base de datos</div>');
+	    		$("#nuevoUsuario").parent().after('<div class="alert alert-warning" style="margin-top: 10px;">Este usuario ya existe en la base de datos</div>');
 
 	    		$("#nuevoUsuario").val("");
 
 	    	}
 			else{
-				$("#nuevoUsuario").parent().after('<div class="alert alert-success">Usuario Valido</div>');
+				$("#nuevoUsuario").parent().after('<div class="alert alert-success" style="margin-top: 10px;">Usuario Valido</div>');
+			}
+
+	    }
+
+	})
+})
+
+/*=============================================
+REVISAR SI LA CEDULA YA ESTÁ REGISTRADA
+=============================================*/
+
+$("#nuevaCedula").change(function(){
+
+	$(".alert").remove();
+	
+	var cedula = $(this).val();
+
+	var datos = new FormData();
+	console.log(cedula);
+	datos.append("validarCedula", cedula);
+
+	 $.ajax({
+	    url:"ajax/usuarios.ajax.php",
+	    method:"POST",
+	    data: datos,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    dataType: "json",
+	    success:function(usuario){
+	    	
+	    	if(usuario){
+
+	    		$("#nuevaCedula").parent().after('<div class="alert alert-warning" style="margin-top: 10px;">Esta cedula ya esta registrada en la base de datos</div>');
+
+	    		$("#nuevaCedula").val("");
+
+	    	}
+			else{
+				$("#nuevaCedula").parent().after('<div class="alert alert-success" style="margin-top: 10px;">Cedula valida</div>');
 			}
 
 	    }

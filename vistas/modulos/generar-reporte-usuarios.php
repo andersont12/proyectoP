@@ -78,6 +78,7 @@ foreach($usuarios as $usuario){
 
     $html .= '
     <tr>
+    <td style="text-align: center">'.$contador.'</td>
     <td style="text-align: center">'.$cedula.'</td>
     <td style="text-align: center">'.$nombre.'</td>
 	<td style="text-align: center">'.$perfil.'</td>
@@ -88,8 +89,6 @@ foreach($usuarios as $usuario){
     <td style="text-align: center">'.$telefono.'</td>
     </tr>
     ';
-
-
 }
 
 $html.='
@@ -105,3 +104,5 @@ $pdf->Output('example_004.pdf', 'I');
 //============================================================+
 // END OF FILE
 //============================================================+
+
+?>
