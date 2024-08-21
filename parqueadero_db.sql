@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-06-2024 a las 16:49:07
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Tiempo de generación: 21-08-2024 a las 19:05:13
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,7 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `parqueadero_db`
 --
-
 
 -- --------------------------------------------------------
 
@@ -149,12 +148,13 @@ CREATE TABLE `tb_mapeos` (
 
 INSERT INTO `tb_mapeos` (`id_map`, `nro_espacio`, `estado_espacio`, `obs`, `fyh_creacion`, `fyh_actualizacion`, `fyh_eliminacion`, `estado`) VALUES
 (1, '1', 'OCUPADO', '', '2024-05-27 01:35:31', '2024-06-12 04:26:19', NULL, '1'),
-(2, '2', 'OCUPADO', '', '2024-05-27 01:36:04', '2024-06-12 04:30:37', NULL, '1'),
-(3, '3', 'OCUPADO', '', '2024-05-27 04:42:54', '2024-06-12 06:16:56', NULL, '1'),
+(2, '2', 'LIBRE', '', '2024-05-27 01:36:04', '2024-08-21 12:02:59', NULL, '1'),
+(3, '3', 'LIBRE', '', '2024-05-27 04:42:54', '2024-08-13 10:39:19', NULL, '1'),
 (4, '4', 'LIBRE', '', '2024-05-27 06:14:51', NULL, NULL, '1'),
 (5, '6', 'LIBRE', '', '2024-05-27 08:44:48', NULL, NULL, '1'),
 (6, '6', 'LIBRE', 'jeank es gay', '2024-05-29 09:04:13', NULL, NULL, '1'),
-(7, '7', 'LIBRE', '', '2024-06-17 12:58:18', NULL, NULL, '1');
+(7, '7', 'LIBRE', '', '2024-06-17 12:58:18', NULL, NULL, '1'),
+(0, '1', 'LIBRE', '', '2024-08-09 07:58:36', NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -184,9 +184,9 @@ CREATE TABLE `tb_tickets` (
 
 INSERT INTO `tb_tickets` (`id_ticket`, `nombre_cliente`, `nit_ci`, `placa_auto`, `cuviculo`, `fecha_ingreso`, `hora_ingreso`, `estado_ticket`, `user_sesion`, `fyh_creacion`, `fyh_actualizacion`, `fyh_eliminacion`, `estado`) VALUES
 (4, 'anderson', '1022431392', 'YGU13F', '1', '2024-06-12', '16:26', 'OCUPADO', NULL, '2024-06-12 04:26:19', NULL, NULL, '1'),
-(5, 'sebastian', '1234', 'BNA701', '2', '2024-06-12', '16:28', 'OCUPADO', NULL, '2024-06-12 04:30:37', NULL, NULL, '1'),
+(5, 'sebastian', '1234', 'BNA701', '2', '2024-06-12', '16:28', 'OCUPADO', NULL, '2024-06-12 04:30:37', NULL, '2024-08-21 12:02:59', '0'),
 (6, 'jeank', '9876', 'EOX09G', '3', '2024-06-12', '18:15', 'OCUPADO', NULL, '2024-06-12 06:15:52', NULL, '2024-06-12 06:16:20', '0'),
-(7, 'esteban', '564', 'USH33G', '3', '2024-06-12', '18:15', 'OCUPADO', NULL, '2024-06-12 06:16:56', NULL, NULL, '1');
+(7, 'esteban', '564', 'USH33G', '3', '2024-06-12', '18:15', 'OCUPADO', NULL, '2024-06-12 06:16:56', NULL, '2024-08-13 10:39:19', '0');
 
 -- --------------------------------------------------------
 
@@ -205,121 +205,31 @@ CREATE TABLE `usuarios` (
   `ultimo_login` datetime NOT NULL,
   `fechanacimiento` date DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `telefono` varchar(20) DEFAULT NULL
+  `telefono` varchar(20) DEFAULT NULL,
+  `codigo_verificacion` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`cedula`, `nombre`, `usuario`, `clave`, `perfil`, `foto`, `estado`, `ultimo_login`, `fechanacimiento`, `email`, `telefono`) VALUES
-(1, 'prueba', 'prueba', '1234', 'administrador', '', 1, '2024-06-17 11:56:30', NULL, NULL, NULL),
-(2, 'pruebax', 'prueba2', '12345', 'vigilante', '', 1, '2024-06-12 18:33:00', NULL, NULL, NULL),
-(3, 'prueba1', 'prueba1', '12345', 'vigilante', '', 1, '0000-00-00 00:00:00', NULL, NULL, NULL);
+INSERT INTO `usuarios` (`cedula`, `nombre`, `usuario`, `clave`, `perfil`, `foto`, `estado`, `ultimo_login`, `fechanacimiento`, `email`, `telefono`, `codigo_verificacion`) VALUES
+(1, 'prueba', 'prueba', '81dc9bdb52d04dc20036dbd8313ed055', 'Administrador', '', 1, '2024-08-13 14:16:25', NULL, NULL, NULL, '0'),
+(2, 'pruebax', 'prueba2', '12345', 'vigilante', '', 1, '2024-06-12 18:33:00', NULL, NULL, NULL, '0'),
+(3, 'prueba1', 'prueba1', '12345', 'vigilante', '', 1, '0000-00-00 00:00:00', NULL, NULL, NULL, '0'),
+(45, 'PRUEBA', 'PRUEBA7', '151bde48d7e8f2a52410059ce10ab80f', 'Vigilante', '', 1, '2024-08-21 12:00:42', NULL, 'caa@c.com', NULL, '1205'),
+(123, 'ADMIN', 'ADMIN', '1234', 'Administrador', '', 1, '2024-08-13 10:21:39', NULL, NULL, NULL, '0'),
+(2147483647, 'prueba', 'pruebados', 'a925576942e94b2ef57a066101b48876', 'Administrador', '', 0, '0000-00-00 00:00:00', NULL, NULL, NULL, '0');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `tbl_isla`
---
-ALTER TABLE `tbl_isla`
-  ADD PRIMARY KEY (`id_isla`),
-  ADD KEY `placa` (`placa`);
-
---
--- Indices de la tabla `tbl_vehiculos`
---
-ALTER TABLE `tbl_vehiculos`
-  ADD PRIMARY KEY (`placa`),
-  ADD KEY `cedula` (`cedula`);
-
---
--- Indices de la tabla `tb_clientes`
---
-ALTER TABLE `tb_clientes`
-  ADD PRIMARY KEY (`id_cliente`);
-
---
--- Indices de la tabla `tb_facturaciones`
---
-ALTER TABLE `tb_facturaciones`
-  ADD PRIMARY KEY (`id_facturacion`);
-
---
--- Indices de la tabla `tb_informaciones`
---
-ALTER TABLE `tb_informaciones`
-  ADD PRIMARY KEY (`id_informacion`);
-
---
--- Indices de la tabla `tb_mapeos`
---
-ALTER TABLE `tb_mapeos`
-  ADD PRIMARY KEY (`id_map`);
-
---
--- Indices de la tabla `tb_tickets`
---
-ALTER TABLE `tb_tickets`
-  ADD PRIMARY KEY (`id_ticket`);
-
---
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`cedula`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `tb_clientes`
---
-ALTER TABLE `tb_clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT de la tabla `tb_facturaciones`
---
-ALTER TABLE `tb_facturaciones`
-  MODIFY `id_facturacion` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `tb_informaciones`
---
-ALTER TABLE `tb_informaciones`
-  MODIFY `id_informacion` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `tb_mapeos`
---
-ALTER TABLE `tb_mapeos`
-  MODIFY `id_map` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT de la tabla `tb_tickets`
---
-ALTER TABLE `tb_tickets`
-  MODIFY `id_ticket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `tbl_isla`
---
-ALTER TABLE `tbl_isla`
-  ADD CONSTRAINT `tbl_isla_ibfk_1` FOREIGN KEY (`placa`) REFERENCES `tbl_vehiculos` (`placa`);
-
---
--- Filtros para la tabla `tbl_vehiculos`
---
-ALTER TABLE `tbl_vehiculos`
-  ADD CONSTRAINT `tbl_vehiculos_ibfk_1` FOREIGN KEY (`cedula`) REFERENCES `usuarios` (`cedula`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

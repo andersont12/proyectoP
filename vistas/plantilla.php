@@ -208,7 +208,14 @@ CUERPO DOCUMENTO
 
     if (isset($_GET["ruta"]) && $_GET["ruta"] == "recuperar") {
         include "modulos/" . $_GET["ruta"] . ".php";
-    } else {
+    } 
+    else if (isset($_GET["ruta"]) && $_GET["ruta"] == "restablecer") {
+        include "modulos/" . $_GET["ruta"] . ".php";
+    } 
+    else if (isset($_GET["ruta"]) && $_GET["ruta"] == "config") {
+        include "modulos/PHPMAILER/" . $_GET["ruta"] . ".php";
+    } 
+    else {
         include "modulos/login.php";
     }
 }

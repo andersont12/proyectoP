@@ -68,7 +68,7 @@
 		</li>';
 
 		}else{
-			if($_SESSION["perfil"] == "vigilante")
+			if($_SESSION["perfil"] == "Vigilante")
 			{
 
 			echo '<li class="active">
@@ -86,7 +86,7 @@
 
 			<li>
 
-			<a href="mapeo-de-vehiculos">
+			<a href="mapeo-de-Islas">
 
 			<i class="fa fa-area-chart"></i>
 			<span>Mapeo de vehiculos</span>

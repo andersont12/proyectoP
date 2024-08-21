@@ -163,3 +163,27 @@ if (isset($_POST["correo"])) {
     }
 
 }
+
+/*=============================================
+CAMBIO DE CONTRASEÑA
+=============================================*/
+if (isset($_POST["cambioClave"]) && isset($_POST["cedula"])) {
+    $clave = md5($_POST["cambioClave"]);
+    $cedula = $_POST["cedula"];
+
+	$pdo = Conexion::conectar();
+
+	$sql = "UPDATE usuarios SET clave = :clave, codigo_verificacion = null WHERE cedula = :cedula";
+	$stmt = $pdo->prepare($sql);
+
+	$stmt->bindParam(':clave', $clave);
+	$stmt->bindParam(':cedula', $cedula);
+
+	$stmt->execute();
+    // Respuesta en JSON
+    return json_encode(true);
+	$_SESSION['cedula'] = null;
+	$_SESSION['codigo'] = null;
+} else {
+    return json_encode(false);
+}

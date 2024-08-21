@@ -90,7 +90,6 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
         $valor = "administrador";
         $item2 = null;
         $encriptar = 1;
-
         $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor,$encriptar);
         
        foreach ($usuarios as $key => $value){

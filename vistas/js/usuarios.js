@@ -229,7 +229,25 @@ $("#formRecuperarContraseña").submit(function(e) {
 		success: function(respuesta) {
 			console.log("Resultado del servidor:", respuesta);
             if (respuesta) {
-				$("#correoRecuperacion").parent().after('<div class="alert alert-success" style="margin-top: 10px;">Correo Valido</div>');
+                const usuario = respuesta[0];
+                var cedula = usuario.cedula;
+                var form = $('<form>', {
+                    'method': 'POST',
+                    'action': 'config'
+                }).append($('<input>', {
+                    'type': 'hidden',
+                    'name': 'cedula',
+                    'value': cedula
+                }));
+
+                $('body').append(form);
+                form.submit();
+				swal({
+					type: "success",
+					title: "Correo de verificacion enviando, Verifique su correo electronico",
+					showConfirmButton: true,
+					confirmButtonText: "Cerrar"
+					});
             } else {
 				$("#correoRecuperacion").parent().after('<div class="alert alert-warning" style="margin-top: 10px;">Correo no encontrado, verifique nuevamente o comuniquese con el Administrador</div>');
             }
@@ -358,7 +376,3 @@ $(document).on("click", ".btnEliminarUsuario", function(){
   })
 
 })
-
-
-
-
