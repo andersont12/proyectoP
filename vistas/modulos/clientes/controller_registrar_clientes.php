@@ -20,7 +20,7 @@ foreach($datos_clientes as $datos_cliente){
 }
 if($contador_cliente == "0"){
     echo "no hay ningun registro igual";
-    $sentencia = $pdo->prepare('INSERT INTO tb_clientes
+    $sentencia = $link->prepare('INSERT INTO tb_clientes
 (nombre_cliente,nit_ci_cliente,placa_auto, fyh_creacion, estado)
 VALUES ( :nombre_cliente,:nit_ci_cliente,:placa_auto,:fyh_creacion,:estado)');
 

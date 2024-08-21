@@ -1,29 +1,31 @@
 <?php
-require_once("../../../app/config.php");
+include('../../../app/config.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
+   
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
+   
     <div class="content-wrapper">
         <br>
         <div class="container">
 
 
             <?php
-                        $id_get = $_GET['id_map'];
-                        $query_mapeos = $link->prepare("SELECT * FROM tb_mapeos WHERE id_map = '$id_get' AND estado = '1' ");
-                        $query_mapeos->execute();
-                        $mapeos = $query_mapeos->fetchAll(PDO::FETCH_ASSOC);
-                        foreach($mapeos as $mapeo){
-                            $id_map = $mapeo['id_map'];
-                            $nro_espacio = $mapeo['nro_espacio'];
-                        }
+            $id_map_get = $_GET['id_map'];
+            $query_mapeo = $link->prepare("SELECT * FROM tb_mapeos WHERE id_map = '$id_map_get' AND estado = '1' ");
+            $query_mapeo->execute();
+            $mapeos = $query_mapeo->fetchAll(PDO::FETCH_ASSOC);
+            foreach($mapeos as $mapeo) {
+                $id_map = $mapeo['id_map'];
+                $nro_espacio = $mapeo['nro_espacio'];
+            }
             ?>
 
-            <h2>Eliminación de isla</h2>
+            <h2>Eliminación del Usuario</h2>
 
             <div class="container">
                 <div class="row">
@@ -35,16 +37,20 @@ require_once("../../../app/config.php");
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="">nro</label>
-                                    <input type="text" class="form-control" id="id_map" value="<?php echo $id_map;?>" disabled>
+                                    <label for="">Nombres</label>
+                                    <input type="text" class="form-control" id="nombres" value="<?php echo $nombres;?>" disabled>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">nro espacio</label>
-                                    <input type="text" class="form-control" id="nro_espacio" value="<?php echo $nro_espacio;?>" disabled>
+                                    <label for="">Email</label>
+                                    <input type="email" class="form-control" id="email" value="<?php echo $email;?>" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Password</label>
+                                    <input type="text" class="form-control" id="password_user" value="<?php echo $password_user;?>" disabled>
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-danger" id="btn_borrar">Borrar</button>
-                                    <a href="<?php echo $URL;?>/mapeo-de-vehiculos" class="btn btn-default">Cancelar</a>
+                                    <a href="<?php echo $URL;?>/usuarios/" class="btn btn-default">Cancelar</a>
                                 </div>
                                 <div id="respuesta">
 
@@ -62,7 +68,10 @@ require_once("../../../app/config.php");
         </div>
 
     </div>
+    <!-- /.content-wrapper -->
+   
 </div>
+
 </body>
 </html>
 
@@ -70,14 +79,13 @@ require_once("../../../app/config.php");
 <script>
     $('#btn_borrar').click(function () {
 
-        alert("Botón clickeado");
-
-        var ID_map = '<?php echo $id_get = $_GET['id_map'];?>';
+        var id_user = '<?php echo $id_get = $_GET['id'];?>';
 
         var url = 'controller_delete.php';
-        $.get(url,{ID_map:ID_map},function (datos) {
+        $.get(url,{id_user:id_user},function (datos) {
             $('#respuesta').html(datos);
         });
 
     });
 </script>
+
