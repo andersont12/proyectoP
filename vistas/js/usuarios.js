@@ -56,12 +56,16 @@ $(document).on("click", ".tablas .btnEditarUsuario, .tabla .btnEditarUsuario", f
     nombre = fila.find('td:eq(1)').text();;
     usuario = fila.find('td:eq(2)').text();;
     perfil = fila.find('td:eq(3)').text();
-	estado = fila.find('td:eq(3)').text();
-	ultimaConexion = fila.find('td:eq(3)').text();
+	email = fila.find('td:eq(4)').text();
+	telefono = fila.find('td:eq(5)').text();
+	estado = fila.find('td:eq(6)').text();
+	ultimaConexion = fila.find('td:eq(7)').text();
     $("#editarCedula").val(cedula);
     $("#editarNombre").val(nombre);
     $("#editarUsuario").val(usuario);
     $("#editarPerfil").val(perfil);
+	$("#editarCorreo").val(email);
+	$("#editarTelefono").val(telefono);
 	var idUsuario = $(this).attr("idUsuario");
 	
 	var datos = new FormData();

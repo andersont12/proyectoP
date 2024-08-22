@@ -58,7 +58,7 @@ class ModeloUsuarios{
 
 	static public function mdlIngresarUsuario($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(cedula, nombre, usuario, clave, perfil, foto) VALUES (:cedula, :nombre, :usuario, :clave, :perfil, :foto)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(cedula, nombre, usuario, clave, perfil, email, telefono) VALUES (:cedula, :nombre, :usuario, :clave, :perfil, :correo, :telefono)");
 		//, :estado, :ultimo_login, :fechanacimiento, :email, :telefono)");
 
 		$stmt->bindParam(":cedula", $datos["cedula"]);
@@ -66,7 +66,8 @@ class ModeloUsuarios{
 		$stmt->bindParam(":usuario", $datos["usuario"]);
 		$stmt->bindParam(":clave", $datos["clave"]);
 		$stmt->bindParam(":perfil", $datos["perfil"]);
-		$stmt->bindParam(":foto", $datos["foto"]);
+		$stmt->bindParam(":correo", $datos["correo"]);
+		$stmt->bindParam(":telefono", $datos["telefono"]);
 		
 
 		if($stmt->execute())
@@ -91,12 +92,13 @@ class ModeloUsuarios{
 
 	static public function mdlEditarUsuario($tabla, $datos){
 	
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre, clave = :clave, perfil = :perfil, foto = :foto WHERE usuario = :usuario");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET email = :email, telefono = :telefono, nombre = :nombre, clave = :clave, perfil = :perfil WHERE usuario = :usuario");
 
+		$stmt -> bindParam(":email", $datos["email"], PDO::PARAM_STR);
+		$stmt -> bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
 		$stmt -> bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
 		$stmt -> bindParam(":clave", $datos["clave"], PDO::PARAM_STR);
 		$stmt -> bindParam(":perfil", $datos["perfil"], PDO::PARAM_STR);
-		$stmt -> bindParam(":foto", $datos["foto"], PDO::PARAM_STR);
 		$stmt -> bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);
 
 		if($stmt -> execute()){

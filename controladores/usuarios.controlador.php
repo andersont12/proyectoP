@@ -170,7 +170,8 @@ class ControladorUsuarios{
 					           "usuario" => $_POST["nuevoUsuario"],
 					           "clave" => $encriptar,
 					           "perfil" => $_POST["nuevoPerfil"],
-					           "foto"=>$ruta);
+					           "correo" => $_POST["nuevoCorreo"],
+							   "telefono" => $_POST["nuevoTelefono"]);
 
 				$respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla, $datos);
 			
@@ -379,7 +380,8 @@ class ControladorUsuarios{
 							   "usuario" => $_POST["editarUsuario"],
 							   "clave" => $encriptar,
 							   "perfil" => $_POST["editarPerfil"],
-							   "foto" => $ruta);
+							   "email" => $_POST["editarCorreo"],
+							   "telefono" => $_POST["editarTelefono"]);
 
 				$respuesta = ModeloUsuarios::mdlEditarUsuario($tabla, $datos);
 

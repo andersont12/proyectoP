@@ -74,6 +74,8 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
            <th>Nombre</th>
            <th>Usuario</th>
            <th>Perfil</th>
+           <th>Correo</th>
+           <th>Telefono</th>
            <th>Estado</th>
            <th>Ultima Conexion</th>
            <th>Acciones</th>
@@ -100,6 +102,8 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
                   <td>'.$value["usuario"].'</td>';
 
                   echo '<td>'.$value["perfil"].'</td>';
+                  echo '<td>'.$value["email"].'</td>';
+                  echo '<td>'.$value["telefono"].'</td>';
 
                   if($value["estado"] != 0){
 
@@ -182,7 +186,7 @@ MODAL BUSCAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span> 
 
-                <input type="text" minlength="10" maxlength="12" pattern="[0-9]+" title="Solo se permiten números (0-9)" class="form-control input-lg" name="buscarCedula" placeholder="Ingresar Cedula" id="buscarCedula" required>
+                <input type="text" minlength="5" maxlength="11" pattern="[0-9]+" title="Solo se permiten números (0-9)" class="form-control input-lg" name="buscarCedula" placeholder="Ingresar Cedula" id="buscarCedula" required>
 
               </div>
 
@@ -289,7 +293,7 @@ MODAL AGREGAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" minlength="3" maxlength="15" pattern="[A-Za-z]+" title="Solo se permiten letras (A-Z a-z)" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar nombre" required>
+                <input type="text" minlength="3" maxlength="15" pattern="[A-Za-z]+" title="Solo se permiten letras (A-Z a-z)" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar Nombre" required>
 
               </div>
 
@@ -303,7 +307,35 @@ MODAL AGREGAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="text" minlength="4" maxlength="12" pattern="^[a-zA-Z0-9]+$" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar usuario" id="nuevoUsuario" required>
+                <input type="text" minlength="4" maxlength="20" pattern="^[a-zA-Z0-9]+$" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar Usuario" id="nuevoUsuario" required>
+
+              </div>
+
+            </div>
+
+        <!-- ENTRADA PARA EL CORREO -->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+
+                <input type="email" minlength="6" maxlength="30" class="form-control input-lg" name="nuevoCorreo" placeholder="Ingresar Correo" id="nuevoCorreo" required>
+
+              </div>
+
+            </div>
+
+        <!-- ENTRADA PARA LA TELEFONO -->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span> 
+
+                <input type="text" minlength="7" maxlength="10" pattern="[0-9]+" title="Solo se permiten números (0-9)" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar Telefono" id="nuevoTelefono" required>
 
               </div>
 
@@ -317,7 +349,7 @@ MODAL AGREGAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
 
-                <input type="password" minlength="4" maxlength="12" pattern="^[a-zA-Z0-9]+$" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar contraseña" required>
+                <input type="password" minlength="4" maxlength="12" pattern="^[a-zA-Z0-9]+$" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar Contraseña" required>
 
               </div>
 
@@ -331,31 +363,13 @@ MODAL AGREGAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-users"></i></span> 
 
-                <select class="form-control input-lg" name="nuevoPerfil">
-                  
-                  <option value="">Selecionar perfil</option>
+                <select class="form-control input-lg" name="nuevoPerfil" readonly>
 
                   <option value="Administrador">Administrador</option>
-
-                  <option value="vigilante">Vigilante</option>
 
                 </select>
 
               </div>
-
-            </div>
-
-            <!-- ENTRADA PARA SUBIR FOTO -->
-
-             <div class="form-group">
-              
-              <div class="panel">SUBIR FOTO</div>
-
-              <input type="file" class="nuevaFoto" name="nuevaFoto">
-
-              <p class="help-block">Peso máximo de la foto 2MB</p>
-
-              <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
 
             </div>
 
@@ -463,6 +477,34 @@ MODAL EDITAR USUARIO
 
             </div>
 
+        <!-- ENTRADA PARA EL CORREO -->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+
+                <input type="email" minlength="6" maxlength="30" class="form-control input-lg" name="editarCorreo" placeholder="Ingresar Correo" id="editarCorreo" required>
+
+              </div>
+
+            </div>
+
+        <!-- ENTRADA PARA LA TELEFONO -->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span> 
+
+                <input type="text" minlength="7" maxlength="10" pattern="[0-9]+" title="Solo se permiten números (0-9)" class="form-control input-lg" name="editarTelefono" placeholder="Ingresar Telefono" id="editarTelefono" required>
+
+              </div>
+
+            </div>
+
             <!-- ENTRADA PARA LA CONTRASEÑA -->
 
              <div class="form-group">
@@ -487,33 +529,13 @@ MODAL EDITAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-users"></i></span> 
 
-                <select class="form-control input-lg" name="editarPerfil">
-                  
-                  <option value="" id="editarPerfil"></option>
+                <select class="form-control input-lg" name="editarPerfil" readonly>
 
                   <option value="Administrador">Administrador</option>
-
-                  <option value="vigilante">Vigilante</option>
 
                 </select>
 
               </div>
-
-            </div>
-
-            <!-- ENTRADA PARA SUBIR FOTO -->
-
-             <div class="form-group">
-              
-              <div class="panel">SUBIR FOTO</div>
-
-              <input type="file" class="nuevaFoto" name="editarFoto">
-
-              <p class="help-block">Peso máximo de la foto 2MB</p>
-
-              <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizarEditar" width="100px">
-
-              <input type="hidden" name="fotoActual" id="fotoActual">
 
             </div>
 
