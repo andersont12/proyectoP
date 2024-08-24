@@ -67,7 +67,7 @@ $html = '
 </tr>
 ';
 
-$query_usuario = $link->prepare("SELECT * FROM usuarios WHERE perfil = 'Administrador' ");
+$query_usuario = $link->prepare("SELECT * FROM usuarios WHERE perfil = 'Vigilante' ");
 $query_usuario->execute();
 $usuarios = $query_usuario->fetchAll(PDO::FETCH_ASSOC);
 foreach($usuarios as $usuario){

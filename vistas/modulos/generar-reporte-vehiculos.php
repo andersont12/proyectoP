@@ -43,7 +43,7 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 $pdf->setFont('Helvetica', '', 11);
 
 // add a page
-$pdf->AddPage('L');
+$pdf->AddPage('');
 
 // create some HTML content
 $html = '
@@ -54,45 +54,33 @@ $html = '
                 </div>
     </div>
 <P><b>Reporte de usuarios</b></P>
-<table border="1" cellpadding="5">
+<table border="1" cellpadding="5" >
 <tr>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">placa</td>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">tipo de vehiculo</td>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">marca de vehiculo</td>
 <td style="background-color: #c0c0c0;text-align: center" width="100px">cedula</td>
-<td style="background-color: #c0c0c0;text-align: center" width="100px">nombre</td>
-<td style="background-color: #c0c0c0;text-align: center" width="100px">perfil</td>
-<td style="background-color: #c0c0c0;text-align: center" width="100px">Estado</td>
-<td style="background-color: #c0c0c0;text-align: center" width="100px">Ultimo Login</td>
-<td style="background-color: #c0c0c0;text-align: center" width="100px">Fecha de nacimiento</td>
-<td style="background-color: #c0c0c0;text-align: center" width="100px">Email</td>
-<td style="background-color: #c0c0c0;text-align: center" width="100px">Telefono</td>
 </tr>
 ';
 
-$query_usuario = $link->prepare("SELECT * FROM usuarios WHERE perfil = 'Administrador' ");
-$query_usuario->execute();
-$usuarios = $query_usuario->fetchAll(PDO::FETCH_ASSOC);
-foreach($usuarios as $usuario){
-    $cedula = $usuario['cedula'];
-	$nombre = $usuario['nombre'];
-	$perfil = $usuario['perfil'];
-    $estado = $usuario['estado'];
-    $ultimo_login = $usuario['ultimo_login'];
-    $fechaNacimiento = $usuario['fechanacimiento'];
-    $email = $usuario['email'];
-    $telefono = $usuario['telefono'];
+$query_vehiculo = $link->prepare("SELECT * FROM tbl_vehiculos ");
+$query_vehiculo->execute();
+$vehiculos = $query_vehiculo->fetchAll(PDO::FETCH_ASSOC);
+foreach($vehiculos as $vehiculo){
+    $placa = $vehiculo['placa'];
+	$vehi_tipo = $vehiculo['vehi_tipo'];
+	$vehi_marca = $vehiculo['vehi_marca'];
+    $cedula = $vehiculo['cedula'];
     
     
 
     $html .= '
     <tr>
     
+    <td style="text-align: center">'.$placa.'</td>
+    <td style="text-align: center">'.$vehi_tipo.'</td>
+	<td style="text-align: center">'.$vehi_marca.'</td>
     <td style="text-align: center">'.$cedula.'</td>
-    <td style="text-align: center">'.$nombre.'</td>
-	<td style="text-align: center">'.$perfil.'</td>
-    <td style="text-align: center">'.$estado.'</td>
-    <td style="text-align: center">'.$ultimo_login.'</td>
-    <td style="text-align: center">'.$fechaNacimiento.'</td>
-    <td style="text-align: center">'.$email.'</td>
-    <td style="text-align: center">'.$telefono.'</td>
     </tr>
     ';
 }

@@ -31,7 +31,8 @@ CREATE TABLE `tbl_vehiculos` (
   `placa` varchar(11) NOT NULL,
   `vehi_tipo` varchar(45) NOT NULL,
   `vehi_marca` varchar(45) NOT NULL,
-  `cedula` int(11) NOT NULL
+  `cedula` int(11) NOT NULL,
+  PRIMARY KEY (placa)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -40,8 +41,6 @@ CREATE TABLE `tbl_vehiculos` (
 
 INSERT INTO `tbl_vehiculos` (`placa`, `vehi_tipo`, `vehi_marca`, `cedula`) VALUES
 ('KTU-22G', 'moto', 'benelli', 1),
-('qsadfg', 'moto', 'benelli', 1),
-('ygu-13f', 'moto', 'benelli', 3),
 ('ygu13f', 'moto', 'benelli', 3);
 
 -- --------------------------------------------------------
@@ -51,25 +50,20 @@ INSERT INTO `tbl_vehiculos` (`placa`, `vehi_tipo`, `vehi_marca`, `cedula`) VALUE
 --
 
 CREATE TABLE `tb_clientes` (
-  `id_cliente` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_cliente` varchar(255) DEFAULT NULL,
   `nit_ci_cliente` varchar(255) DEFAULT NULL,
   `placa_auto` varchar(255) DEFAULT NULL,
   `fyh_creacion` datetime DEFAULT NULL,
   `fyh_actualizacion` datetime DEFAULT NULL,
   `fyh_eliminacion` datetime DEFAULT NULL,
-  `estado` varchar(10) DEFAULT NULL
+  `estado` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (id_cliente)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `tb_clientes`
 --
-
-INSERT INTO `tb_clientes` (`id_cliente`, `nombre_cliente`, `nit_ci_cliente`, `placa_auto`, `fyh_creacion`, `fyh_actualizacion`, `fyh_eliminacion`, `estado`) VALUES
-(5, 'anderson', '1022431392', 'ygu13f', '2024-06-12 05:26:19', NULL, NULL, '1'),
-(6, 'sebastian', '1234', 'bna701', '2024-06-12 05:30:37', NULL, NULL, '1'),
-(7, 'jeank', '9876', 'eox09g', '2024-06-12 07:15:52', NULL, NULL, '1'),
-(8, 'esteban', '564', 'ush33g', '2024-06-12 07:16:56', NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -78,7 +72,7 @@ INSERT INTO `tb_clientes` (`id_cliente`, `nombre_cliente`, `nit_ci_cliente`, `pl
 --
 
 CREATE TABLE `tb_facturaciones` (
-  `id_facturacion` int(11) NOT NULL,
+  `id_facturacion` int(11) NOT NULL AUTO_INCREMENT,
   `id_informacion` varchar(255) DEFAULT NULL,
   `nro_factura` varchar(255) DEFAULT NULL,
   `id_cliente` varchar(255) DEFAULT NULL,
@@ -100,30 +94,10 @@ CREATE TABLE `tb_facturaciones` (
   `fyh_creacion` datetime DEFAULT NULL,
   `fyh_actualizacion` datetime DEFAULT NULL,
   `fyh_eliminacion` datetime DEFAULT NULL,
-  `estado` varchar(10) DEFAULT NULL
+  `estado` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (id_facturacion)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tb_informaciones`
---
-
-CREATE TABLE `tb_informaciones` (
-  `id_informacion` int(11) NOT NULL,
-  `nombre_parqueo` varchar(255) DEFAULT NULL,
-  `actividad_empresa` varchar(255) DEFAULT NULL,
-  `sucursal` varchar(255) DEFAULT NULL,
-  `direccion` varchar(255) DEFAULT NULL,
-  `zona` varchar(255) DEFAULT NULL,
-  `telefono` varchar(255) DEFAULT NULL,
-  `departamento_ciudad` varchar(255) DEFAULT NULL,
-  `pais` varchar(255) DEFAULT NULL,
-  `fyh_creacion` datetime DEFAULT NULL,
-  `fyh_actualizacion` datetime DEFAULT NULL,
-  `fyh_eliminacion` datetime DEFAULT NULL,
-  `estado` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -132,29 +106,20 @@ CREATE TABLE `tb_informaciones` (
 --
 
 CREATE TABLE `tb_mapeos` (
-  `id_map` int(11) NOT NULL,
+  `id_map` int(11) NOT NULL AUTO_INCREMENT,
   `nro_espacio` varchar(255) DEFAULT NULL,
   `estado_espacio` varchar(255) DEFAULT NULL,
   `obs` varchar(255) DEFAULT NULL,
   `fyh_creacion` datetime DEFAULT NULL,
   `fyh_actualizacion` datetime DEFAULT NULL,
   `fyh_eliminacion` datetime DEFAULT NULL,
-  `estado` varchar(10) DEFAULT NULL
+  `estado` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (id_map)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `tb_mapeos`
 --
-
-INSERT INTO `tb_mapeos` (`id_map`, `nro_espacio`, `estado_espacio`, `obs`, `fyh_creacion`, `fyh_actualizacion`, `fyh_eliminacion`, `estado`) VALUES
-(1, '1', 'OCUPADO', '', '2024-05-27 01:35:31', '2024-06-12 04:26:19', NULL, '1'),
-(2, '2', 'LIBRE', '', '2024-05-27 01:36:04', '2024-08-21 12:02:59', NULL, '1'),
-(3, '3', 'LIBRE', '', '2024-05-27 04:42:54', '2024-08-13 10:39:19', NULL, '1'),
-(4, '4', 'LIBRE', '', '2024-05-27 06:14:51', NULL, NULL, '1'),
-(5, '6', 'LIBRE', '', '2024-05-27 08:44:48', NULL, NULL, '1'),
-(6, '6', 'LIBRE', 'jeank es gay', '2024-05-29 09:04:13', NULL, NULL, '1'),
-(7, '7', 'LIBRE', '', '2024-06-17 12:58:18', NULL, NULL, '1'),
-(0, '1', 'LIBRE', '', '2024-08-09 07:58:36', NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -163,7 +128,7 @@ INSERT INTO `tb_mapeos` (`id_map`, `nro_espacio`, `estado_espacio`, `obs`, `fyh_
 --
 
 CREATE TABLE `tb_tickets` (
-  `id_ticket` int(11) NOT NULL,
+  `id_ticket` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_cliente` varchar(255) DEFAULT NULL,
   `nit_ci` varchar(255) DEFAULT NULL,
   `placa_auto` varchar(255) DEFAULT NULL,
@@ -175,18 +140,13 @@ CREATE TABLE `tb_tickets` (
   `fyh_creacion` datetime DEFAULT NULL,
   `fyh_actualizacion` datetime DEFAULT NULL,
   `fyh_eliminacion` datetime DEFAULT NULL,
-  `estado` varchar(10) DEFAULT NULL
+  `estado` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (id_ticket)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `tb_tickets`
 --
-
-INSERT INTO `tb_tickets` (`id_ticket`, `nombre_cliente`, `nit_ci`, `placa_auto`, `cuviculo`, `fecha_ingreso`, `hora_ingreso`, `estado_ticket`, `user_sesion`, `fyh_creacion`, `fyh_actualizacion`, `fyh_eliminacion`, `estado`) VALUES
-(4, 'anderson', '1022431392', 'YGU13F', '1', '2024-06-12', '16:26', 'OCUPADO', NULL, '2024-06-12 04:26:19', NULL, NULL, '1'),
-(5, 'sebastian', '1234', 'BNA701', '2', '2024-06-12', '16:28', 'OCUPADO', NULL, '2024-06-12 04:30:37', NULL, '2024-08-21 12:02:59', '0'),
-(6, 'jeank', '9876', 'EOX09G', '3', '2024-06-12', '18:15', 'OCUPADO', NULL, '2024-06-12 06:15:52', NULL, '2024-06-12 06:16:20', '0'),
-(7, 'esteban', '564', 'USH33G', '3', '2024-06-12', '18:15', 'OCUPADO', NULL, '2024-06-12 06:16:56', NULL, '2024-08-13 10:39:19', '0');
 
 -- --------------------------------------------------------
 
