@@ -85,14 +85,14 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
         <tbody>
 
         <?php
-      if($_SESSION["perfil"] == "administrador")
+      if($_SESSION["perfil"] == "Administrador")
       {
         $item = null;
         $valor = null;
         $item2 = null;
         $encriptar = null;
       }
-      else if($_SESSION["perfil"] == "vigilante")
+      else if($_SESSION["perfil"] == "Vigilante")
       {
         $item = null;
         $valor = null;
