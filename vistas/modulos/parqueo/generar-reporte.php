@@ -49,26 +49,42 @@ $pdf->AddPage();
 
 // create some HTML content
 $html = '
+<div>
+                <img src="../../../images/logoapp.jpg" width="80" height="80" style="float:left;">
+                <div>
+                APPARKING
+                </div>
+    </div>
 <P><b>Reporte del Listado de espacios</b></P>
 <table border="1" cellpadding="4">
 <tr>
-<td style="background-color: #c0c0c0;text-align: center" width="80px">Nro</td>
-<td style="background-color: #c0c0c0;text-align: center" width="100px">Nro de espacio</td>
+<td style="background-color: #c0c0c0;text-align: center" width="80px">ID</td>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">Nro de isla</td>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">Placa</td>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">Hora entrada</td>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">Hora salida</td>
+
 </tr>
 ';
 $contador = 0;
-$query_mapeos = $link->prepare("SELECT * FROM tb_mapeos WHERE estado = '1' ");
+$query_mapeos = $link->prepare("SELECT m.*, t.placa_auto, t.cuviculo
+                                                        FROM tb_mapeos m
+                                                        JOIN tb_tickets t 
+                                                        ON m.id_map = t.cuviculo
+                                                        WHERE m.estado = '1' ");
 $query_mapeos->execute();
 $mapeos = $query_mapeos->fetchAll(PDO::FETCH_ASSOC);
 foreach($mapeos as $mapeo){
     $id_map = $mapeo['id_map'];
     $nro_espacio = $mapeo['nro_espacio'];
+    $placa_auto = $mapeo['placa_auto'];
     $contador = $contador + 1;
 
     $html .= '
     <tr>
     <td style="text-align: center">'.$contador.'</td>
     <td style="text-align: center">'.$nro_espacio.'</td>
+    <td style="text-align: center">'.$placa_auto.'</td>
     </tr>
     ';
 

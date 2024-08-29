@@ -60,6 +60,12 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
                 </i>
             </a>
 
+            <div class="row text-center">
+              <div class="col-md-12"> 
+                <a class="btn btn-info" download="ReporteExcel_" href="Reporte-excel-usuarios">Exportar Excel Ahora</a>
+              </div>
+            </div>
+
       </div>
 
       <div class="box-body">
@@ -552,7 +558,7 @@ MODAL EDITAR USUARIO
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary" class="" id="botonEditarModal" >Modificar usuario</button>
+          <button type="submit" class="btn btn-primary" id="botonEditarModal" >Modificar usuario</button>
 
         </div>
 

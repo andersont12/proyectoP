@@ -81,7 +81,7 @@ $html = '
         <div style="text-align: left">
             <b>DATOS DEL CLIENTE</b> <br>
             <b>SEÑOR(A): </b> '.$nombre_cliente.' <br>
-            <b>PLACA: </b> '.$nombre_cliente.' <br>
+            <b>PLACA: </b>  <br>
             <b>NIT/CI.: </b> '.$nit_ci.'  <br>
             -------------------------------------------------------------------------------- <br>
         <b>Cuviculo de parqueo: </b> '.$cuviculo.' <br>

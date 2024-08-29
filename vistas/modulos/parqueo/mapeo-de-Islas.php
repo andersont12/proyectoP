@@ -47,8 +47,8 @@ require_once("app/config.php");
                 <div class="col-md-6">
                     <table id="table_id" class="table table-bordered table-sm table-striped">
                        <thead>
-                       <th><center>Nro</center></th>
-                       <th><center>isla</center></th>
+                       <th><center>ID</center></th>
+                       <th><center>Nro de isla</center></th>
                        <th><center>Placa</center></th>
                        <th><center>Acción</center></th>
                        

@@ -26,7 +26,7 @@ foreach($tickets as $ticket){
 
 
 // create new PDF document
-$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, array(79,80), true, 'UTF-8', false);
+$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, array(120,80), true, 'UTF-8', false);
 
 // set document information
 $pdf->setCreator(PDF_CREATOR);
@@ -74,17 +74,28 @@ $html = '
 <div>
     <p style="text-align: center">
        
+            <div>
+                <img src="../../../images/logoapp.jpg" width="80" height="80" style="float:left;">
+                <div>
+                APPARKING
+                </div>
+            </div>
+       
         --------------------------------------------------------------------------------
         <div style="text-align: left">
             <b>DATOS DEL CLIENTE</b> <br>
             <b>SEÑOR(A): </b> '.$nombre_cliente.' <br>
+            <b>PLACA: </b>  <br>
             <b>NIT/CI.: </b> '.$nit_ci.'  <br>
             -------------------------------------------------------------------------------- <br>
         <b>Cuviculo de parqueo: </b> '.$cuviculo.' <br>
         <b>Fecha de ingreso: </b> '.$fecha_ingreso.' <br>
         <b>Hora de ingreso: </b> '.$hora_ingreso.' <br>
          -------------------------------------------------------------------------------- <br>
-         
+        <p style="text-align: center"> IMPORTANTE
+        </p>
+        <p style="text-align: center"> El vehiculo se entregara al portador del ticket. * No se aceptaran ordenes telefonicas ni escritas. * Retirado el vehiculo, no se acepatara ninguntipo de reclamo acerca de este recibo.
+        </p>
         </div>
     </p>
     
