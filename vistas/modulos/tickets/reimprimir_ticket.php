@@ -18,6 +18,7 @@ foreach($tickets as $ticket){
     $id_ticket = $ticket['id_ticket'];
     $nombre_cliente = $ticket['nombre_cliente'];
     $nit_ci = $ticket['nit_ci'];
+    $placa_auto = $ticket['placa_auto'];
     $cuviculo = $ticket['cuviculo'];
     $fecha_ingreso = $ticket['fecha_ingreso'];
     $hora_ingreso = $ticket['hora_ingreso'];
@@ -85,7 +86,7 @@ $html = '
         <div style="text-align: left">
             <b>DATOS DEL CLIENTE</b> <br>
             <b>SEÑOR(A): </b> '.$nombre_cliente.' <br>
-            <b>PLACA: </b>  <br>
+            <b>PLACA: </b> '.$placa_auto.' <br>
             <b>NIT/CI.: </b> '.$nit_ci.'  <br>
             -------------------------------------------------------------------------------- <br>
         <b>Cuviculo de parqueo: </b> '.$cuviculo.' <br>
