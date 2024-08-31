@@ -54,17 +54,6 @@
 
 			</a>
 
-		</li>
-
-		<li>
-
-			<a href="create">
-
-			<i class="fa fa-plus-square"></i>
-				<span>crear islas</span>
-
-			</a>
-
 		</li>';
 
 		}else{

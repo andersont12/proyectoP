@@ -121,7 +121,7 @@ include('app/config.php');
                                                                             $mes = date('m');
                                                                             $ano = date('Y');
                                                                             ?>
-                                                                            <input type="date" class="form-control" id="fecha_ingreso<?php echo $id_map;?>" value="<?php echo $ano."-".$mes."-".$dia; ?>">
+                                                                            <input type="date" class="form-control" id="fecha_ingreso<?php echo $id_map;?>" value="<?php echo $ano."-".$mes."-".$dia; ?>" readonly>
                                                                         </div>
                                                                     </div>
 
@@ -134,14 +134,14 @@ include('app/config.php');
                                                                             $hora = date('H');
                                                                             $minutos = date('i');
                                                                             ?>
-                                                                            <input type="time" class="form-control" id="hora_ingreso<?php echo $id_map;?>"  value="<?php echo $hora.":".$minutos; ?>">
+                                                                            <input type="time" class="form-control" id="hora_ingreso<?php echo $id_map;?>"  value="<?php echo $hora.":".$minutos; ?>" readonly>
                                                                         </div>
                                                                     </div>
 
                                                                     <div class="form-group row">
                                                                         <label for="staticEmail" class="col-sm-4 col-form-label">Cuvículo:</label>
                                                                         <div class="col-sm-8">
-                                                                            <input type="text" class="form-control" id="cuviculo<?php echo $id_map;?>" value="<?php echo $nro_espacio; ?>">
+                                                                            <input type="text" class="form-control" id="cuviculo<?php echo $id_map;?>" value="<?php echo $nro_espacio; ?>" readonly>
                                                                         </div>
                                                                     </div>
 
