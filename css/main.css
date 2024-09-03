@@ -6,7 +6,7 @@
 }
 
 .img-logo{
-    width: 40px;
+    width: 100px;
 }
 
 .linear-white::after{
@@ -99,6 +99,22 @@
     width: var(--tamaño);
     height: var(--tamaño);
     margin-right: 15px;
+}
+
+.map-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo para centrar el texto dentro del <p> */
+.map-container p {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center; /* Centra el texto dentro del <p> */
+    width: 100%; /* Asegura que el <p> ocupe todo el ancho del contenedor */
 }
 
 /*carousel*/
