@@ -60,12 +60,6 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
                 </i>
             </a>
 
-            <div class="row text-center">
-              <div class="col-md-12"> 
-                <a class="btn btn-info" download="ReporteExcel_" href="Reporte-excel-usuarios">Exportar Excel Ahora</a>
-              </div>
-            </div>
-
       </div>
 
       <div class="box-body">
@@ -355,7 +349,8 @@ MODAL AGREGAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
 
-                <input type="password" minlength="4" maxlength="12" pattern="^[a-zA-Z0-9]+$" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar Contraseña" required>
+                <input type="password" minlength="4" maxlength="12" pattern="^[a-zA-Z0-9]+$" class="form-control input-lg" name="nuevoPassword" id="nuevoPassword" placeholder="Ingresar Contraseña" required>
+                <div id="validationMessages2" class="validation-message" style="display: flex; justify-content: center; width: 100%;"></div>
 
               </div>
 
@@ -612,6 +607,34 @@ $(document).ready(function() {
   $('#editarPassword').on('input', function() {
       validatePassword();
   });
+  function validatePasswordGuardar() {
+      var password = $('#nuevoPassword').val();
+      var $validationMessages = $('#validationMessages2');
+      var hasUppercase = /[A-Z]/.test(password);
+      var hasLowercase = /[a-z]/.test(password);
+      var hasNumber = /[0-9]/.test(password);
+      var messages = [];
+      if (!hasUppercase) {
+          messages.push("- Debe contener al menos una letra mayúscula.");
+      }
+      if (!hasLowercase) {
+          messages.push("- Debe contener al menos una letra minúscula.");
+      }
+      if (!hasNumber) {
+          messages.push("- Debe contener al menos un número.");
+      }
+      if (messages.length === 0) {
+          $('#botonGuardarModal').prop('disabled', false).css('opacity', '1');
+          $validationMessages.html('<span class="success" style="color:green;">¡Contraseña válida y confirmada!</span>');
+      } else {
+        $('#botonGuardarModal').prop('disabled', true).css('opacity', '0.5');
+          $validationMessages.html(messages.join('<br>'));
+      }
+  }
+  $('#nuevoPassword').on('input', function() {
+      validatePasswordGuardar();
+  });
 });
+
 </script>
 

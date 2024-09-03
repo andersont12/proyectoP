@@ -209,7 +209,7 @@ MODAL AGREGAR VIGILANTE
               
                 <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="text" minlength="5" maxlength="6" pattern="^[a-zA-Z0-9]+$" title="Solo se permiten letras (A-Z, a-z) y números (0-9)" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar usuario" id="nuevoUsuario" required>
+                <input type="text" minlength="10" maxlength="15" pattern="^[a-zA-Z0-9]+$" title="Solo se permiten letras (A-Z, a-z) y números (0-9)" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar usuario" id="nuevoUsuario" required>
 
               </div>
 
@@ -267,7 +267,7 @@ MODAL AGREGAR VIGILANTE
 
                 <select class="form-control input-lg" name="nuevoPerfil" readonly>
                   
-                  <option value="vigilante">Vigilante</option>
+                  <option value="Vigilante">Vigilante</option>
 
                 </select>
 

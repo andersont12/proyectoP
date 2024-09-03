@@ -1,5 +1,7 @@
 <?php
 require_once("app/config.php");
+
+$perfil=$_SESSION['perfil'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -43,11 +45,11 @@ require_once("app/config.php");
                 } );
             </script>
 
-            
-            <button class="btn btn-primary" id="btn_registrar">
-                Registrar
-            </button>
-
+            <?php
+            if ($perfil == 'Administrador'){
+                echo '<button class="btn btn-primary" id="btn_registrar">Registrar nueva isla</button>';
+            }
+            ?>
             <script>
                 $(document).ready(function() {
                     $('#btn_registrar').click(function (event) {
@@ -97,7 +99,6 @@ require_once("app/config.php");
                                                         FROM tb_mapeos m
                                                         JOIN tb_tickets t ON m.id_map = t.cuviculo
                                                         JOIN tb_facturaciones f ON t.cuviculo = f.id_facturacion
-                                                        
                                                         WHERE m.estado = '1' ");
                         $query_mapeos->execute();
                         $mapeos = $query_mapeos->fetchAll(PDO::FETCH_ASSOC);

@@ -9,7 +9,7 @@
             <div class="registro">
                 <header>
                     <div class="logo">
-                        <img src="images/logoPagina.png" alt="">
+                        <img src="images/logoapp.jpg" alt="">
                     </div>
                     <div class="tituloLogo">
                         <h2>Apparking</h2>
