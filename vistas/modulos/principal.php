@@ -2,10 +2,6 @@
 
 include('app/config.php');
 
-
-
-
-
     //echo "exite sesion";
     ?>
     <!DOCTYPE html>
@@ -42,7 +38,10 @@ include('app/config.php');
                                     $query_mapeos = $link->prepare("SELECT * FROM tb_mapeos WHERE estado = '1' ");
                                     $query_mapeos->execute();
                                     $mapeos = $query_mapeos->fetchAll(PDO::FETCH_ASSOC);
+                                    $i=0;
                                     foreach($mapeos as $mapeo){
+                                        
+                                        $i += 1;
                                         $id_map = $mapeo['id_map'];
                                         $nro_espacio = $mapeo['nro_espacio'];
                                         $estado_espacio = $mapeo['estado_espacio'];
@@ -50,7 +49,7 @@ include('app/config.php');
                                         if($estado_espacio == "LIBRE"){ ?>
                                             <div class="col cardParking">
                                                 <center>
-                                                    <h2><?php echo $nro_espacio;?></h2>
+                                                    <h2><?php echo $i;?></h2>
 
                                                     <button class="btn btn-success botonCard" 
                                                             data-toggle="modal" data-target="#modal<?php echo $id_map;?>">
@@ -147,6 +146,7 @@ include('app/config.php');
 
                                                                 </div>
                                                                 <div class="modal-footer">
+                                                                    <?php if ($_SESSION['perfil'] == 'Administrador'){echo '<button class="btn btn-danger btnEliminarIsla" idIsla="'.$id_map.'">Eliminar Islas</button>';} ?>
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                                                     <button type="button" class="btn btn-primary" id="btn_registrar_ticket<?php echo $id_map;?>">Imprimir ticket</button>
                                                                     <script>

@@ -2,21 +2,21 @@
 /*=============================================
 ELIMINAR VEHICULO
 =============================================*/
-$(document).on("click", ".btnEliminarIslas", function(){
+$(document).on("click", ".btnEliminarIsla", function(){
 
-    var Id_map = $(this).attr("id_map");
-    var opcion = 3; //borrar
-    console.log(Id_map);
+    var idIsla = $(this).attr("idIsla");
+    var opcion = 1; //borrar
+    console.log(idIsla);
     console.log(opcion);
     swal({
-      title: '¿Está seguro de borrar el vehiculo?',
+      title: '¿Está seguro de borrar la Isla?',
       text: "¡Si no lo está puede cancelar la accíón!",
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         cancelButtonText: 'Cancelar',
-        confirmButtonText: 'Si, borrar Vehiculo!'
+        confirmButtonText: 'Si, borrar Isla!'
     }).then(function(result){
   
       if(result.value){
@@ -24,16 +24,16 @@ $(document).on("click", ".btnEliminarIslas", function(){
               url: "modelos/islas.modelo.php",
               type: "POST",
               dataType: "json",
-              data: {opcion:opcion,id_map:Id_map},
+              data: {opcion:opcion, idIsla:idIsla},
               success: function(){
                   swal({
                       type: "success",
-                      title: "Vehiculo Eliminado",
+                      title: "Isla Eliminada",
                       showConfirmButton: true,
                       confirmButtonText: "Cerrar"
                   })
                   setTimeout(() => {
-                      window.location.href = "mapeo-de-vehiculos";
+                      window.location.href = "principal";
                   }, 1300);
               }
           });

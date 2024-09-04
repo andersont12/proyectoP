@@ -268,7 +268,7 @@ $(document).on("click", ".btnIngresoVehiculo", function(){
 REGISTRAR SALIDA VEHICULO
 =============================================*/
 $(document).on("click", ".btnSalidaVehiculo", function(){
-
+    
     var idPlaca = $(this).attr("idPlaca");
     var opcion = 5; //Insertar Salida
     console.log(idPlaca);
