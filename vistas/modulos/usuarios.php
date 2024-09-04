@@ -59,7 +59,6 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
                     </svg>
                 </i>
             </a>
-
       </div>
 
       <div class="box-body">
@@ -580,6 +579,8 @@ MODAL EDITAR USUARIO
 ?> 
 <script>
 $(document).ready(function() { 
+  $('#botonGuardarModal').prop('disabled', true).css('opacity', '0.5');
+  $('#botonEditarModal').prop('disabled', true).css('opacity', '0.5');
   function validatePassword() {
       var password = $('#editarPassword').val();
       var $validationMessages = $('#validationMessages');

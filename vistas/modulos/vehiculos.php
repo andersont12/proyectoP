@@ -13,14 +13,13 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
 }
 
 ?>
-
 <div class="content-wrapper">
 
   <section class="content-header">
     
     <h1>
       
-      Vehiculos
+      Vehiculos Residentes
     
     </h1>
 
@@ -70,13 +69,14 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
          
          <tr>
            
-          
            <th>Placa</th>
            <th>Cedula Propietario</th>
-           <th>Vehi_Tipo</th>
-           <th>Vehi_Marca</th>
+           <th>Tipo Vehiculo</th>
+           <th>Marca Vehiculo</th>
+           <th>Ultimo Ingreso</th>
+           <th>Ultima Salida</th>
            <th>Acciones</th>
-
+           <th>Ingreso y Salida</th>
 
          </tr> 
 
@@ -116,26 +116,37 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
           <td>'.$value["cedula"].'</td>
           <td>'.$value["vehi_tipo"].'</td>
           <td>'.$value["vehi_marca"].'</td>';
+          if ($value["ultimo_ingreso"]==""){
+            echo '<td style="color: Green;">Sin informacion de ingreso</td>';
+          }else{
+            echo '<td style="color: Green;">'.$value["ultimo_ingreso"].'</td>';
+          }
+          if ($value["ultima_salida"]==""){
+            echo '<td style="color: Red;">Sin informacion de salida</td>';
+          }else{
+            echo '<td style="color: Red;">'.$value["ultima_salida"].'</td>';
+          }
                                     
                   echo '
                   <td>
+                      <div class="botonesEdicion">  
+                        <button class="btn btn-warning btnEditarVehiculo" idPlaca="'.$value["placa"].'" data-toggle="modal" data-target="#modalEditarVehiculo"><i class="fa fa-pencil"></i></button>
 
-                    <div class="btn-group">
-                        
-                      <button class="btn btn-warning btnEditarVehiculo" idPlaca="'.$value["placa"].'" data-toggle="modal" data-target="#modalEditarVehiculo"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-danger btnEliminarVehiculo" idPlaca="'.$value["placa"].'"><i class="fa fa-times"></i></button>
+                      </div> 
+                  </td>';
+                echo  '<td> <div class="grupoBotones">                      
+                        <div class="botonesIngresoSalida">
+                          <button class="btnIngresoVehiculo" idPlaca="'.$value["placa"].'"><img src="images/Ingreso.png" alt="Imagen" width="25" height="25"></button>
 
-                      <button class="btn btn-danger btnEliminarVehiculo" idPlaca="'.$value["placa"].'"><i class="fa fa-times"></i></button>
-
-                    </div>  
-
-                  </td>
-
+                          <button class="btn-danger btnSalidaVehiculo" idPlaca="'.$value["placa"].'"><img src="images/Salida.png" alt="Imagen" width="25" height="25"></button>
+                        </div>
+                      </div> </td>
                 </tr>';
         }
 
 
         ?> 
-
         </tbody>
 
        </table>
@@ -147,7 +158,6 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
   </section>
 
 </div>
-
 <!--=====================================
 MODAL BUSCAR VEHICULO
 ======================================-->

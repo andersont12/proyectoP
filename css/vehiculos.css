@@ -1,0 +1,45 @@
+.btnSalidaVehiculo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnSalidaVehiculo img{
+    margin: 3px 5px;
+}
+
+.btnIngresoVehiculo{
+    background-color: greenyellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnIngresoVehiculo img{
+    margin: 3px 5px;
+}
+
+.botonesIngresoSalida{
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+
+.botonesEdicion{
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+
+.grupoBotones{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    width: 50%;
+}
+
+.grupoBotones h6{
+    margin-top: 10px;
+    margin-bottom: 0px;
+}

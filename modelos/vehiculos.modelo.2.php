@@ -7,7 +7,6 @@ $id_usuario = (isset($_POST['id_usuario'])) ? $_POST['id_usuario'] : '';
 $tipoVehiculo = (isset($_POST['tipoVehiculo'])) ? $_POST['tipoVehiculo'] : '';
 $marcaVehiculo = (isset($_POST['marcaVehiculo'])) ? $_POST['marcaVehiculo'] : '';
 
-
 $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
 $idPlaca = (isset($_POST['idPlaca'])) ? $_POST['idPlaca'] : '';
 $idCedula = (isset($_POST['idCedula'])) ? $_POST['idCedula'] : '';
@@ -42,6 +41,36 @@ switch($opcion){
         $data=$resultado->fetchAll();  
         echo json_encode($data);                    
         break;    
+    case 4: //modificación
+        date_default_timezone_set('America/Bogota');
+        $fecha = date('Y-m-d');
+	    $hora = date('H:i:s');
+        $fechaActual = $fecha.' '.$hora;
+        $consulta = "UPDATE tbl_vehiculos SET ultimo_ingreso='$fechaActual' WHERE placa='$idPlaca' ";		
+        $resultado = $conexion->prepare($consulta);
+        $resultado->execute();        
+        
+        $consulta = "SELECT * FROM tbl_vehiculos WHERE placa='$idPlaca'";       
+        $resultado = $conexion->prepare($consulta);
+        $resultado->execute();
+        $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($data);
+        break;
+    case 5: //modificación
+        date_default_timezone_set('America/Bogota');
+        $fecha = date('Y-m-d');
+        $hora = date('H:i:s');
+        $fechaActual = $fecha.' '.$hora;
+        $consulta = "UPDATE tbl_vehiculos SET ultima_salida='$fechaActual' WHERE placa='$idPlaca' ";		
+        $resultado = $conexion->prepare($consulta);
+        $resultado->execute();        
+        
+        $consulta = "SELECT * FROM tbl_vehiculos WHERE placa='$idPlaca'";       
+        $resultado = $conexion->prepare($consulta);
+        $resultado->execute();
+        $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($data);
+        break;  
       
 }
 

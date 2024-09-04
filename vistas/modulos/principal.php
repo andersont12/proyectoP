@@ -37,7 +37,7 @@ include('app/config.php');
                             </div>
 
                             <div class="card-body" id="cardPosition">
-                                <div class="row" id="cardBody">
+                                <div id="cardBody">
                                     <?php
                                     $query_mapeos = $link->prepare("SELECT * FROM tb_mapeos WHERE estado = '1' ");
                                     $query_mapeos->execute();

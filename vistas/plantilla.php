@@ -32,6 +32,9 @@ session_start();
   <!--CSS MENU-->
   <link rel="stylesheet" href="css/menu.css">
 
+  <!--CSS VEHICULOS-->
+  <link rel="stylesheet" href="css/vehiculos.css">
+
   <!--CSS PRINCIPAL-->
   <link rel="stylesheet" href="css/principal.css">   
 

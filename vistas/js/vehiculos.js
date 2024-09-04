@@ -1,7 +1,7 @@
 /*=============================================
 EDITAR VEHICULO
 =============================================*/
-$(document).on("click", ".tablas .btnEditarVehiculo, .tabla .btnEditarVehiculo", function(){
+$(document).on("click", ".tablas .btnEditarVehiculo, .tablas .btnEditarVehiculo", function(){
 
 	fila = $(this).closest("tr");
 	placa = fila.find('td:eq(0)').text();
@@ -217,6 +217,95 @@ $(document).on("click", ".btnEliminarVehiculo", function(){
     }
 
   })
+})
+
+/*=============================================
+REGISTRAR ENTRADA VEHICULO
+=============================================*/
+$(document).on("click", ".btnIngresoVehiculo", function(){
+
+    var idPlaca = $(this).attr("idPlaca");
+    var opcion = 4; //Insertar Ingreso
+    console.log(idPlaca);
+    console.log(opcion);
+    swal({
+      title: '¿Desea confirmar el ingreso al vehiculo al parqueadero?',
+      text: "¡Si no lo está puede cancelar la accíón!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, confirmar Ingreso!'
+    }).then(function(result){
+  
+      if(result.value){
+        
+        $.ajax({
+            url: "modelos/vehiculos.modelo.2.php",
+            type: "POST",
+            dataType: "json",
+            data: {opcion:opcion, idPlaca:idPlaca},
+            success: function(){
+                swal({
+                    type: "success",
+                    title: "Ingreso registrado",
+                    showConfirmButton: true,
+                    confirmButtonText: "Cerrar"
+                })
+                setTimeout(() => {
+                    window.location.href = "vehiculos";
+                }, 1300);
+            }
+        });
+      }
+  
+    })
+
+})
+
+/*=============================================
+REGISTRAR SALIDA VEHICULO
+=============================================*/
+$(document).on("click", ".btnSalidaVehiculo", function(){
+
+    var idPlaca = $(this).attr("idPlaca");
+    var opcion = 5; //Insertar Salida
+    console.log(idPlaca);
+    console.log(opcion);
+    swal({
+      title: '¿Desea confirmar la salida del vehiculo?',
+      text: "¡Si no lo está puede cancelar la accíón!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, confirmar Salida!'
+    }).then(function(result){
+  
+      if(result.value){
+        
+        $.ajax({
+            url: "modelos/vehiculos.modelo.2.php",
+            type: "POST",
+            dataType: "json",
+            data: {opcion:opcion, idPlaca:idPlaca},
+            success: function(){
+                swal({
+                    type: "success",
+                    title: "Salida registrada",
+                    showConfirmButton: true,
+                    confirmButtonText: "Cerrar"
+                })
+                setTimeout(() => {
+                    window.location.href = "vehiculos";
+                }, 1300);
+            }
+        });
+      }
+  
+    })
 
 })
 	
