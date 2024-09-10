@@ -59,7 +59,6 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
       <div class="box-body">
         
       <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
-         
         <thead>
          
          <tr>
@@ -109,8 +108,12 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
           echo ' <tr>
           <td>'.$value["placa"].'</td>
           <td>'.$value["cedula"].'</td>
-          <td>'.$value["vehi_tipo"].'</td>
-          <td>'.$value["vehi_marca"].'</td>';
+          <td>'.$value["vehi_tipo"];
+          if($value["vehi_tipo"]=="MOTO"){echo'<br><img src="images/moto.png" height="30" width="30">';} 
+          else if($value["vehi_tipo"]=="CARRO"){echo'<br><img src="images/carro.png" height="30" width="30">';}
+          else if($value["vehi_tipo"]=="OTRO"){echo'<br><img src="images/otroVehiculo.png" height="30" width="30">';}
+          echo '</td>';
+          echo '<td>'.$value["vehi_marca"].'</td>';
           if ($value["ultimo_ingreso"]==""){
             echo '<td style="color: Green;">Sin informacion de ingreso</td>';
           }else{
@@ -310,7 +313,14 @@ MODAL AGREGAR VEHICULO
               
                 <span class="input-group-addon"><i class="fa fa-car"></i></span> 
 
-                <input type="text" minlength="3" maxlength="15" pattern="[A-Za-z]+" title="Solo se permiten letras (A-Z a-z)" class="form-control input-lg" name="nuevoTipoVehiculo" id="nuevoTipoVehiculo" placeholder="Ingresar Tipo Vehiculo" required>
+                <select class="form-control input-lg" name="nuevoTipoVehiculo" id="nuevoTipoVehiculo" required>
+                  
+                  <option value="">Seleccione un vehiculo</option>
+                  <option value="MOTO">Moto</option>
+                  <option value="CARRO">Carro</option>
+                  <option value="OTRO">Otro</option>
+
+                </select>
 
               </div>
 
@@ -430,7 +440,14 @@ MODAL EDITAR VEHICULO
               
                 <span class="input-group-addon"><i class="fa fa-car"></i></span> 
 
-                <input type="text" minlength="3" maxlength="15" pattern="[A-Za-z]+" title="Solo se permiten letras (A-Z a-z)" class="form-control input-lg" name="editarTipoVehiculo" id="editarTipoVehiculo" placeholder="Ingresar tipo vehiculo" id="nuevoTipoVehiculo" required>
+                <select class="form-control input-lg" name="editarTipoVehiculo" id="editarTipoVehiculo" required>
+                  
+                  <option value="">Seleccione un vehiculo</option>
+                  <option value="MOTO">Moto</option>
+                  <option value="CARRO">Carro</option>
+                  <option value="OTRO">Otro</option>
+
+                </select>
 
               </div>
 
