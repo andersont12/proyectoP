@@ -16,79 +16,52 @@
   </head>
   <body>
     <!-- header -->
-    <header class="header linear-white">
+    <header class="header linear-white" id="Inicio">
       <div class="container vh-50">
         <!--navbar-->
-        <nav class="row text-black justify-content-between align-items-center text-uppercase pt-4">
+        <nav class="row text-black align-items-center text-uppercase pt-4 natural-nav">
           <!--logo-->
-          <a  class=" col-auto text-reset text-center mb-3 mb-md-0">
-            <img class="img-logo" src="images/logoappark.png" 
-            alt="Logo Weston" 
-            />
+          <a class="col-auto text-reset text-center mb-3 mb-md-0">
+            <img class="img-logo" src="images/logoappark.png" alt="Logo AppArking" />
             AppArking
           </a>
           <!--Anclas-->
-          <div class="col-12 col-md-auto d-flex flex-wrap justify-content-around">
-            <a href=""class="text-reset pr-3">Inicio</a>
-            <a href=""class="text-reset pr-3">sobre </a>
-            <a href=""class="text-reset pr-3">Inspiracion</a>
-            <a href=""class="text-reset pr-3">features</a>
-            <a href="login.php"class="text-reset">| Iniciar Sesion</a>
+          <div class="col-12 col-md-auto d-flex flex-wrap justify-content-center justify-content-md-end">
+            <a href="#Inicio" class="nav-link-natural">Inicio</a>
+            <a href="#MISION" class="nav-link-natural">Sobre Nosotros</a>
+            <a href="#UBICACION" class="nav-link-natural">Ubicación</a>
+            <a href="login.php" class="nav-link-natural">| Iniciar Sesión</a>
           </div>
         </nav>
 
         <!--descripcion-->
-        <div class="row h-100 align-items-center">
-          <div class="col-md-10 col-lg-6 text-white">
-            <!--titulo-->
-            <h1 class="text-capitalize">
-              <span class="text-danger display-1">parqueadero</span>
-            </h1>
-            <!--parrafo-->
-            <p class="d-none d-md-block">Bienvenido al parqueadero de nuestro conjunto residencial. Disfruta de la seguridad y comodidad de estacionar tu vehículo en un lugar diseñado especialmente para ti, con acceso controlado y monitoreo 24/7.</p>
-            <!--boton-->
-            <a href="login.php" class="text-reset btn btn-danger">inicie sesion</a>
+        <div class="row h-50 description-container">
+          <!-- Descripción -->
+          <div class="description">
+            <h1>APPARKING</h1>
+            <p>Bienvenido al parqueadero de nuestro conjunto residencial. Disfruta de la seguridad y comodidad de estacionar tu vehículo en un lugar diseñado especialmente para ti, con acceso controlado y monitoreo 24/7.</p>
           </div>
-
         </div>
       </div>
       <img src="./images/cuts/cut-header.svg" alt="">
     </header>
 
-    <!--experience-->
-    <section class="container">
-      <div class="row justify-content-md-center">
-        <!--texto-->
-        <div class="col-12 text-center">
-          <h2 class="text-warning text-uppercase h6">Experience</h2>
-          <h3 class="text-capitalize ">Descubre la Tranquilidad</h3>
-          <p class="text-muted">
-            Nuestro parqueadero ofrece una experiencia de estacionamiento segura y conveniente. Con amplios espacios y acceso a través de una aplicación móvil, aparcar tu vehículo nunca ha sido tan fácil.
-          </p>
-        </div>
-        <!--tarjetas-->
-        <!--tarjeta #1-->
-        <article class="col-md-6 col-lg-4 card-effect mb-3 mb-md-0">
-          <div class="card">
-            <img src="./images/parqueadero-rombo1.jpg" alt="raiting" class="card-img card-img-filter">
-            <div class="card-img-overlay text-white d-flex flex-column justify-content-center text-center">
-              <h4>Seguridad</h4>
-              <p>Estaciona tu vehículo con la tranquilidad de saber que está bajo constante vigilancia</p>
-            </div>
-          </div>
-        </article>
-        <article class="col-md-6 col-lg-4 card-effect mb-3 mb-md-0">
-          <div class="card">
-            <img src="./images/parqueadero-rombo2.jpg" alt="raiting" class="card-img card-img-filter">
-            <div class="card-img-overlay text-white d-flex flex-column justify-content-center text-center">
-              <h4>Acceso Eficiente</h4>
-              <p>Nuestro sistema de acceso permite una entrada y salida rápida al parqueadero, optimizando el flujo vehicular y reduciendo tiempos de espera.</p>
-            </div>
-          </div>
-        </article>
-        
+    <!-- Features -->
+<section class="features" id="MISION">
+  <div class="container">
+    <h2 class="text-center">Misión y Visión</h2>
+    <div class="content">
+      <div class="feature-item">
+        <h3>Misión</h3>
+        <p>Nuestra misión es transformar la gestión del parqueadero en conjuntos residenciales mediante el diseño e implementación de un sistema digitalizado. Este sistema tiene el propósito de mejorar la eficiencia operativa, fortalecer la seguridad y reducir el impacto ambiental al minimizar el uso de registros en papel. Al integrar tecnología avanzada, buscamos proporcionar una solución integral que optimice el control de acceso y facilite la administración de vehículos, elevando la calidad de vida de los residentes y promoviendo prácticas sostenibles.</p>
       </div>
-    </section>
+      <div class="feature-item">
+        <h3>Visión</h3>
+        <p>Aspiramos a ser reconocidos como líderes en el desarrollo de soluciones tecnológicas para la gestión de parqueaderos en conjuntos residenciales. Nuestra visión es implementar un sistema que no solo resuelva los problemas actuales relacionados con la administración manual de parqueaderos, sino que también se convierta en un estándar de referencia en eficiencia, seguridad y sostenibilidad. Queremos que nuestra solución sea sinónimo de innovación y confiabilidad en el mercado.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!--comentarios-->
     <section class="comments linear-white mb-5">
@@ -96,29 +69,63 @@
       <div class="container">
         <div class="row">
           <blockquote class="col-12 text-white text-center ">
-            <!--img-->
-            <img src="./images/john-doe.jpeg" alt="John Doe" class="comments__img">
-            <!--comentario-->
-            <p>El parqueadero es muy seguro y fácil de usar. La aplicación facilita mucho el proceso de entrada y salida.</p>
-            <!--nombre-->
-            <footer class="blockquote-footer text-white">
-              <cite>William Rojas</cite>
-            </footer>
+            
           </blockquote>
         </div>
 
       </div>
     </section>
 
-    <section>
+    <section id="UBICACION">
       <div class="map-container">
-      <p>Ubicación</p>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.0724198298362!2d-74.23462132502146!3d4.5810181953935984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f75702e7ef455%3A0xd7c0b9a4047d19c8!2sParque%20Campestre%20Etapa%2014!5e0!3m2!1ses-419!2sco!4v1725322804330!5m2!1ses-419!2sco" 
-          width="990" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-          
-      </iframe>
-     </div>
+        <p>UBICACIÓN</p>
+        <div class="map-wrapper">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.0724198298362!2d-74.23462132502146!3d4.5810181953935984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f75702e7ef455%3A0xd7c0b9a4047d19c8!2sParque%20Campestre%20Etapa%2014!5e0!3m2!1ses-419!2sco!4v1725322804330!5m2!1ses-419!2sco" 
+            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
     </section>
+
+    <br />
+
+     <!--experience-->
+   <section class="container">
+    <div class="row justify-content-md-center">
+      <!--texto-->
+      <div class="col-12 text-center">
+        <h2 class="text-warning text-uppercase h6">Experience</h2>
+        <h3 class="text-capitalize ">Descubre la Tranquilidad</h3>
+        <p class="text-muted">
+          Nuestro parqueadero ofrece una experiencia de estacionamiento segura y conveniente. Con amplios espacios y acceso a través de una aplicación móvil, aparcar tu vehículo nunca ha sido tan fácil.
+        </p>
+      </div>
+      <!--tarjetas-->
+      <!--tarjeta #1-->
+      <article class="col-md-6 col-lg-4 card-effect mb-3 mb-md-0">
+        <div class="card">
+          <img src="./images/parqueadero-rombo1.jpg" alt="raiting" class="card-img card-img-filter">
+          <div class="card-img-overlay text-white d-flex flex-column justify-content-center text-center">
+            <h4>Seguridad</h4>
+            <p>Estaciona tu vehículo con la tranquilidad de saber que está bajo constante vigilancia</p>
+          </div>
+        </div>
+      </article>
+      <article class="col-md-6 col-lg-4 card-effect mb-3 mb-md-0">
+        <div class="card">
+          <img src="./images/parqueadero-rombo2.jpg" alt="raiting" class="card-img card-img-filter">
+          <div class="card-img-overlay text-white d-flex flex-column justify-content-center text-center">
+            <h4>Acceso Eficiente</h4>
+            <p>Nuestro sistema de acceso permite una entrada y salida rápida al parqueadero, optimizando el flujo vehicular y reduciendo tiempos de espera.</p>
+          </div>
+        </div>
+      </article>
+      
+    </div>
+
+    <br />
+
+  </section>
     
     <!--carrusel-->
     <section class="carousel slide" id="carousel-weston">
@@ -139,7 +146,7 @@
         </div>
         <!--slide #3-->
         <div class="carousel-item">
-          <img src="./images/carousel/Carousel-03.jpg" alt="torre" class="d-block w-100">
+          <img src="./images/carousel/Carousel-3.jpg" alt="torre" class="d-block w-100">
         </div>
 
       </div>
@@ -147,42 +154,8 @@
       <a href="#carousel-weston" class="carousel-control-next" data-slide="next" ><span class="carousel-control-next-icon"></span></a>
     </section>
 
-    <!--features-->
-    <section class="container">
-      <div class="row">
-        <!--titulo-->
-        <h2 class="col-12 text-center">
-          <span class="text-warning h6 text-uppercase">let the</span> <br /> <span class="text-capitalize">good times roll</span>
-        </h2>
-        <!--#1 descripcion-->
-        <p class="col-12 col-md-6">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores ab dolorum corporis placeat. Explicabo sed sequi dignissimos reiciendis cupiditate obcaecati, autem rerum dicta doloribus sint culpa sunt quidem ullam vitae.</p>
-        <!--#2 descripcion-->
-        <p class="col-12 col-md-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis reiciendis, libero recusandae impedit exercitationem quo in quasi? Beatae voluptatibus, natus, similique eveniet voluptatem sapiente facere rerum at dignissimos velit ullam.</p>
-        <!--question-->
-        <div class="col-6 col-md-3 text-center">
-          <h3 class="text-warning h6">what?</h3>
-          <p class="font-weight-bold text-capitalize">july 20th - july 30th</p>
-        </div>
-        <div class="col-6 col-md-3 text-center">
-          <h3 class="text-warning h6">where?</h3>
-          <p class="font-weight-bold text-capitalize">july 20th - july 30th</p>
-        </div>
-        <div class="col-6 col-md-3 text-center">
-          <h3 class="text-warning h6">how long?</h3>
-          <p class="font-weight-bold text-capitalize">july 20th - july 30th</p>
-        </div>
-        <div class="col-6 col-md-3 text-center">
-          <h3 class="text-warning h6">how much?</h3>
-          <p class="font-weight-bold text-capitalize">july 20th - july 30th</p>
-        </div>
-        <!--boton-->
-        <div class="w-100"></div>
-        <button class="col-auto btn btn-warning text-white mx-auto my-4 text-capitalize">
-          buy now
-        </button>
-        
-      </div>
-    </section>
+  <br />
+  <br />
 
     <!--footer-->
     <footer class="bg-dark text-white py-4">
@@ -190,20 +163,13 @@
         <nav class="row justify-content-center">
           <!--logo-->
           <a href="" class="col-12 col-md-3 text-reset text-uppercase d-flex align-item-center justify-content-center mb-3 mb-md-0">
-            <img class="img-logo mr-2" src="./img/logo-white.svg" alt="Logo-Weston" >
-            Weston
+            <img class="img-logo " src="images/logoappark.png" alt="Logo-Weston" >
+           APPARKING
           </a>
           <!--menu-->
           <ul class="col-5 col-md-3 list-unstyled">
-            <li class="font-weight-bold text-uppercase">resource</li>
-            <li><a href="" class="text-reset">link 1</a></li>
-            <li><a href="" class="text-reset">link 2</a></li>
-            <li><a href="" class="text-reset">link 3</a></li>
-          </ul>
-          <!--menu-->
-          <ul class="col-5 col-md-3 list-unstyled">
             <li class="font-weight-bold text-uppercase">quick links</li>
-            <li><a href="" class="text-reset">link 1</a></li>
+            <li><a href="#Inicio" class="text-reset">INICIO</a></li>
             <li><a href="" class="text-reset">link 2</a></li>
             <li><a href="" class="text-reset">link 3</a></li>
           </ul>
@@ -226,7 +192,7 @@
     </footer>
 
     <!-- Jquery -->
-    <script src="./js/jquery-3.5.0.min.js"></script>
+    <script src="./js/jquery-3.0.0.min.js"></script>
     <!-- Popper -->
     <script src="./js/popper.min.js"></script>
     <!-- JS Bootstrap -->

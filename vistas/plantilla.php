@@ -191,6 +191,10 @@ CUERPO DOCUMENTO
         $_GET["ruta"] == "create"){
           include "modulos/parqueo/".$_GET["ruta"].".php";
       }
+      elseif($_GET["ruta"] == "index"||
+        $_GET["ruta"] == "crearPrecio"){
+          include "modulos/precios/".$_GET["ruta"].".php";
+      }
 
 
       else{

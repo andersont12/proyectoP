@@ -42,10 +42,10 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 // ---------------------------------------------------------
 
 // set font
-$pdf->setFont('Helvetica', '', 11);
+$pdf->setFont('Helvetica', '', 10);
 
 // add a page
-$pdf->AddPage();
+$pdf->AddPage('L');
 
 // create some HTML content
 $html = '
@@ -61,16 +61,19 @@ $html = '
 <td style="background-color: #c0c0c0;text-align: center" width="80px">ID</td>
 <td style="background-color: #c0c0c0;text-align: center" width="100px">Nro de isla</td>
 <td style="background-color: #c0c0c0;text-align: center" width="100px">Placa</td>
-<td style="background-color: #c0c0c0;text-align: center" width="100px">Hora entrada</td>
-<td style="background-color: #c0c0c0;text-align: center" width="100px">Hora salida</td>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">fecha ingreso</td>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">hora_ingreso</td>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">fecha_salida</td>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">hora_salida</td>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">tiempo</td>
 
 </tr>
 ';
 $contador = 0;
-$query_mapeos = $link->prepare("SELECT m.*, t.placa_auto, t.cuviculo
+$query_mapeos = $link->prepare("SELECT m.*, t.placa_auto, t.cuviculo, f.fecha_ingreso, f.hora_ingreso, f.fecha_salida, f.hora_salida, f.tiempo
                                                         FROM tb_mapeos m
-                                                        JOIN tb_tickets t 
-                                                        ON m.id_map = t.cuviculo
+                                                        JOIN tb_tickets t ON m.id_map = t.cuviculo
+                                                        JOIN tb_facturaciones f ON t.cuviculo = f.id_facturacion
                                                         WHERE m.estado = '1' ");
 $query_mapeos->execute();
 $mapeos = $query_mapeos->fetchAll(PDO::FETCH_ASSOC);
@@ -78,6 +81,11 @@ foreach($mapeos as $mapeo){
     $id_map = $mapeo['id_map'];
     $nro_espacio = $mapeo['nro_espacio'];
     $placa_auto = $mapeo['placa_auto'];
+    $fecha_ingreso = $mapeo['fecha_ingreso'];
+    $hora_ingreso = $mapeo['hora_ingreso'];
+    $fecha_salida = $mapeo['fecha_salida'];
+    $hora_salida = $mapeo['hora_salida'];
+    $tiempo = $mapeo['tiempo'];
     $contador = $contador + 1;
 
     $html .= '
@@ -85,6 +93,11 @@ foreach($mapeos as $mapeo){
     <td style="text-align: center">'.$contador.'</td>
     <td style="text-align: center">'.$nro_espacio.'</td>
     <td style="text-align: center">'.$placa_auto.'</td>
+    <td style="text-align: center">'.$fecha_ingreso.'</td>
+    <td style="text-align: center">'.$hora_ingreso.'</td>
+    <td style="text-align: center">'.$fecha_salida.'</td>
+    <td style="text-align: center">'.$hora_salida.'</td>
+    <td style="text-align: center">'.$tiempo.'</td>
     </tr>
     ';
 

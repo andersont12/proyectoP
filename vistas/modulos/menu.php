@@ -54,7 +54,17 @@
 
 			</a>
 
-		</li>';
+			</li>
+			<li>
+
+			<a href="index">
+
+			<i class="fa fa-money" aria-hidden="true"></i>
+				<span>Precios</span>
+
+			</a>
+
+			</li>';
 
 		}else{
 			if($_SESSION["perfil"] == "Vigilante")

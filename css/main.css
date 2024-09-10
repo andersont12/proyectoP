@@ -5,8 +5,93 @@
     position: relative;
 }
 
-.img-logo{
-    width: 100px;
+/* Estilo para la navegación */
+.natural-nav {
+    width: 100%; /* Ocupar 100% del ancho */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.4));
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+/* Ajuste para el contenedor de la navegación */
+.natural-nav .row {
+    margin: 0; /* Eliminar márgenes laterales */
+    width: 100%; /* Asegurar que el contenido ocupe el 100% */
+    align-items: center; /* Alinear los elementos verticalmente */
+}
+
+/* Imagen del logo */
+.img-logo {
+    max-width: 100px;
+    height: auto;
+}
+
+/* Estilos para los enlaces de la navegación */
+.nav-link-natural {
+    font-size: 1.1em;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+/* Hover de enlaces */
+.nav-link-natural:hover {
+    color: #b30000; /* Rojo oscuro en hover */
+}
+
+/* Alineación a la derecha en pantallas grandes */
+@media (min-width: 769px) {
+    .natural-nav .col-12.col-md-auto {
+        display: flex;
+        justify-content: flex-end; /* Alinear a la derecha en pantallas grandes */
+        flex-grow: 1; /* Permite que el contenedor de los enlaces ocupe el espacio disponible */
+    }
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .nav-link-natural {
+        font-size: 1em;
+        padding: 10px;
+    }
+    .natural-nav {
+        flex-direction: column; /* Alinea los elementos verticalmente en pantallas pequeñas */
+        text-align: center;
+    }
+    .nav-link-natural {
+        margin-left: 0; /* Elimina el margen en pantallas pequeñas */
+    }
+    .natural-nav .col-md-auto {
+        justify-content: center; /* Alinea los enlaces al centro en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-link-natural {
+        font-size: 0.9em;
+        padding: 5px 5px;
+    }
+    .img-logo {
+        max-width: 80px; /* Ajusta el tamaño del logo en pantallas más pequeñas */
+    }
+    .natural-nav {
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* Ajusta el contenedor del logo y menú */
+    .natural-nav .row {
+        flex-direction: column;
+        width: 100%; /* Ocupar todo el ancho */
+    }
+
+    /* Ajusta el contenedor de enlaces */
+    .natural-nav .col-12 {
+        width: 100%; /* Asegura que el menú ocupe todo el ancho */
+    }
 }
 
 .linear-white::after{
@@ -24,10 +109,63 @@
     height: 50vmin;
 }
 
+/* Contenedor de la descripción centrado */
+.description-container {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    height: calc(100vh - 100px); /* Resta 100px a la altura total para dejar espacio para la barra de navegación */
+    padding: 0 15px; /* Espaciado lateral para pantallas pequeñas */
+    margin-top: 50px; /* Espacio adicional debajo de la barra de navegación */
+}
+
+/* Descripción */
+.description {
+    background-color: #a5a4a4; /* Fondo gris para contraste */
+    color: #000000; /* Texto negro */
+    padding: 40px 20px; /* Espacio interior generoso */
+    text-align: center; /* Centrar el texto */
+    border-radius: 8px; /* Bordes redondeados */
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
+    max-width: 800px; /* Ancho máximo */
+}
+
+/* Estilo para el título */
+.description h1 {
+    font-size: 2.5rem; /* Tamaño de fuente grande para el título */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    color: darkred; /* Color oscuro para el título */
+}
+
+/* Estilo para el párrafo */
+.description p {
+    font-size: 1rem; /* Tamaño de fuente adecuado para la legibilidad */
+    line-height: 1.5; /* Altura de línea para facilitar la lectura */
+    max-width: 800px; /* Ancho máximo del texto */
+    margin: 0 auto; /* Centramos el párrafo horizontalmente */
+}
+
+/* Media query para pantallas menores a 768px */
+@media (max-width: 768px) {
+    .description-container {
+        padding: 0 10px; /* Reduce el padding lateral */
+        margin-top: 20px; /* Ajusta el espacio superior en pantallas pequeñas */
+    }
+
+    .description {
+        width: 100%; /* Ancho completo en pantallas pequeñas */
+        padding: 20px; /* Ajusta el padding */
+    }
+
+    .description p {
+        display: none; /* Esconde el párrafo en pantallas menores a 768px */
+    }
+}
+
 /* section experinece */
 
-.card-img-filter{
-    filter: brightness(0.5);
+.card-img-filter {
+    max-width: 100%; /* Asegura que las imágenes no se desborden */
 }
 
 .card{
@@ -65,6 +203,65 @@
     transform: scale(0.9);
 }
 
+/* Estilos para la sección de Misión y Visión */
+.features {
+    
+    padding: 40px 20px; /* Espacio interno */
+    text-align: center; /* Centra el texto */
+  }
+  
+  .features h2 {
+    font-size: 2rem; /* Tamaño de la cabecera */
+    margin-bottom: 30px; /* Espacio debajo del título */
+    color: darkred;
+  }
+  
+  /* Estilos para los ítems de la misión y visión */
+  .feature-item {
+    background-color: #f9f9f9; /* Fondo blanco */
+    border: 1px solid darkred; /* Borde gris claro */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 20px; /* Espacio interno */
+    margin: 20px 0; /* Espacio alrededor de cada ítem */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  }
+  
+  /* Ajustes para los títulos dentro de los ítems */
+  .feature-item h3 {
+    font-size: 1.5rem; /* Tamaño de los subtítulos */
+    margin-bottom: 15px; /* Espacio debajo del título */
+    color: darkred
+  }
+  
+  /* Ajustes para los párrafos dentro de los ítems */
+  .feature-item p {
+    font-size: 1rem; /* Tamaño del texto */
+    line-height: 1.6; /* Altura de la línea para mejor legibilidad */
+    text-align: justify; /* Justifica el texto */
+    max-width: 700px; /* Limita el ancho máximo del texto */
+    margin: 0 auto; /* Centra el texto */
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .features {
+      padding: 20px 10px;
+    }
+  
+    .feature-item {
+      padding: 15px;
+      margin: 10px 0;
+    }
+  
+    .feature-item h3 {
+      font-size: 1.25rem;
+    }
+  
+    .feature-item p {
+      font-size: 0.875rem;
+    }
+  }
+
 /* comentarios */
 
 .comments{
@@ -78,49 +275,66 @@
     top: 0;
 }
 
-.comments__img{
-    --tamaño: 80px;
-    width: var(--tamaño);
-    height: var(--tamaño);
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 7px 7px 7px rgba(0 0 0 / 0.5);
-    border: 3px ridge #fff;
+.comments__img {
+    width: 60px; /* Ajusta el tamaño de la imagen de comentario */
+    height: 60px;
 }
 
 .transform-turn{
     transform: rotate(.5turn);
 }
 
-/*seccion inspiracion*/
-
-.media-object-img{
-    --tamaño: 65px;
-    width: var(--tamaño);
-    height: var(--tamaño);
-    margin-right: 15px;
+h2 span {
+    background-color: darkred; /* Cambia esto al color que prefieras */
+    padding: 0 10px; /* Añade espacio a los lados del texto */
+    color: #fffcfc; /* Color del texto dentro del span */
+    border-radius: 5px; /* Opcional: bordes redondeados */
+    display: inline-block; /* Asegura que el span solo ocupe el espacio necesario */
 }
+
 
 .map-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-}
-
-/* Estilo para centrar el texto dentro del <p> */
-.map-container p {
+    padding: 20px;
+  }
+  
+  .map-container p {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-    text-align: center; /* Centra el texto dentro del <p> */
-    width: 100%; /* Asegura que el <p> ocupe todo el ancho del contenedor */
-}
+    text-align: center;
+    background-color: darkred;
+    padding: 10px 15px;
+    color: #ffffff;
+    border-radius: 5px;
+    display: inline-block;
+    width: auto;
+    margin: 0 auto 20px auto;
+  }
+  
+  .map-wrapper {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    padding-bottom: 56.25%; /* Proporción 16:9 */
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .map-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 
 /*carousel*/
 
-.carousel-weston-middle{
-    top: 35%;
+.carousel-weston-middle {
+    top: 20%; /* Ajusta la posición en pantallas más pequeñas */
 }
 
 /*media query*/
@@ -138,4 +352,60 @@
     
 }
 
+
+@media screen and (max-width: 768px) {
+    .header {
+        background-size: contain; /* Ajusta la imagen de fondo para pantallas medianas */
+        background-size: cover;
+    }
+
+    .natural-nav {
+        padding: 10px; /* Reduce el padding en pantallas más pequeñas */
+    }
+
+    .nav-link-natural {
+        font-size: 1em; /* Reduce el tamaño de fuente de los enlaces */
+    }
+
+    .img-logo {
+        width: 40px; /* Ajusta el tamaño del logo */
+    }
+
+    .transparent-box {
+        padding: 20px; /* Reduce el padding del recuadro transparente */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header {
+        background-size: cover; /* Asegura que la imagen de fondo cubra completamente el área */
+    }
+
+    .natural-nav {
+        padding: 5px; /* Reduce aún más el padding */
+    }
+
+    .nav-link-natural {
+        font-size: 0.9em; /* Ajusta el tamaño de fuente */
+    }
+
+    .img-logo {
+        width: 30px; /* Tamaño más pequeño del logo */
+    }
+
+    .transparent-box {
+        padding: 10px; /* Reduce el padding aún más */
+    }
+
+    .card {
+        clip-path: polygon(
+            50% 0,
+            100% 0,
+            100% 50%,
+            50% 50%,
+            0 50%,
+            0 0
+        ); /* Ajusta la forma de la tarjeta para pantallas pequeñas */
+    }
+}
 

@@ -1,7 +1,7 @@
 <?php
-include('../../app/config.php');
 // Include the main TCPDF library (search for installation path).
-include('../../app/templeates/TCPDF-main/tcpdf.php');
+require_once('../../../app/templeates/TCPDF-main/tcpdf.php');
+include('../../../app/config.php');
 
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -12,6 +12,12 @@ $pdf->setAuthor('Nicola Asuni');
 $pdf->setTitle('TCPDF Example 004');
 $pdf->setSubject('TCPDF Tutorial');
 $pdf->setKeywords('TCPDF, PDF, example, test, guide');
+
+$PDF_HEADER_TITLE = 
+$PDF_HEADER_STRING = '';
+$PDF_HEADER_LOGO = '';
+// set default header data
+$pdf->setHeaderData($PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, $PDF_HEADER_TITLE, $PDF_HEADER_STRING);
 
 // set header and footer fonts
 $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
@@ -43,53 +49,46 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 $pdf->setFont('Helvetica', '', 11);
 
 // add a page
-$pdf->AddPage('');
+$pdf->AddPage();
 
 // create some HTML content
 $html = '
-    <div>
-                <img src="../../images/logoapp.jpg" width="80" height="80" style="float:left;">
+<div>
+                <img src="../../../images/logoapp.jpg" width="80" height="80" style="float:left;">
                 <div>
                 APPARKING
                 </div>
     </div>
-<P><b>Reporte de usuarios</b></P>
-<table border="1" cellpadding="5" >
+<P><b>Reporte del Listado de precios</b></P>
+<table border="1" cellpadding="4">
 <tr>
-<td style="background-color: #c0c0c0;text-align: center" width="100px">Placa</td>
-<td style="background-color: #c0c0c0;text-align: center" width="100px">Cedula</td>
-<td style="background-color: #c0c0c0;text-align: center" width="100px">Tipo de vehiculo</td>
-<td style="background-color: #c0c0c0;text-align: center" width="100px">Marca de vehiculo</td>
-<td style="background-color: #c0c0c0;text-align: center" width="100px">Ultimo Ingreso</td>
-<td style="background-color: #c0c0c0;text-align: center" width="100px">Ultima Salida</td>
+<td style="background-color: #c0c0c0;text-align: center" width="80px">Nro</td>
+<td style="background-color: #c0c0c0;text-align: center" >Cantidad</td>
+<td style="background-color: #c0c0c0;text-align: center" >Detalle</td>
+<td style="background-color: #c0c0c0;text-align: center" >Precio</td>
 </tr>
 ';
-
-$query_vehiculo = $link->prepare("SELECT * FROM tbl_vehiculos ");
-$query_vehiculo->execute();
-$vehiculos = $query_vehiculo->fetchAll(PDO::FETCH_ASSOC);
-foreach($vehiculos as $vehiculo){
-    $placa = $vehiculo['placa'];
-	$vehi_tipo = $vehiculo['vehi_tipo'];
-	$vehi_marca = $vehiculo['vehi_marca'];
-    $cedula = $vehiculo['cedula'];
-    $ultimo_ingreso	 = $vehiculo['ultimo_ingreso'];
-    $ultima_salida = $vehiculo['ultima_salida'];
-    
-    
-    
+$contador_precio = 0;
+$query_precios = $link->prepare("SELECT * FROM tb_precios WHERE estado = '1'  ");
+$query_precios->execute();
+$datos_precios = $query_precios->fetchAll(PDO::FETCH_ASSOC);
+foreach($datos_precios as $datos_precio){
+    $contador_precio = $contador_precio + 1;
+    $id_precio = $datos_precio['id_precio'];
+    $cantidad = $datos_precio['cantidad'];
+    $detalle = $datos_precio['detalle'];
+    $precio = $datos_precio['precio'];
 
     $html .= '
     <tr>
-    
-    <td style="text-align: center">'.$placa.'</td>
-    <td style="text-align: center">'.$cedula.'</td>
-    <td style="text-align: center">'.$vehi_tipo.'</td>
-	<td style="text-align: center">'.$vehi_marca.'</td>
-    <td style="text-align: center">'.$ultimo_ingreso.'</td>
-    <td style="text-align: center">'.$ultima_salida.'</td>
+    <td style="text-align: center">'.$contador_precio.'</td>
+    <td style="text-align: center">'.$cantidad.'</td>
+    <td style="text-align: center">'.$detalle.'</td>
+    <td style="text-align: center">'.$precio.'</td>
     </tr>
     ';
+
+
 }
 
 $html.='
@@ -105,5 +104,3 @@ $pdf->Output('example_004.pdf', 'I');
 //============================================================+
 // END OF FILE
 //============================================================+
-
-?>

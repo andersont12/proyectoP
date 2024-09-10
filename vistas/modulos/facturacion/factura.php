@@ -134,23 +134,26 @@ $html = '
         <b>Tiempo:  </b> '.$tiempo.'<br>
         <br>
          -------------------------------------------------------------------------------- <br>
-         <br>
          <table border="1" cellpadding="3">
          <tr>
             <td style="text-align: center" width="99px"><b>Detalle</b></td>    
-            <td style="text-align: center" WIDTH="45PX"><b></b></td>    
+            <td style="text-align: center" WIDTH="45PX"><b>Precio</b></td>    
             <td style="text-align: center" width="45px"><b>Cantidad</b></td>    
-            <td style="text-align: center" width="45px"><b></b></td>    
+            <td style="text-align: center" width="45px"><b>Total</b></td>    
          </tr>
          <tr>
             <td>'.$detalle.'</td>
-            <td style="text-align: center"></td>
+            <td style="text-align: center">COP. '.$precio.'</td>
             <td style="text-align: center">'.$cantidad.'</td>
-            <td style="text-align: center"></td>
+            <td style="text-align: center">COP. '.$total.'</td>
          </tr>
          </table>
          <p style="text-align: right">
-        
+         <b>Monto Total: </b> COP. '.$monto_total.'
+        </p>
+        <p>
+            <b>Son: </b>'.$monto_literal.'
+        </p>
         <br>
          -------------------------------------------------------------------------------- <br>
         <p style="text-align: center"> REGLAMENTO

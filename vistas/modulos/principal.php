@@ -133,7 +133,7 @@ include('app/config.php');
                                                                             $hora = date('H');
                                                                             $minutos = date('i');
                                                                             ?>
-                                                                            <input type="time" class="form-control" id="hora_ingreso<?php echo $id_map;?>"  value="<?php echo $hora.":".$minutos; ?>" readonly>
+                                                                            <input type="time" class="form-control" id="hora_ingreso<?php echo $id_map;?>"  value="<?php echo $hora.":".$minutos; ?>" >
                                                                         </div>
                                                                     </div>
 

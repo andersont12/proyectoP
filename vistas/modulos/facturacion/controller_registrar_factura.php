@@ -1,12 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: HILARIWEB
- * Date: 14/10/2022
- * Time: 16:12
- */
-
- include('../../../app/config.php');
+include('../../../app/config.php');
 include('literal.php');
 
 date_default_timezone_set("America/bogota");
@@ -60,21 +53,34 @@ $detalle = "Servicio de parqueo de ".$tiempo;
 
 /////////////////////////////////////////////////////////
 
+$query_precios = $link->prepare("SELECT * FROM tb_precios WHERE cantidad = '$diff->h' AND detalle = 'HORAS' AND estado = '1'  ");
+$query_precios->execute();
+$datos_precios = $query_precios->fetchAll(PDO::FETCH_ASSOC);
+foreach($datos_precios as $datos_precio){
+    $precio_hora = $datos_precio['precio'];
+}
 
+///////// calcula el precio del cliente en dias /////////////////
+$precio_dia = 0;
+$query_precios_dias = $link->prepare("SELECT * FROM tb_precios WHERE cantidad = '$diff->days' AND detalle = 'DIAS' AND estado = '1'  ");
+$query_precios_dias->execute();
+$datos_precios_dias = $query_precios_dias->fetchAll(PDO::FETCH_ASSOC);
+foreach($datos_precios_dias as $datos_precios_dia){
+    $precio_dia = $datos_precios_dia['precio'];
+}
 
 /////////////////////////////////////////////////////////
 
-//$precio_final = $precio_dia + $precio_hora;
+$precio_final = $precio_dia + $precio_hora;
 
-//$cantidad = "1";
+$cantidad = "1";
 
-//$total = ($precio_final * $cantidad);
+$total = ($precio_final * $cantidad);
 
-//$monto_total = $total;
+$monto_total = $total;
 
-//$monto_literal = numtoletras($monto_total);
+$monto_literal = numtoletras($monto_total);
 
-//$user_sesion = $_GET['user_sesion'];
 
 
 
@@ -124,7 +130,7 @@ if($sentencia->execute()){
     echo 'success';
 
     $estado_espacio = "LIBRE";
-    date_default_timezone_set("America/caracas");
+    date_default_timezone_set("America/bogota");
     $fechaHora = date("Y-m-d h:i:s");
     $sentencia = $link->prepare("UPDATE tb_mapeos SET
     estado_espacio = :estado_espacio,
