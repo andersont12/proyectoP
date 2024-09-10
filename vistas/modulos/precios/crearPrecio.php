@@ -1,4 +1,15 @@
 <?php
+if($_SESSION["perfil"] == "Vigilante"){
+  echo '<script>
+
+    window.location = "principal";
+
+  </script>';
+  return;
+}
+?>
+
+<?php
 include('app/config.php');
 ?>
 <!DOCTYPE html>

@@ -1,10 +1,10 @@
 <?php
 
-if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
+if($_SESSION["perfil"] == "Vigilante"){
 
   echo '<script>
 
-    window.location = "inicio";
+    window.location = "principal";
 
   </script>';
 
@@ -67,6 +67,7 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
            <th>Telefono</th>
            <th>Estado</th>
            <th>Último login</th>
+           <th>Último Cierre de Sesion</th>
            <th>Acciones</th>
 
          </tr> 
@@ -103,10 +104,21 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
 
                     echo '<td><button class="btn btn-danger btn-xs btnActivar" idUsuario="'.$value["cedula"].'" estadoUsuario="1">Desactivado</button></td>';
 
-                  }             
+                  }
 
-                  echo '<td>'.$value["ultimo_login"].'</td>
-                  <td>
+                  if ($value["ultimo_login"]== ""){
+                    echo '<td>Sin informacion</td>';
+                  }else{
+                    echo '<td>'.$value["ultimo_login"].'</td>';
+                  }
+                  if ($value["ultimo_cierre_sesion"]== ""){
+                    echo '<td>Sin informacion</td>';
+                  }else{
+                    echo '<td>'.$value["ultimo_cierre_sesion"].'</td>';
+                  }
+
+                  echo
+                  '<td>
 
                     <div class="btn-group">
                         
@@ -246,9 +258,11 @@ MODAL AGREGAR VIGILANTE
               
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
 
-                <input type="password" minlength="8" maxlength="12" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar contraseña" required>
+                <input type="password" minlength="8" maxlength="12" class="form-control input-lg" name="nuevoPassword" id="nuevoPassword" placeholder="Ingresar contraseña" required>
 
               </div>
+
+              <div id="validationMessages2" class="validation-message" style="display: flex; justify-content: center; width: 100%;"></div>
 
             </div>
 
@@ -398,11 +412,13 @@ MODAL EDITAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
 
-                <input type="password" minlength="8" maxlength="12" class="form-control input-lg" name="editarPassword" placeholder="Escriba la nueva contraseña">
+                <input type="password" minlength="8" maxlength="12" class="form-control input-lg" name="editarPassword" id="editarPassword" placeholder="Escriba la nueva contraseña">
 
                 <input type="hidden" id="passwordActual" name="passwordActual">
 
               </div>
+
+              <div id="validationMessages" class="validation-message" style="display: flex; justify-content: center;"></div>
 
             </div>
 
@@ -436,7 +452,7 @@ MODAL EDITAR USUARIO
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary" id="botonGuardarModal">Modificar usuario</button>
+          <button type="submit" class="btn btn-primary" id="botonEditarModal">Modificar usuario</button>
 
         </div>
 
@@ -461,5 +477,66 @@ MODAL EDITAR USUARIO
   $borrarUsuario -> ctrBorrarUsuario();
 
 ?> 
+
+<script>
+$(document).ready(function() { 
+  $('#botonGuardarModal').prop('disabled', true).css('opacity', '0.5');
+  $('#botonEditarModal').prop('disabled', true).css('opacity', '0.5');
+  function validatePassword() {
+      var password = $('#editarPassword').val();
+      var $validationMessages = $('#validationMessages');
+      var hasUppercase = /[A-Z]/.test(password);
+      var hasLowercase = /[a-z]/.test(password);
+      var hasNumber = /[0-9]/.test(password);
+      var messages = [];
+      if (!hasUppercase) {
+          messages.push("- Debe contener al menos una letra mayúscula.");
+      }
+      if (!hasLowercase) {
+          messages.push("- Debe contener al menos una letra minúscula.");
+      }
+      if (!hasNumber) {
+          messages.push("- Debe contener al menos un número.");
+      }
+      if (messages.length === 0) {
+          $('#botonEditarModal').prop('disabled', false).css('opacity', '1');
+          $validationMessages.html('<span class="success" style="color:green;">¡Contraseña válida y confirmada!</span>');
+      } else {
+        $('#botonEditarModal').prop('disabled', true).css('opacity', '0.5');
+          $validationMessages.html(messages.join('<br>'));
+      }
+  }
+  $('#editarPassword').on('input', function() {
+      validatePassword();
+  });
+  function validatePasswordGuardar() {
+      var password = $('#nuevoPassword').val();
+      var $validationMessages = $('#validationMessages2');
+      var hasUppercase = /[A-Z]/.test(password);
+      var hasLowercase = /[a-z]/.test(password);
+      var hasNumber = /[0-9]/.test(password);
+      var messages = [];
+      if (!hasUppercase) {
+          messages.push("- Debe contener al menos una letra mayúscula.");
+      }
+      if (!hasLowercase) {
+          messages.push("- Debe contener al menos una letra minúscula.");
+      }
+      if (!hasNumber) {
+          messages.push("- Debe contener al menos un número.");
+      }
+      if (messages.length === 0) {
+          $('#botonGuardarModal').prop('disabled', false).css('opacity', '1');
+          $validationMessages.html('<span class="success" style="color:green;">¡Contraseña válida y confirmada!</span>');
+      } else {
+        $('#botonGuardarModal').prop('disabled', true).css('opacity', '0.5');
+          $validationMessages.html(messages.join('<br>'));
+      }
+  }
+  $('#nuevoPassword').on('input', function() {
+      validatePasswordGuardar();
+  });
+});
+</script>
 
 

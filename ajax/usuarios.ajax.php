@@ -78,6 +78,42 @@ class AjaxUsuarios{
 		echo json_encode($respuesta);
 
 	}
+
+	/*=============================================
+	VALIDAR NO REPETIR CORREO NUEVO
+	===========================================*/	
+
+	public $validarCorreoNuevo;
+
+	public function ajaxValidarCorreoNuevo(){
+
+		$item = "email";
+		$valor = $this->validarCorreoNuevo;
+		$encriptar = null;
+
+		$respuesta = ControladorUsuarios::ctrMostrarUsuarios($item, $valor, $encriptar);
+
+		echo json_encode($respuesta);
+
+	}
+
+	/*=============================================
+	VALIDAR NO REPETIR TELEFONO NUEVO
+	===========================================*/	
+
+	public $validarTelefonoNuevo;
+
+	public function ajaxValidarTelefonoNuevo(){
+
+		$item = "telefono";
+		$valor = $this->validarTelefonoNuevo;
+		$encriptar = null;
+
+		$respuesta = ControladorUsuarios::ctrMostrarUsuarios($item, $valor, $encriptar);
+
+		echo json_encode($respuesta);
+
+	}
 }
 
 /*=============================================
@@ -125,6 +161,30 @@ if(isset($_POST["validarCedula"])){
 	$valCedula = new AjaxUsuarios();
 	$valCedula -> validarCedula = $_POST["validarCedula"];
 	$valCedula -> ajaxValidarCedula();
+
+}
+
+/*=============================================
+VALIDAR NO REPETIR CORREO NUEVO
+=============================================*/
+
+if(isset($_POST["validarCorreoNuevo"])){
+
+	$valCorreoNuevo = new AjaxUsuarios();
+	$valCorreoNuevo -> validarCorreoNuevo = $_POST["validarCorreoNuevo"];
+	$valCorreoNuevo -> ajaxValidarCorreoNuevo();
+
+}
+
+/*=============================================
+VALIDAR NO REPETIR TELEFONO NUEVO
+=============================================*/
+
+if(isset($_POST["validarTelefonoNuevo"])){
+
+	$valTelefonoNuevo = new AjaxUsuarios();
+	$valTelefonoNuevo -> validarTelefonoNuevo = $_POST["validarTelefonoNuevo"];
+	$valTelefonoNuevo -> ajaxValidarTelefonoNuevo();
 
 }
 

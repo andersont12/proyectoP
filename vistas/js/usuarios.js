@@ -345,6 +345,84 @@ $("#nuevaCedula").change(function(){
 })
 
 /*=============================================
+REVISAR SI EL CORREO NUEVO YA ESTÁ REGISTRADO
+=============================================*/
+
+$("#nuevoCorreo").change(function(){
+
+	$(".alert").remove();
+	
+	var correo = $(this).val();
+
+	var datos = new FormData();
+	console.log(correo);
+	datos.append("validarCorreoNuevo", correo);
+
+	 $.ajax({
+	    url:"ajax/usuarios.ajax.php",
+	    method:"POST",
+	    data: datos,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    dataType: "json",
+	    success:function(usuario){
+	    	
+	    	if(usuario){
+
+	    		$("#nuevoCorreo").parent().after('<div class="alert alert-warning" style="margin-top: 10px;">Este correo ya esta registrado en la base de datos</div>');
+
+	    		$("#nuevoCorreo").val("");
+	    	}
+			else{
+				$("#nuevoCorreo").parent().after('<div class="alert alert-success" style="margin-top: 10px;">Correo valido</div>');
+			}
+
+	    }
+
+	})
+})
+
+/*=============================================
+REVISAR SI EL TELEFONO NUEVO YA ESTÁ REGISTRADO
+=============================================*/
+
+$("#nuevoTelefono").change(function(){
+
+	$(".alert").remove();
+	
+	var telefono = $(this).val();
+
+	var datos = new FormData();
+	console.log(telefono);
+	datos.append("validarTelefonoNuevo", telefono);
+
+	 $.ajax({
+	    url:"ajax/usuarios.ajax.php",
+	    method:"POST",
+	    data: datos,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    dataType: "json",
+	    success:function(usuario){
+	    	
+	    	if(usuario){
+
+	    		$("#nuevoTelefono").parent().after('<div class="alert alert-warning" style="margin-top: 10px;">Este telefono ya esta registrado en la base de datos</div>');
+
+	    		$("#nuevoTelefono").val("");
+	    	}
+			else{
+				$("#nuevoTelefono").parent().after('<div class="alert alert-success" style="margin-top: 10px;">Telefono valido</div>');
+			}
+
+	    }
+
+	})
+})
+
+/*=============================================
 ELIMINAR USUARIO
 =============================================*/
 $(document).on("click", ".btnEliminarUsuario", function(){

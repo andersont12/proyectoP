@@ -146,7 +146,7 @@ include('app/config.php');
 
                                                                 </div>
                                                                 <div class="modal-footer">
-                                                                    <?php if ($_SESSION['perfil'] == 'Administrador'){echo '<button class="btn btn-danger btnEliminarIsla" idIsla="'.$id_map.'">Eliminar Islas</button>';} ?>
+                                                                    <?php if ($_SESSION['perfil'] == 'Administrador'){echo '<button class="btn btn-danger btnEliminarIsla" idIsla="'.$id_map.'">Eliminar Isla</button>';} ?>
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                                                     <button type="button" class="btn btn-primary" id="btn_registrar_ticket<?php echo $id_map;?>">Imprimir ticket</button>
                                                                     <script>

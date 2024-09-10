@@ -1,10 +1,10 @@
 <?php
 
-if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
+if($_SESSION["perfil"] == "Vigilante"){
 
   echo '<script>
 
-    window.location = "inicio";
+    window.location = "principal";
 
   </script>';
 
