@@ -55,11 +55,10 @@ $html = '
                 APPARKING
                 </div>
     </div>
-<P><b>Reporte del Listado de espacios</b></P>
+<P><b>Reporte de vehiculo visitante en el cuviculo</b></P>
 <table border="1" cellpadding="4">
 <tr>
-<td style="background-color: #c0c0c0;text-align: center" width="80px">ID</td>
-<td style="background-color: #c0c0c0;text-align: center" width="100px">Nro de isla</td>
+<td style="background-color: #c0c0c0;text-align: center" width="100px">Nro de cuviculo</td>
 <td style="background-color: #c0c0c0;text-align: center" width="100px">Placa</td>
 <td style="background-color: #c0c0c0;text-align: center" width="100px">fecha ingreso</td>
 <td style="background-color: #c0c0c0;text-align: center" width="100px">hora_ingreso</td>
@@ -90,7 +89,6 @@ foreach($mapeos as $mapeo){
 
     $html .= '
     <tr>
-    <td style="text-align: center">'.$contador.'</td>
     <td style="text-align: center">'.$nro_espacio.'</td>
     <td style="text-align: center">'.$placa_auto.'</td>
     <td style="text-align: center">'.$fecha_ingreso.'</td>

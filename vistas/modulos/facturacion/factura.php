@@ -64,7 +64,7 @@ foreach($datos_clientes as $datos_cliente){
 
 
 // create new PDF document
-$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, array(79,175), true, 'UTF-8', false);
+$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, array(79,185), true, 'UTF-8', false);
 
 // set document information
 $pdf->setCreator(PDF_CREATOR);
@@ -128,7 +128,6 @@ $html = '
             <b>PLACA: </b> '.$placa_auto.'<br>
             <br>
             -------------------------------------------------------------------------------- <br>
-            <br>
         <b>De: </b> '.$fecha_ingreso.'<b> Hora: </b>'.$hora_ingreso.'<br>
         <b>A: </b> '.$fecha_salida.'  <b>Hora: </b>'.$hora_salida.'<br>
         <b>Tiempo:  </b> '.$tiempo.'<br>
@@ -154,7 +153,6 @@ $html = '
         <p>
             <b>Son: </b>'.$monto_literal.'
         </p>
-        <br>
          -------------------------------------------------------------------------------- <br>
         <p style="text-align: center"> REGLAMENTO
         </p>

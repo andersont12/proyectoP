@@ -3,7 +3,7 @@
 function numtoletras($xcifra)
 {
     $xarray = array(0 => "Cero",
-        1 => "UN", "DOS", "TRES", "CUATRO", "CINCO", "SEIS", "SIETE", "OCHO", "NUEVE",
+        1 => "", "DOS", "TRES", "CUATRO", "CINCO", "SEIS", "SIETE", "OCHO", "NUEVE",
         "DIEZ", "ONCE", "DOCE", "TRECE", "CATORCE", "QUINCE", "DIECISEIS", "DIECISIETE", "DIECIOCHO", "DIECINUEVE",
         "VEINTI", 30 => "TREINTA", 40 => "CUARENTA", 50 => "CINCUENTA", 60 => "SESENTA", 70 => "SETENTA", 80 => "OCHENTA", 90 => "NOVENTA",
         100 => "CIENTO", 200 => "DOSCIENTOS", 300 => "TRESCIENTOS", 400 => "CUATROCIENTOS", 500 => "QUINIENTOS", 600 => "SEISCIENTOS", 700 => "SETECIENTOS", 800 => "OCHOCIENTOS", 900 => "NOVECIENTOS"
@@ -125,7 +125,7 @@ function numtoletras($xcifra)
                         $xcadena = "CERO ";
                     }
                     if ($xcifra >= 1 && $xcifra < 2) {
-                        $xcadena = "UN  ";
+                        $xcadena = " ";
                     }
                     if ($xcifra >= 2) {
                         $xcadena.= " PESOS "; //

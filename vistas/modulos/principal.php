@@ -23,7 +23,7 @@ include('app/config.php');
                     <div class="col-md-12">
                         <div class="card card-outline card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Mapeo actual de islas visitantes</h3>
+                                <h3 class="card-title">Mapeo actual de cuviculos visitantes</h3>
                                 <div class="card-tools">
                                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                     <i class="fa fa-minus" aria-hidden="true"></i>
@@ -62,7 +62,7 @@ include('app/config.php');
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">INGRESO DEL VEHICULO</h5>
+                                                                    <h5 class="modal-title" id="exampleModalLabel">INGRESO DEL VEHICULO VISITANTE</h5>
                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                         <span aria-hidden="true">&times;</span>
                                                                     </button>
@@ -133,7 +133,7 @@ include('app/config.php');
                                                                             $hora = date('H');
                                                                             $minutos = date('i');
                                                                             ?>
-                                                                            <input type="time" class="form-control" id="hora_ingreso<?php echo $id_map;?>"  value="<?php echo $hora.":".$minutos; ?>" >
+                                                                            <input type="time" class="form-control" id="hora_ingreso<?php echo $id_map;?>"  value="<?php echo $hora.":".$minutos; ?>" readonly>
                                                                         </div>
                                                                     </div>
 
@@ -146,7 +146,7 @@ include('app/config.php');
 
                                                                 </div>
                                                                 <div class="modal-footer">
-                                                                    <?php if ($_SESSION['perfil'] == 'Administrador'){echo '<button class="btn btn-danger btnEliminarIsla" idIsla="'.$id_map.'">Eliminar Isla</button>';} ?>
+                                                                    <?php if ($_SESSION['perfil'] == 'Administrador'){echo '<button class="btn btn-danger btnEliminarIsla" idIsla="'.$id_map.'">Eliminar Islas</button>';} ?>
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                                                     <button type="button" class="btn btn-primary" id="btn_registrar_ticket<?php echo $id_map;?>">Imprimir ticket</button>
                                                                     <script>

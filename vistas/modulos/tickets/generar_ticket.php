@@ -83,7 +83,7 @@ $html = '
             <b>DATOS DEL CLIENTE</b> <br>
             <b>SEÑOR(A): </b> '.$nombre_cliente.' <br>
             <b>PLACA: </b> '.$placa_auto.' <br>
-            <b>NIT/CI.: </b> '.$nit_ci.'  <br>
+            <b>NIT/CC.: </b> '.$nit_ci.'  <br>
             -------------------------------------------------------------------------------- <br>
         <b>Cuviculo de parqueo: </b> '.$cuviculo.' <br>
         <b>Fecha de ingreso: </b> '.$fecha_ingreso.' <br>

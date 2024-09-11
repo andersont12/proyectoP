@@ -14,7 +14,7 @@ $perfil=$_SESSION['perfil'];
         <br>
         <div class="container">
 
-            <h2>Listado de islas</h2>
+            <h2>Listado de vehiculos visitantes en el cuviculo</h2>
 
             <br>
 
@@ -47,7 +47,7 @@ $perfil=$_SESSION['perfil'];
 
             <?php
             if ($perfil == 'Administrador'){
-                echo '<button class="btn btn-primary" id="btn_registrar">Registrar nueva isla</button>';
+                echo '<button class="btn btn-primary" id="btn_registrar">Registrar nuevo cuviculo</button>';
             }
             ?>
             <script>
@@ -81,7 +81,7 @@ $perfil=$_SESSION['perfil'];
                     <table id="table_id" class="table table-bordered table-sm table-striped">
                        <thead>
                        <th><center>ID</center></th>
-                       <th><center>Nro de isla</center></th>
+                       <th><center>Nro de cuviculo</center></th>
                        <th><center>Placa</center></th>
                        <th><center>Fecha de entrada</center></th>
                        <th><center>Hora de entrada</center></th>
@@ -95,16 +95,16 @@ $perfil=$_SESSION['perfil'];
                         <tbody>
                         <?php
                         $contador = 0;
-                        $query_mapeos = $link->prepare("SELECT m.*, t.placa_auto, t.cuviculo, f.fecha_ingreso, f.hora_ingreso, f.fecha_salida, f.hora_salida, f.tiempo
-                                                        FROM tb_mapeos m
-                                                        JOIN tb_tickets t ON m.id_map = t.cuviculo
-                                                        JOIN tb_facturaciones f ON t.cuviculo = f.id_facturacion
-                                                        WHERE m.estado = '1' ");
+                        $query_mapeos = $link->prepare("SELECT t.placa_auto, t.cuviculo, t.fecha_ingreso, t.hora_ingreso,
+                                                    (SELECT MAX(f.fecha_salida) FROM tb_facturaciones f WHERE f.cuviculo = t.cuviculo) AS fecha_salida,
+                                                    (SELECT MAX(f.hora_salida) FROM tb_facturaciones f WHERE f.cuviculo = t.cuviculo) AS hora_salida,
+                                                    (SELECT MAX(f.tiempo) FROM tb_facturaciones f WHERE f.cuviculo = t.cuviculo) AS tiempo
+                                                FROM tb_tickets t
+                                                WHERE t.estado = '1';");
                         $query_mapeos->execute();
                         $mapeos = $query_mapeos->fetchAll(PDO::FETCH_ASSOC);
                         foreach($mapeos as $mapeo){
-                            $id_map = $mapeo['id_map'];
-                            $nro_espacio = $mapeo['nro_espacio'];
+                            $cuviculo = $mapeo['cuviculo'];
                             $placa_auto = $mapeo['placa_auto'];
                             $fecha_ingreso = $mapeo['fecha_ingreso'];
                             $hora_ingreso = $mapeo['hora_ingreso'];
@@ -115,7 +115,7 @@ $perfil=$_SESSION['perfil'];
                             ?>
                             <tr>
                                 <td><center><?php echo $contador;?></center></td>
-                                <td><center><?php echo $nro_espacio;?></center></td>
+                                <td><center><?php echo $cuviculo ;?></center></td>
                                 <td><center><?php echo $placa_auto;?></center></td>
                                 <td><center><?php echo $fecha_ingreso;?></center></td>
                                 <td><center><?php echo $hora_ingreso;?></center></td>
